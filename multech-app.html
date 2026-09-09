@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>물한잔캐시 - 물 마시고 포인트 받기</title>
+<meta name="description" content="물 한 잔 마실 때마다 포인트가 쌓여요. 습관이 기프티콘이 되는 수분 섭취 리마인더.">
+<link rel="canonical" href="https://mungworks.com/multech-app.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mung Works">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://mungworks.com/multech-app.html">
+<meta property="og:title" content="물한잔캐시 - 물 마시고 포인트 받기">
+<meta property="og:description" content="물 한 잔 마실 때마다 포인트가 쌓여요. 습관이 기프티콘이 되는 수분 섭취 리마인더.">
+<meta property="og:image" content="https://play-lh.googleusercontent.com/3crx4hJXtn62xZjPh6UxYguaT1rF4c-auChITyB-S1o7af-uFKDtyT-iM_k7HE-RPTuqjNvk9YojQoxF14nE=s512">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="물한잔캐시 - 물 마시고 포인트 받기">
+<meta name="twitter:description" content="물 한 잔 마실 때마다 포인트가 쌓여요. 습관이 기프티콘이 되는 수분 섭취 리마인더.">
+<meta name="twitter:image" content="https://play-lh.googleusercontent.com/3crx4hJXtn62xZjPh6UxYguaT1rF4c-auChITyB-S1o7af-uFKDtyT-iM_k7HE-RPTuqjNvk9YojQoxF14nE=s512">
+
+<style>
+  :root {
+    --bg:#eaf4fc; --card:#ffffff; --ink:#12324e; --muted:#5b7d9c;
+    --line:#d3e4f2; --brand:#1a73e8;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; min-height:100vh; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+    display:flex; align-items:center; justify-content:center; padding:32px 20px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:100%; max-width:400px; text-align:center}
+  .icon{
+    width:104px; height:104px; border-radius:24px; display:block; margin:0 auto 20px;
+    box-shadow:0 6px 20px rgba(26,115,232,.18);
+  }
+  h1{font-size:22px; margin:0 0 8px; letter-spacing:-0.3px}
+  .lead{color:var(--muted); font-size:15px; line-height:1.6; margin:0 0 28px}
+  .codebox{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:20px; margin-bottom:22px;
+  }
+  .codebox .label{font-size:13px; color:var(--muted); margin-bottom:8px}
+  .codebox .code{
+    font-size:30px; font-weight:800; letter-spacing:3px; color:var(--brand);
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; margin-bottom:8px;
+  }
+  .codebox .hint{font-size:12px; color:var(--muted); line-height:1.5}
+  .cta{
+    display:block; background:var(--brand); color:#fff; text-decoration:none;
+    padding:15px 20px; border-radius:14px; font-weight:700; font-size:16px;
+  }
+  .cta:hover{background:#1666cf}
+  .foot{margin-top:22px; font-size:12px; color:var(--muted)}
+  .foot a{color:var(--muted)}
+  @media (prefers-color-scheme: dark){
+    :root{--bg:#0d1a26; --card:#152736; --ink:#e6f0f9; --muted:#8fadc7; --line:#24415a; --brand:#4a9bf0}
+    .cta{color:#08131d}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <img class="icon"
+       src="https://play-lh.googleusercontent.com/3crx4hJXtn62xZjPh6UxYguaT1rF4c-auChITyB-S1o7af-uFKDtyT-iM_k7HE-RPTuqjNvk9YojQoxF14nE=s256"
+       alt="물한잔캐시" width="104" height="104">
+
+  <h1>물한잔캐시</h1>
+  <p class="lead">물 한 잔 마실 때마다 포인트가 쌓여요.<br>습관이 기프티콘이 되는 수분 섭취 리마인더.</p>
+
+  <div class="codebox" id="codeBox" hidden>
+    <div class="label">친구 추천 코드</div>
+    <div class="code" id="codeText"></div>
+    <div class="hint">앱 설치 후 추천 코드 입력란에 넣어주세요</div>
+  </div>
+
+  <a class="cta" id="cta" href="https://play.google.com/store/apps/details?id=com.meongmoong.multech">
+    Google Play에서 설치하기
+  </a>
+
+  <div class="foot">
+    Mung Works · <a href="https://mungworks.com/">mungworks.com</a>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var PLAY = "https://play.google.com/store/apps/details?id=com.meongmoong.multech";
+  var code = null;
+  try { code = new URLSearchParams(location.search).get("code"); } catch (e) {}
+  if (code) code = code.replace(/[^A-Za-z0-9-]/g, "").slice(0, 24).toUpperCase();
+  if (code) {
+    document.getElementById("codeText").textContent = code;
+    document.getElementById("codeBox").hidden = false;
+    document.getElementById("cta").href = PLAY + "&referrer=" + encodeURIComponent(code);
+  } else {
+    setTimeout(function () { location.replace(PLAY); }, 1200);
+  }
+})();
+</script>
+</body>
+</html>
