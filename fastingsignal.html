@@ -26,7 +26,7 @@
 
 <section id="ko" lang="ko">
 <h1>단식시그널 개인정보처리방침</h1>
-<p class="meta">시행일: 2026년 10월 8일</p>
+<p class="meta">시행일: 2026년 10월 11일 (iOS 내용 추가)</p>
 <p class="lang"><a href="#ko">한국어</a><a href="#en">English</a></p>
 
 <div class="core"><strong>핵심 원칙: 단식·체중·식단 기록은 기기 밖으로 나가지 않습니다.</strong> 회원가입이 없고, 개발자는 서버에 사용자의 기록을 저장하거나 열람하지 않습니다. 기기 밖으로 전송되는 것은 사용자가 직접 요청한 AI 음식 분석 내용, 광고, 결제, 앱 보안 확인에 필요한 정보뿐이며 아래에 모두 적었습니다.</div>
@@ -51,21 +51,22 @@
 
 <h2>3. 제3자 서비스</h2>
 <h3>3-1. Google AdMob (광고)</h3>
-<p>무료 이용 시 배너 광고가 표시됩니다. Google은 광고 제공과 측정을 위해 광고 ID, 기기 정보, IP 기반 대략적 위치, 광고 상호작용 기록을 수집할 수 있습니다. 유럽경제지역(EEA)·영국 등에서는 처음 실행 시 동의 화면이 표시되며, 앱의 더보기 화면에서 광고 개인정보 옵션을 다시 열 수 있습니다. 기기 설정에서 광고 ID를 재설정하거나 삭제할 수 있습니다. 자세한 내용: <a href="https://policies.google.com/technologies/partner-sites">Google 파트너 사이트 데이터 사용</a></p>
-<h3>3-2. Google Play 결제 (광고 제거, 캐릭터 옷)</h3>
-<p>결제는 Google Play가 처리합니다. 개발자는 카드 등 결제 수단 정보를 받지 않고, 구매 여부와 상품 ID만 확인합니다.</p>
+<p>무료 이용 시 배너 광고가 표시됩니다. Google은 광고 제공과 측정을 위해 광고 ID, 기기 정보, IP 기반 대략적 위치, 광고 상호작용 기록을 수집할 수 있습니다. 유럽경제지역(EEA)·영국 등에서는 처음 실행 시 동의 화면이 표시되며, 앱의 더보기 화면에서 광고 개인정보 옵션을 다시 열 수 있습니다. 안드로이드에서는 기기 설정에서 광고 ID를 재설정하거나 삭제할 수 있습니다. <strong>아이폰</strong>에서는 광고 추적을 허용할지 묻는 Apple의 앱 추적 투명성(App Tracking Transparency) 화면이 표시되며, 허용하지 않으면 광고 식별자(IDFA)가 광고에 쓰이지 않습니다. 이 선택은 아이폰의 <strong>설정 → 개인정보 보호 및 보안 → 추적</strong>에서 언제든 바꿀 수 있습니다. 자세한 내용: <a href="https://policies.google.com/technologies/partner-sites">Google 파트너 사이트 데이터 사용</a></p>
+<h3>3-2. 결제 — Google Play / Apple App Store (광고 제거, 캐릭터 옷)</h3>
+<p>결제는 안드로이드에서는 Google Play가, 아이폰에서는 Apple App Store가 처리합니다. 개발자는 카드 등 결제 수단 정보를 받지 않고, 구매 여부와 상품 ID만 확인합니다. 이미 산 상품은 앱의 구매 복원 버튼으로 다시 불러올 수 있습니다.</p>
 <h3>3-3. Firebase (Google)</h3>
 <ul>
-  <li><strong>App Check</strong>: AI 기능이 정상적인 앱에서만 호출되도록 Google Play Integrity로 앱·기기의 무결성을 확인합니다.</li>
+  <li><strong>App Check</strong>: AI 기능이 정상적인 앱에서만 호출되도록 앱·기기의 무결성을 확인합니다. 안드로이드는 Google Play Integrity, 아이폰은 Apple App Attest를 사용합니다.</li>
   <li><strong>Remote Config</strong>: 사용할 AI 모델 이름 같은 설정값을 받아옵니다. 이 과정에서 Firebase 설치 ID가 사용됩니다.</li>
   <li>Firebase Analytics, Crashlytics 등 사용 행동 분석 도구는 사용하지 않습니다.</li>
 </ul>
 
 <h2>4. 요청하는 권한</h2>
 <ul>
-  <li><strong>알림, 정확한 알람</strong>: 단식 시작·단계·종료, 보식 안내 알림을 정해진 시각에 보내기 위해</li>
-  <li><strong>기기 재시작 후 실행</strong>: 폰을 다시 켰을 때 예약된 알림을 복구하기 위해</li>
-  <li><strong>카메라·사진</strong>: 별도 권한을 요청하지 않습니다. AI 음식 분석 때 시스템 카메라나 사진 선택 화면을 열며, 사용자가 고른 사진 1장만 앱에 전달됩니다</li>
+  <li><strong>알림</strong>: 단식 시작·단계·종료, 보식 안내 알림을 정해진 시각에 보내기 위해 (안드로이드·아이폰)</li>
+  <li><strong>정확한 알람, 기기 재시작 후 실행</strong> (안드로이드): 알림을 정시에 보내고, 폰을 다시 켰을 때 예약된 알림을 복구하기 위해</li>
+  <li><strong>카메라·사진</strong>: AI 음식 분석 때 시스템 카메라나 사진 선택 화면을 엽니다. 안드로이드는 별도 권한을 요청하지 않고, 아이폰은 사진을 찍을 때 카메라 사용 허용을 묻습니다(사진 선택은 권한 없이 가능). 어느 경우든 사용자가 고른 사진 1장만 앱에 전달됩니다</li>
+  <li><strong>추적 허용</strong> (아이폰): 위 3-1의 앱 추적 투명성 화면. 허용하지 않아도 앱의 모든 기능을 쓸 수 있습니다</li>
   <li><strong>인터넷</strong>: AI 분석, 광고, 결제, Firebase 확인용</li>
 </ul>
 
@@ -76,10 +77,10 @@
 <p>이 앱은 아동을 대상으로 하지 않으며, 만 14세 미만 아동의 정보를 의도적으로 수집하지 않습니다.</p>
 
 <h2>7. 보관 및 파기</h2>
-<p>개발자는 사용자의 개인정보를 서버에 보관하지 않습니다. 기기에 저장된 정보는 앱 안의 '모든 기록 지우기' 또는 앱 삭제 시 즉시 삭제됩니다. 제3자 서비스(Google)가 처리한 정보는 각 회사의 정책에 따릅니다.</p>
+<p>개발자는 사용자의 개인정보를 서버에 보관하지 않습니다. 기기에 저장된 정보는 앱 안의 '모든 기록 지우기' 또는 앱 삭제 시 즉시 삭제됩니다. 제3자 서비스(Google, Apple)가 처리한 정보는 각 회사의 정책에 따릅니다.</p>
 
 <h2>8. 이용자의 권리</h2>
-<p>사용자는 언제든 기록 삭제, 광고 ID 재설정, 광고 개인정보 옵션 변경, 앱 삭제를 할 수 있으며 아래 연락처로 문의할 수 있습니다.</p>
+<p>사용자는 언제든 기록 삭제, 광고 ID 재설정·추적 허용 변경, 광고 개인정보 옵션 변경, 앱 삭제를 할 수 있으며 아래 연락처로 문의할 수 있습니다.</p>
 
 <h2>9. 방침 변경</h2>
 <p>이 방침이 바뀌면 이 페이지에 시행일과 함께 공지합니다.</p>
@@ -95,7 +96,7 @@
 
 <section id="en" lang="en">
 <h1>Fasting Signal Privacy Policy</h1>
-<p class="meta">Effective date: October 8, 2026</p>
+<p class="meta">Effective date: October 11, 2026 (iOS details added)</p>
 <p class="lang"><a href="#ko">한국어</a><a href="#en">English</a></p>
 
 <div class="core"><strong>Core principle: your fasting, weight and meal records never leave your device.</strong> There is no sign-up, and the developer does not store or view your records on any server. The only things sent off the device are the AI food analysis you ask for, ads, payments and app security checks, all described below.</div>
@@ -120,21 +121,22 @@
 
 <h2>3. Third-party services</h2>
 <h3>3-1. Google AdMob (ads)</h3>
-<p>Free users see banner ads. Google may collect the advertising ID, device information, approximate location from IP address and ad interactions to serve and measure ads. In the EEA, the UK and similar regions a consent form is shown on first launch, and you can reopen the ad privacy options from the More screen. You can reset or delete your advertising ID in your device settings. Details: <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from partner sites</a></p>
-<h3>3-2. Google Play Billing (ad removal, character outfits)</h3>
-<p>Payments are handled by Google Play. The developer never receives your card or payment details, only whether a product was bought and its product ID.</p>
+<p>Free users see banner ads. Google may collect the advertising ID, device information, approximate location from IP address and ad interactions to serve and measure ads. In the EEA, the UK and similar regions a consent form is shown on first launch, and you can reopen the ad privacy options from the More screen. On Android you can reset or delete your advertising ID in your device settings. <strong>On iPhone</strong>, Apple's App Tracking Transparency prompt asks whether to allow tracking; if you do not allow it, the advertising identifier (IDFA) is not used for ads. You can change this at any time in <strong>Settings → Privacy &amp; Security → Tracking</strong>. Details: <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from partner sites</a></p>
+<h3>3-2. Payments — Google Play / Apple App Store (ad removal, character outfits)</h3>
+<p>Payments are handled by Google Play on Android and by the Apple App Store on iPhone. The developer never receives your card or payment details, only whether a product was bought and its product ID. You can restore earlier purchases with the app's restore purchases button.</p>
 <h3>3-3. Firebase (Google)</h3>
 <ul>
-  <li><strong>App Check</strong> uses Google Play Integrity to confirm that AI requests come from the genuine app on a genuine device.</li>
+  <li><strong>App Check</strong> confirms that AI requests come from the genuine app on a genuine device, using Google Play Integrity on Android and Apple App Attest on iPhone.</li>
   <li><strong>Remote Config</strong> downloads settings such as the AI model name, using a Firebase installation ID.</li>
   <li>No usage analytics or crash reporting tools (such as Firebase Analytics or Crashlytics) are used.</li>
 </ul>
 
 <h2>4. Permissions</h2>
 <ul>
-  <li><strong>Notifications and exact alarms</strong>: to deliver fasting start, phase, end and refeeding reminders on time</li>
-  <li><strong>Run at startup</strong>: to restore scheduled reminders after the phone restarts</li>
-  <li><strong>Camera and photos</strong>: no permission is requested. For AI food analysis the app opens the system camera or photo picker, and only the one photo you choose is passed to the app</li>
+  <li><strong>Notifications</strong>: to deliver fasting start, phase, end and refeeding reminders (Android and iPhone)</li>
+  <li><strong>Exact alarms and run at startup</strong> (Android): to deliver reminders on time and restore them after the phone restarts</li>
+  <li><strong>Camera and photos</strong>: for AI food analysis the app opens the system camera or photo picker. Android asks for no permission; iPhone asks for camera access when you take a photo (choosing a photo needs no permission). Either way only the one photo you choose is passed to the app</li>
+  <li><strong>Allow tracking</strong> (iPhone): the App Tracking Transparency prompt described in 3-1. Every feature works even if you do not allow it</li>
   <li><strong>Internet</strong>: for AI analysis, ads, payments and Firebase checks</li>
 </ul>
 
@@ -145,10 +147,10 @@
 <p>The app is not directed at children and does not knowingly collect information from children under 14 (or the minimum age in your country).</p>
 
 <h2>7. Retention and deletion</h2>
-<p>The developer keeps no personal information on servers. On-device information is deleted immediately with "Delete all records" or when the app is uninstalled. Information processed by third-party services (Google) is handled under their own policies.</p>
+<p>The developer keeps no personal information on servers. On-device information is deleted immediately with "Delete all records" or when the app is uninstalled. Information processed by third-party services (Google, Apple) is handled under their own policies.</p>
 
 <h2>8. Your rights</h2>
-<p>You can delete your records, reset your advertising ID, change ad privacy options or uninstall the app at any time, and contact us at the address below. If you are in the EEA, the UK or California, you may also have rights of access, correction and deletion under local law. Because we hold no server-side data about you, most requests are fulfilled on your device.</p>
+<p>You can delete your records, reset your advertising ID or change tracking permission, change ad privacy options or uninstall the app at any time, and contact us at the address below. If you are in the EEA, the UK or California, you may also have rights of access, correction and deletion under local law. Because we hold no server-side data about you, most requests are fulfilled on your device.</p>
 
 <h2>9. Changes</h2>
 <p>If this policy changes, the new version will be posted on this page with its effective date.</p>
