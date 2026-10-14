@@ -168,3 +168,9 @@ vungle.com, 6ace1a6438f63e0b4b41af4c, DIRECT, c107d686becd2d77
 
 # Magnite (AdMob Open Bidding) 2026-10-13
 rubiconproject.com, 22884, DIRECT, 0bfd66d529a55807
+
+# Equativ (AdMob Open Bidding) 2026-10-14
+smartadserver.com, 4194-OB, RESELLER, 060d053dcf45cbf3
+smartadserver.com, 4194, RESELLER, 060d053dcf45cbf3
+sharethrough.com, 4194-OB, RESELLER, 060d053dcf45cbf3
+sharethrough.com, 4194, RESELLER, 060d053dcf45cbf3
