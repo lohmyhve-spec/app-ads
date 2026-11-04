@@ -89,4 +89,4 @@ jobs:
         if: failure()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body "자동 발행 중단: 기계 확인 실패. Actions 실행 기록의 요약을 확인하세요. 병합하지 않았습니다."
+        run: gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body "자동 발행 중단 - 기계 확인 실패. Actions 실행 기록의 요약을 확인하세요. 병합하지 않았습니다."
