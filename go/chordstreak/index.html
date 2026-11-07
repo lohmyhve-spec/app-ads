@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Get ChordStreak</title>
+<meta name="description" content="Open any song and get its guitar chords — right on your phone. Big, color-coded chords, capo tips, loop and slow-down practice.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mung Works">
+<meta property="og:title" content="ChordStreak — guitar chords from any song">
+<meta property="og:description" content="Open any song and get its guitar chords — right on your phone. Big, color-coded chords, capo tips, loop and slow-down practice.">
+<meta property="og:url" content="https://mungworks.com/go/chordstreak/">
+<meta property="og:image" content="https://mungworks.com/go/chordstreak/icon.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ChordStreak — guitar chords from any song">
+<meta name="twitter:description" content="Open any song and get its guitar chords — right on your phone.">
+<meta name="twitter:image" content="https://mungworks.com/go/chordstreak/icon.png">
+<style>
+body{margin:0;background:#F6F1E4;color:#1F2430;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;text-align:center}
+main{max-width:420px;margin:0 auto;padding:48px 20px}
+img{width:120px;height:120px;border-radius:26px;border:1.5px solid #1F2430}
+h1{margin:16px 0 4px;font-size:30px}p{color:#5A6070;margin:0 0 28px}
+a.btn{display:block;margin:12px 0;padding:16px;border:1.5px solid #1F2430;border-radius:4px;color:#1F2430;text-decoration:none;font-weight:600;background:#FFFDF7;box-shadow:4px 4px 0 #1F2430}
+a.btn.primary{background:#1F2430;color:#F6F1E4}
+.soon{color:#5A6070;font-size:14px}
+footer{margin-top:40px;font-size:13px}footer a{color:#B83A26}
+</style>
+</head>
+<body>
+<main>
+<img src="icon.png" alt="ChordStreak icon">
+<h1>ChordStreak</h1>
+<p>Guitar chords from any song</p>
+<a id="play" class="btn primary" href="https://play.google.com/store/apps/details?id=com.meongmoong.chordstreak">Get it on Google Play</a>
+<!-- App Store 주소가 생기면 APP_STORE 에 넣는다 (예: https://apps.apple.com/app/id0000000000) -->
+<a id="ios" class="btn" href="#" hidden>Download on the App Store</a>
+<div id="soon" class="soon" hidden>iPhone version coming soon</div>
+<footer><a href="https://mungworks.com/">Mung Works</a></footer>
+</main>
+<script>
+(function () {
+  var APP_STORE = "";
+  var PLAY = document.getElementById("play").href;
+  var ua = navigator.userAgent || "";
+  var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/.test(ua);
+  var ios = document.getElementById("ios");
+  if (APP_STORE) { ios.href = APP_STORE; ios.hidden = false; }
+  else if (isIOS) { document.getElementById("soon").hidden = false; }
+  if (isAndroid) { location.replace(PLAY); }
+  else if (isIOS && APP_STORE) { location.replace(APP_STORE); }
+})();
+</script>
+</body>
+</html>
