@@ -3,191 +3,353 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>다오픈 PC 인쇄 도우미</title>
-<meta name="description" content="PC에 연결된 프린터로 폰 문서를 인쇄하세요. 같은 와이파이에서 무료, 회원가입 없음.">
+<title>Daopen PC Print Helper · 다오픈 PC 인쇄 도우미</title>
+<meta name="description" content="Print from your phone to a USB printer on your PC over the same Wi-Fi. Free, no sign-up. 같은 와이파이에서 PC에 연결된 프린터로 인쇄.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mungworks.com/daopen-pc">
-<meta property="og:title" content="다오픈 PC 인쇄 도우미">
-<meta property="og:description" content="PC에 연결된 프린터로 폰 문서를 인쇄하세요. 같은 와이파이에서 무료, 회원가입 없음.">
+<meta property="og:title" content="Daopen PC Print Helper · 다오픈 PC 인쇄 도우미">
+<meta property="og:description" content="Print from your phone to a USB printer on your PC over the same Wi-Fi. Free, no sign-up.">
 <meta property="og:image" content="https://play-lh.googleusercontent.com/zFXNvPgiZffzV4lc5p-dHkLtSnSWzuAllvScnGebyucgTwHLEtYFL4FgLotDWE-p7iR_Iu9Cty1rr8STnut43Do=s512">
 <meta name="twitter:card" content="summary">
 <style>
 :root{--bg:#fff;--fg:#1d1d1f;--muted:#5f6368;--line:#e3e5e8;--accent:#1a73e8;--box:#f5f7fa}
 @media (prefers-color-scheme:dark){:root{--bg:#121316;--fg:#ececf0;--muted:#a3a7ad;--line:#2c2f34;--accent:#8ab4f8;--box:#1c1e22}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,"Segoe UI","Malgun Gothic","Apple SD Gothic Neo",sans-serif}
-main{max-width:720px;margin:0 auto;padding:28px 16px 56px}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,"Segoe UI","Malgun Gothic","Apple SD Gothic Neo","Hiragino Sans","Microsoft YaHei",sans-serif}
+main{max-width:720px;margin:0 auto;padding:24px 16px 56px}
+.top{display:flex;justify-content:flex-end;margin-bottom:8px}
+select{font:inherit;font-size:.9rem;padding:4px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg)}
 h1{font-size:1.6rem;margin:.2em 0 .3em}
 h2{font-size:1.15rem;margin:2em 0 .6em}
 p.lead{color:var(--muted);margin:0 0 1.2em}
-.langs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-.langs button{border:1px solid var(--line);background:none;color:var(--fg);border-radius:999px;padding:4px 12px;font:inherit;font-size:.9rem;cursor:pointer}
-.langs button[aria-pressed=true]{border-color:var(--accent);color:var(--accent)}
 .dl{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 22px;border-radius:10px}
 @media (prefers-color-scheme:dark){.dl{color:#111}}
 .small{color:var(--muted);font-size:.9rem}
-ol{padding-left:1.3em}
-li{margin:.45em 0}
-.box{background:var(--box);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:1em 0}
-b.btn{border:1px solid var(--line);border-radius:6px;padding:0 6px;font-weight:600;white-space:nowrap}
-.shot{display:block;max-width:320px;width:100%;margin:10px 0 4px;border-radius:8px;border:1px solid var(--line)}
+ol{padding-left:1.3em} li{margin:.5em 0}
+.box{background:var(--box);border:1px solid var(--line);border-radius:12px;padding:6px 16px;margin:1em 0}
+b.btn{border:1px solid var(--line);border-radius:6px;padding:0 6px;font-weight:600}
+.ssrow{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0 6px}
+.sswrap{flex:1 1 230px;max-width:300px}
+.tag{font-size:.8rem;font-weight:700;color:var(--accent);margin-bottom:4px}
+.ss{background:#0067c0;color:#fff;border-radius:6px;padding:14px 14px 12px;min-height:170px;position:relative;font-family:"Segoe UI",sans-serif;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.sst{font-size:1.05rem;line-height:1.3;margin-bottom:10px}
+.bar{height:7px;background:rgba(255,255,255,.55);border-radius:4px;margin:6px 0;width:92%}
+.bar.s{width:70%} .bar.m{width:55%}
+.lnk{display:inline-block;text-decoration:underline;font-size:.85rem;margin-top:6px}
+.btns{position:absolute;right:12px;bottom:12px;display:flex;gap:6px}
+.wb{background:#fff;color:#000;font-size:.75rem;font-weight:600;padding:5px 10px;border-radius:2px}
+.hl{outline:3px solid #ffcc00;outline-offset:2px;border-radius:3px}
 details{border-top:1px solid var(--line);padding:10px 0}
 details summary{cursor:pointer;font-weight:600}
 details p{margin:.5em 0 0;color:var(--muted)}
-footer{margin-top:3em;color:var(--muted);font-size:.85rem}
+.foot{margin-top:2.5em;color:var(--muted);font-size:.85rem}
+footer{color:var(--muted);font-size:.85rem}
 [data-l]{display:none}
-html[data-lang=ko] [data-l=ko],html[data-lang=en] [data-l=en],html[data-lang=ja] [data-l=ja],html[data-lang=de] [data-l=de]{display:block}
+html[data-lang=ko] [data-l=ko],html[data-lang=en] [data-l=en],html[data-lang=ja] [data-l=ja],html[data-lang=de] [data-l=de],html[data-lang=es] [data-l=es],html[data-lang=fr] [data-l=fr],html[data-lang=id] [data-l=id],html[data-lang=it] [data-l=it],html[data-lang=pt] [data-l=pt],html[data-lang=ru] [data-l=ru],html[data-lang=vi] [data-l=vi],html[data-lang=zh] [data-l=zh]{display:block}
 </style>
 </head>
 <body>
 <main>
-<nav class="langs" aria-label="language">
-<button data-set="ko">한국어</button><button data-set="en">English</button><button data-set="ja">日本語</button><button data-set="de">Deutsch</button>
-</nav>
-
-<!-- ===== 한국어 ===== -->
-<section data-l="ko">
+<div class="top"><select id="lang" aria-label="Language"><option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option><option value="de">Deutsch</option><option value="es">Español</option><option value="fr">Français</option><option value="id">Bahasa Indonesia</option><option value="it">Italiano</option><option value="pt">Português</option><option value="ru">Русский</option><option value="vi">Tiếng Việt</option><option value="zh">中文</option></select></div>
+<section data-l="ko" lang="ko">
 <h1>다오픈 PC 인쇄 도우미</h1>
 <p class="lead">PC에 USB로 연결된 프린터로 폰 문서를 인쇄합니다. 무료, 회원가입 없음, 윈도우 10·11.</p>
-<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.0/DaopenPrintHelper-1.0.0-win-x64.zip">윈도우용 받기 (zip, 약 80MB)</a></p>
-<p class="small">와이파이 프린터는 도우미 없이 다오픈에서 "이 폰으로 인쇄"를 누르면 바로 됩니다.</p>
-
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">윈도우용 받기 (zip, 약 80MB)</a></p>
+<p class="small">와이파이 프린터는 도우미 없이 다오픈에서 "이 폰으로 인쇄"을 누르면 바로 됩니다.</p>
 <h2>1. PC에서 처음 한 번만</h2>
 <ol>
 <li>프린터가 연결된 PC에서 위 버튼으로 받고, 압축을 풀어 <b>DaopenPrintHelper.exe</b>를 실행합니다.</li>
-<li>아래처럼 파란 <b>"Windows의 PC 보호"</b> 창이 뜨면 놀라지 마세요. 글 아래 <b class="btn">추가 정보</b>를 누르고, 새로 생기는 <b class="btn">실행</b> 버튼을 누릅니다. ("실행 안 함"은 누르지 마세요)
-<img class="shot" alt="Windows의 PC 보호 창 — 추가 정보를 누르면 실행 버튼이 나옵니다" src="data:image/png;base64,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">
-<span class="small">아직 받은 사람이 적은 새 프로그램이라 윈도우가 처음 한 번 띄우는 경고입니다. 바이러스가 아닙니다.</span></li>
-<li>방화벽 창이 뜨면 <b class="btn">허용</b>을 누릅니다.</li>
+<li>파란 <b>"Windows의 PC 보호"</b> 창이 떠도 놀라지 마세요. 글 아래 <b class="btn">추가 정보</b>를 누르고, 새로 생기는 <b class="btn">실행</b> 버튼을 누릅니다. ("실행 안 함"는 누르지 마세요)<div class="ssrow" aria-hidden="true">
+<div class="sswrap"><div class="tag">① 먼저 누르기</div><div class="ss"><div class="sst">Windows의 PC 보호</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">추가 정보</div><div class="btns"><span class="wb">실행 안 함</span></div></div></div>
+<div class="sswrap"><div class="tag">② 그다음 누르기</div><div class="ss"><div class="sst">Windows의 PC 보호</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">실행</span><span class="wb">실행 안 함</span></div></div></div>
+</div><span class="small">아직 받은 사람이 적은 새 프로그램이라 윈도우가 처음 한 번 띄우는 경고입니다. 바이러스가 아닙니다.</span></li>
+<li>방화벽 창이 뜨면 <b class="btn">액세스 허용</b>을 누릅니다.</li>
 <li>화면에 <b>6자리 연결 코드</b>가 나옵니다. 이후로는 PC를 켜면 도우미가 자동으로 켜집니다.</li>
 </ol>
-
 <h2>2. 폰에서 인쇄</h2>
-<ol>
-<li>폰과 PC를 <b>같은 와이파이</b>에 연결합니다.</li>
-<li>다오픈에서 인쇄 → <b>PC로 인쇄</b>를 고릅니다.</li>
-<li>PC를 고르고, 처음 한 번만 PC 화면의 코드를 넣습니다.</li>
-<li>프린터와 매수를 고르고 <b>인쇄</b>.</li>
-</ol>
-
+<ol><li>폰과 PC를 <b>같은 와이파이</b>에 연결합니다.</li><li>다오픈에서 인쇄 → <b>PC로 인쇄</b>를 고릅니다.</li><li>PC를 고르고, 처음 한 번만 PC 화면의 코드를 넣습니다.</li><li>프린터와 매수를 고르고 <b>인쇄</b>.</li></ol>
 <h2>안 될 때</h2>
-<div class="box">
-<p>• PC가 안 보이면 폰과 PC가 같은 와이파이인지 확인하세요. 그래도 안 되면 <b>주소 직접 입력</b>에 PC 도우미 창에 나온 주소를 넣으세요.</p>
-<p>• 백신(알약 등)이 막으면 <b>허용</b>을 눌러 주세요.</p>
-<p>• 도우미 창이 안 보이면 받은 파일을 한 번 더 실행하세요. 켜져 있던 창이 앞으로 나옵니다.</p>
-<p>• 연결을 끊으려면 도우미 창의 <b>연결 끊기</b>를 누르세요.</p>
-</div>
+<div class="box"><p>• PC가 안 보이면 폰과 PC가 같은 와이파이인지 확인하세요. 그래도 안 되면 <b>주소 직접 입력</b>에 도우미 창에 나온 주소를 넣으세요.</p><p>• 백신(알약 등)이 막으면 <b>허용</b>을 눌러 주세요.</p><p>• 도우미 창이 안 보이면 받은 파일을 한 번 더 실행하세요. 켜져 있던 창이 앞으로 나옵니다.</p><p>• 연결을 끊으려면 도우미 창의 <b>연결 끊기</b>를 누르세요.</p></div>
 <p class="small">문서는 인터넷으로 올라가지 않습니다. 같은 와이파이 안에서 폰에서 PC로만 가고, 인쇄가 끝나면 PC에서 바로 지워집니다.</p>
 <h2>자주 묻는 질문</h2>
-<details><summary>여러 PC에 깔아도 되나요?</summary><p>네. 프린터가 연결된 PC마다 깔면 폰에서 PC 목록에 모두 보입니다.</p></details>
-<details><summary>연결 코드를 잊어버렸어요.</summary><p>도우미 창에 항상 보입니다. 창이 안 보이면 받은 파일을 한 번 더 실행하세요. "새 코드 만들기"로 바꿀 수도 있습니다.</p></details>
-<details><summary>도우미 창을 닫아도 되나요?</summary><p>네. 창을 닫아도 작업 표시줄(오른쪽 아래)에서 계속 켜져 있고, PC를 다시 켜면 자동으로 켜집니다.</p></details>
-<details><summary>회사 밖에서도 인쇄되나요?</summary><p>아니요. 폰과 PC가 같은 와이파이에 있을 때만 됩니다. 문서를 인터넷으로 보내지 않기 위해서입니다.</p></details>
-<details><summary>지우려면요?</summary><p>도우미 창에서 "윈도우 시작할 때 자동 실행"을 끄고, 작업 표시줄의 도우미 아이콘을 오른쪽 클릭해 "종료"한 뒤 받은 파일을 지우면 됩니다.</p></details>
-
+<details><summary>여러 PC에 깔아도 되나요?</summary><p>네. 프린터가 연결된 PC마다 깔면 폰의 PC 목록에 모두 보입니다.</p></details><details><summary>연결 코드를 잊어버렸어요.</summary><p>도우미 창에 항상 보입니다. 창이 안 보이면 받은 파일을 한 번 더 실행하세요. "새 코드 만들기"로 바꿀 수도 있습니다.</p></details><details><summary>도우미 창을 닫아도 되나요?</summary><p>네. 창을 닫아도 작업 표시줄(오른쪽 아래)에서 계속 켜져 있고, PC를 다시 켜면 자동으로 켜집니다.</p></details><details><summary>다른 곳에서도 인쇄되나요?</summary><p>아니요. 폰과 PC가 같은 와이파이에 있을 때만 됩니다. 문서를 인터넷으로 보내지 않기 위해서입니다.</p></details><details><summary>지우려면요?</summary><p>작업 표시줄의 도우미 아이콘을 오른쪽 클릭해 "윈도우 시작할 때 자동 실행" 체크를 끄고 "종료"를 누른 뒤, 받은 파일을 지우면 됩니다.</p></details>
+<p class="foot"><a href="https://mungworks.com/daopen.html">개인정보처리방침</a></p>
 </section>
-
-<!-- ===== English ===== -->
-<section data-l="en">
+<section data-l="en" lang="en">
 <h1>Daopen PC Print Helper</h1>
 <p class="lead">Print documents from your phone on a printer connected to your PC by USB. Free, no sign-up, Windows 10 and 11.</p>
-<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.0/DaopenPrintHelper-1.0.0-win-x64.zip">Download for Windows (zip, about 80 MB)</a></p>
-<p class="small">Wi-Fi printers don't need the helper: tap "Print from this phone" in Daopen.</p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Download for Windows (zip, about 80 MB)</a></p>
+<p class="small">Wi-Fi printers don’t need the helper: just tap "Print from this phone" in Daopen.</p>
 <h2>1. On the PC (once)</h2>
 <ol>
 <li>On the PC with the printer, download the file above, unzip it and run <b>DaopenPrintHelper.exe</b>.</li>
-<li>If a blue <b>"Windows protected your PC"</b> window appears, click <b class="btn">More info</b> → <b class="btn">Run anyway</b>.<br><span class="small">It appears once because this is a free program from a small developer.</span></li>
-<li>If a firewall window appears, click <b class="btn">Allow</b>.</li>
-<li>A <b>6-digit code</b> appears. From now on the helper starts with Windows.</li>
+<li>If a blue <b>"Windows protected your PC"</b> window appears, don’t worry. Click <b class="btn">More info</b> under the text, then the new <b class="btn">Run anyway</b> button. (Don’t click "Don't run".)<div class="ssrow" aria-hidden="true">
+<div class="sswrap"><div class="tag">① Click first</div><div class="ss"><div class="sst">Windows protected your PC</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">More info</div><div class="btns"><span class="wb">Don&#x27;t run</span></div></div></div>
+<div class="sswrap"><div class="tag">② Then click</div><div class="ss"><div class="sst">Windows protected your PC</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Run anyway</span><span class="wb">Don&#x27;t run</span></div></div></div>
+</div><span class="small">Windows shows this once because the program is new and few people have downloaded it yet. It is not a virus.</span></li>
+<li>If a firewall window appears, click <b class="btn">Allow access</b>.</li>
+<li>A <b>6-digit pairing code</b> appears. From now on the helper starts with Windows.</li>
 </ol>
 <h2>2. Print from your phone</h2>
-<ol>
-<li>Connect the phone and the PC to the <b>same Wi-Fi</b>.</li>
-<li>In Daopen, tap Print → <b>Print via PC</b>.</li>
-<li>Pick the PC and enter the code shown on the PC (first time only).</li>
-<li>Choose the printer and copies, then <b>Print</b>.</li>
-</ol>
+<ol><li>Connect the phone and the PC to the <b>same Wi-Fi</b>.</li><li>In Daopen, tap Print → <b>Print via PC</b>.</li><li>Pick the PC and enter the code shown on the PC (first time only).</li><li>Choose the printer and copies, then <b>Print</b>.</li></ol>
 <h2>Troubleshooting</h2>
-<div class="box">
-<p>• PC not listed? Check that both are on the same Wi-Fi, or use <b>Enter address</b> with the address shown in the helper window.</p>
-<p>• If your antivirus blocks it, choose <b>Allow</b>.</p>
-<p>• Can't see the helper window? Run the file again; the open window comes to the front.</p>
-<p>• To unlink phones, click <b>Unpair</b> in the helper window.</p>
-</div>
+<div class="box"><p>• PC not listed? Check that both are on the same Wi-Fi, or use <b>Enter address</b> with the address shown in the helper window.</p><p>• If your antivirus blocks it, choose <b>Allow</b>.</p><p>• Can’t see the helper window? Run the file again; the open window comes to the front.</p><p>• To unlink phones, click <b>Unpair</b> in the helper window.</p></div>
 <p class="small">Your documents never go to the internet. They travel only from your phone to your PC on the same Wi-Fi and are deleted from the PC after printing.</p>
+<h2>FAQ</h2>
+<details><summary>Can I install it on several PCs?</summary><p>Yes. Install it on each PC with a printer and they all appear in the list on your phone.</p></details><details><summary>I forgot the pairing code.</summary><p>It is always shown in the helper window. If you can’t see the window, run the file again. You can also make a "New code".</p></details><details><summary>Can I close the helper window?</summary><p>Yes. It keeps running in the system tray (bottom right) and starts again when the PC turns on.</p></details><details><summary>Does it work from anywhere?</summary><p>No. Only when the phone and the PC are on the same Wi-Fi, so your documents never go to the internet.</p></details><details><summary>How do I remove it?</summary><p>Right-click the helper icon in the system tray, uncheck "Start with Windows", click "Quit", then delete the downloaded file.</p></details>
+<p class="foot"><a href="https://mungworks.com/daopen.html">Privacy</a></p>
 </section>
-
-<!-- ===== 日本語 ===== -->
-<section data-l="ja">
+<section data-l="ja" lang="ja">
 <h1>Daopen PC印刷ヘルパー</h1>
 <p class="lead">PCにUSBでつないだプリンターで、スマホの文書を印刷できます。無料・登録不要・Windows 10/11。</p>
-<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.0/DaopenPrintHelper-1.0.0-win-x64.zip">Windows版をダウンロード（zip・約80MB）</a></p>
-<p class="small">Wi-Fiプリンターはヘルパー不要です。Daopenで「このスマホで印刷」を選んでください。</p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Windows版をダウンロード（zip・約80MB）</a></p>
+<p class="small">Wi-Fiプリンターはヘルパー不要です。Daopenで「このスマホで印刷」を選ぶだけです。</p>
 <h2>1. PCで最初の1回だけ</h2>
 <ol>
 <li>プリンターをつないだPCで上のファイルをダウンロードし、展開して <b>DaopenPrintHelper.exe</b> を実行します。</li>
-<li>青い <b>「WindowsによってPCが保護されました」</b> 画面が出たら <b class="btn">詳細情報</b> → <b class="btn">実行</b>。<br><span class="small">小さな開発者の無料ソフトのため、最初に1回だけ表示されます。</span></li>
-<li>ファイアウォールの画面が出たら <b class="btn">許可</b>。</li>
+<li>青い <b>「Windows によって PC が保護されました」</b> 画面が出ても心配いりません。文の下の <b class="btn">詳細情報</b> を押し、新しく出る <b class="btn">実行</b> ボタンを押します。（「実行しない」は押さないでください）<div class="ssrow" aria-hidden="true">
+<div class="sswrap"><div class="tag">① まず押す</div><div class="ss"><div class="sst">Windows によって PC が保護されました</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">詳細情報</div><div class="btns"><span class="wb">実行しない</span></div></div></div>
+<div class="sswrap"><div class="tag">② 次に押す</div><div class="ss"><div class="sst">Windows によって PC が保護されました</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">実行</span><span class="wb">実行しない</span></div></div></div>
+</div><span class="small">まだダウンロード数が少ない新しいソフトのため、Windowsが最初に1回表示する警告です。ウイルスではありません。</span></li>
+<li>ファイアウォールの画面が出たら <b class="btn">アクセスを許可する</b> を押します。</li>
 <li><b>6桁の接続コード</b>が表示されます。以後、PCを起動するとヘルパーも自動で起動します。</li>
 </ol>
 <h2>2. スマホから印刷</h2>
-<ol>
-<li>スマホとPCを<b>同じWi-Fi</b>につなぎます。</li>
-<li>Daopenで印刷 → <b>PCで印刷</b>。</li>
-<li>PCを選び、最初の1回だけPC画面のコードを入力します。</li>
-<li>プリンターと部数を選んで<b>印刷</b>。</li>
-</ol>
+<ol><li>スマホとPCを<b>同じWi-Fi</b>につなぎます。</li><li>Daopenで印刷 → <b>PCで印刷</b>。</li><li>PCを選び、最初の1回だけPC画面のコードを入力します。</li><li>プリンターと部数を選んで<b>印刷</b>。</li></ol>
 <h2>うまくいかないとき</h2>
-<div class="box">
-<p>• PCが見つからないときは同じWi-Fiか確認し、<b>アドレスを入力</b>にヘルパー画面のアドレスを入れてください。</p>
-<p>• ウイルス対策ソフトが止めたら<b>許可</b>してください。</p>
-<p>• ヘルパーの画面が見えないときは、もう一度ファイルを実行すると前面に出ます。</p>
-<p>• 接続を解除するにはヘルパー画面の<b>Unpair</b>を押します。</p>
-</div>
+<div class="box"><p>• PCが見つからないときは同じWi-Fiか確認し、<b>アドレスを入力</b>にヘルパー画面のアドレスを入れてください。</p><p>• ウイルス対策ソフトが止めたら<b>許可</b>してください。</p><p>• ヘルパーの画面が見えないときは、もう一度ファイルを実行すると前面に出ます。</p><p>• 接続を解除するにはヘルパー画面の<b>接続解除</b>を押します。</p></div>
 <p class="small">文書はインターネットに送られません。同じWi-Fi内でスマホからPCへ送られ、印刷後すぐPCから削除されます。</p>
+<h2>よくある質問</h2>
+<details><summary>複数のPCに入れてもいいですか？</summary><p>はい。プリンターをつないだPCごとに入れると、スマホのPC一覧にすべて表示されます。</p></details><details><summary>接続コードを忘れました。</summary><p>ヘルパー画面に常に表示されています。画面が見えないときはファイルをもう一度実行してください。「新しいコード」で変えることもできます。</p></details><details><summary>ヘルパー画面を閉じてもいいですか？</summary><p>はい。閉じてもタスクバー（右下）で動き続け、PCを起動すると自動で始まります。</p></details><details><summary>外出先からも印刷できますか？</summary><p>いいえ。スマホとPCが同じWi-Fiにあるときだけです。文書をインターネットに送らないためです。</p></details><details><summary>削除するには？</summary><p>タスクバーのヘルパーアイコンを右クリックし「Windows起動時に自動で開始」のチェックを外して「終了」を押し、ダウンロードしたファイルを削除します。</p></details>
+<p class="foot"><a href="https://mungworks.com/daopen.html">プライバシーポリシー</a></p>
 </section>
-
-<!-- ===== Deutsch ===== -->
-<section data-l="de">
+<section data-l="de" lang="de">
 <h1>Daopen PC-Druckhelfer</h1>
 <p class="lead">Drucke Dokumente vom Handy auf einem per USB am PC angeschlossenen Drucker. Kostenlos, ohne Konto, Windows 10 und 11.</p>
-<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.0/DaopenPrintHelper-1.0.0-win-x64.zip">Für Windows herunterladen (zip, ca. 80 MB)</a></p>
-<p class="small">WLAN-Drucker brauchen den Helfer nicht: in Daopen „Von diesem Handy drucken“ wählen.</p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Für Windows herunterladen (zip, ca. 80 MB)</a></p>
+<p class="small">WLAN-Drucker brauchen den Helfer nicht: in Daopen einfach „Von diesem Handy drucken“ wählen.</p>
 <h2>1. Am PC (einmalig)</h2>
 <ol>
 <li>Auf dem PC mit dem Drucker die Datei oben laden, entpacken und <b>DaopenPrintHelper.exe</b> starten.</li>
-<li>Erscheint das blaue Fenster <b>„Der Computer wurde durch Windows geschützt“</b>: <b class="btn">Weitere Informationen</b> → <b class="btn">Trotzdem ausführen</b>.<br><span class="small">Es erscheint einmal, weil es ein kostenloses Programm eines kleinen Entwicklers ist.</span></li>
-<li>Erscheint ein Firewall-Fenster: <b class="btn">Zulassen</b>.</li>
-<li>Ein <b>6-stelliger Code</b> wird angezeigt. Danach startet der Helfer automatisch mit Windows.</li>
+<li>Erscheint das blaue Fenster <b>„Der Computer wurde durch Windows geschützt“</b>, keine Sorge: unter dem Text auf <b class="btn">Weitere Informationen</b> klicken, dann auf die neue Schaltfläche <b class="btn">Trotzdem ausführen</b>. (Nicht auf „Nicht ausführen“ klicken.)<div class="ssrow" aria-hidden="true">
+<div class="sswrap"><div class="tag">① Zuerst klicken</div><div class="ss"><div class="sst">Der Computer wurde durch Windows geschützt</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">Weitere Informationen</div><div class="btns"><span class="wb">Nicht ausführen</span></div></div></div>
+<div class="sswrap"><div class="tag">② Dann klicken</div><div class="ss"><div class="sst">Der Computer wurde durch Windows geschützt</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Trotzdem ausführen</span><span class="wb">Nicht ausführen</span></div></div></div>
+</div><span class="small">Windows zeigt das einmal, weil das Programm neu ist und noch selten geladen wurde. Es ist kein Virus.</span></li>
+<li>Erscheint ein Firewall-Fenster: <b class="btn">Zugriff zulassen</b>.</li>
+<li>Ein <b>6-stelliger Verbindungscode</b> erscheint. Danach startet der Helfer automatisch mit Windows.</li>
 </ol>
 <h2>2. Vom Handy drucken</h2>
-<ol>
-<li>Handy und PC mit <b>demselben WLAN</b> verbinden.</li>
-<li>In Daopen Drucken → <b>Über PC drucken</b>.</li>
-<li>PC wählen und beim ersten Mal den Code vom PC eingeben.</li>
-<li>Drucker und Anzahl wählen, dann <b>Drucken</b>.</li>
-</ol>
+<ol><li>Handy und PC mit <b>demselben WLAN</b> verbinden.</li><li>In Daopen Drucken → <b>Über PC drucken</b>.</li><li>PC wählen und beim ersten Mal den Code vom PC eingeben.</li><li>Drucker und Anzahl wählen, dann <b>Drucken</b>.</li></ol>
 <h2>Wenn es nicht klappt</h2>
-<div class="box">
-<p>• PC nicht gefunden? Gleiches WLAN prüfen oder <b>Adresse eingeben</b> mit der Adresse aus dem Helferfenster.</p>
-<p>• Blockiert der Virenschutz, bitte <b>Zulassen</b> wählen.</p>
-<p>• Helferfenster nicht sichtbar? Datei erneut starten, das Fenster kommt nach vorn.</p>
-<p>• Zum Trennen im Helferfenster <b>Unpair</b> klicken.</p>
-</div>
+<div class="box"><p>• PC nicht gefunden? Gleiches WLAN prüfen oder <b>Adresse eingeben</b> mit der Adresse aus dem Helferfenster nutzen.</p><p>• Blockiert der Virenschutz, bitte <b>Zulassen</b> wählen.</p><p>• Helferfenster nicht sichtbar? Datei erneut starten, das Fenster kommt nach vorn.</p><p>• Zum Trennen im Helferfenster <b>Trennen</b> klicken.</p></div>
 <p class="small">Deine Dokumente gehen nicht ins Internet. Sie gehen nur im selben WLAN vom Handy zum PC und werden nach dem Druck vom PC gelöscht.</p>
+<h2>Häufige Fragen</h2>
+<details><summary>Kann ich ihn auf mehreren PCs installieren?</summary><p>Ja. Auf jedem PC mit Drucker installieren – alle erscheinen in der Liste auf dem Handy.</p></details><details><summary>Ich habe den Code vergessen.</summary><p>Er steht immer im Helferfenster. Ist das Fenster nicht sichtbar, die Datei erneut starten. Mit „Neuer Code“ lässt er sich ändern.</p></details><details><summary>Darf ich das Helferfenster schließen?</summary><p>Ja. Der Helfer läuft im Infobereich (unten rechts) weiter und startet mit dem PC automatisch.</p></details><details><summary>Funktioniert es von überall?</summary><p>Nein. Nur wenn Handy und PC im selben WLAN sind – so gehen Dokumente nie ins Internet.</p></details><details><summary>Wie entferne ich ihn?</summary><p>Im Infobereich mit rechts auf das Helfer-Symbol klicken, „Mit Windows starten“ abwählen, „Beenden“ klicken und die geladene Datei löschen.</p></details>
+<p class="foot"><a href="https://mungworks.com/daopen.html">Datenschutz</a></p>
 </section>
-
-<footer>© Meongmungi (Mung Works) · <a href="https://mungworks.com/daopen.html">개인정보처리방침 / Privacy</a> · contact@mungworks.com</footer>
+<section data-l="es" lang="es">
+<h1>Daopen PC Print Helper</h1>
+<p class="lead">Imprime documentos del teléfono en una impresora conectada por USB a tu PC. Gratis, sin registro, Windows 10 y 11.</p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Descargar para Windows (zip, unos 80 MB)</a></p>
+<p class="small">Las impresoras Wi-Fi no necesitan el asistente: en Daopen toca «Imprimir desde este teléfono».</p>
+<h2>1. En el PC (solo una vez)</h2>
+<ol>
+<li>En el PC con la impresora, descarga el archivo, descomprímelo y ejecuta <b>DaopenPrintHelper.exe</b>.</li>
+<li>Si aparece la ventana azul <b>«Windows protegió su PC»</b>, tranquilo: pulsa <b class="btn">Más información</b> bajo el texto y luego el nuevo botón <b class="btn">Ejecutar de todas formas</b>. (No pulses «No ejecutar».)<div class="ssrow" aria-hidden="true">
+<div class="sswrap"><div class="tag">① Primero</div><div class="ss"><div class="sst">Windows protegió su PC</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">Más información</div><div class="btns"><span class="wb">No ejecutar</span></div></div></div>
+<div class="sswrap"><div class="tag">② Después</div><div class="ss"><div class="sst">Windows protegió su PC</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Ejecutar de todas formas</span><span class="wb">No ejecutar</span></div></div></div>
+</div><span class="small">Windows la muestra una vez porque el programa es nuevo y aún lo han descargado pocas personas. No es un virus.</span></li>
+<li>Si aparece una ventana del firewall, pulsa <b class="btn">Permitir acceso</b>.</li>
+<li>Aparece un <b>código de 6 dígitos</b>. A partir de ahora el asistente se inicia con Windows.</li>
+</ol>
+<h2>2. Imprimir desde el teléfono</h2>
+<ol><li>Conecta el teléfono y el PC a la <b>misma Wi-Fi</b>.</li><li>En Daopen: Imprimir → <b>Imprimir mediante PC</b>.</li><li>Elige el PC e introduce el código que muestra (solo la primera vez).</li><li>Elige impresora y copias y pulsa <b>Imprimir</b>.</li></ol>
+<h2>Si no funciona</h2>
+<div class="box"><p>• ¿No aparece el PC? Comprueba que estén en la misma Wi-Fi o usa <b>Introducir dirección</b> con la dirección de la ventana del asistente.</p><p>• Si el antivirus lo bloquea, elige <b>Permitir</b>.</p><p>• ¿No ves la ventana? Ejecuta el archivo otra vez y pasará al frente.</p><p>• Para desvincular teléfonos, pulsa <b>Desconectar</b> en la ventana del asistente.</p></div>
+<p class="small">Tus documentos no van a internet. Solo viajan del teléfono al PC dentro de la misma Wi-Fi y se borran del PC tras imprimir.</p>
+<h2>Preguntas frecuentes</h2>
+<details><summary>¿Puedo instalarlo en varios PC?</summary><p>Sí. Instálalo en cada PC con impresora y todos aparecerán en la lista del teléfono.</p></details><details><summary>Olvidé el código.</summary><p>Siempre se ve en la ventana del asistente. Si no la ves, ejecuta el archivo otra vez. También puedes crear un «Nuevo código».</p></details><details><summary>¿Puedo cerrar la ventana?</summary><p>Sí. Sigue funcionando en la barra de tareas (abajo a la derecha) y se inicia con el PC.</p></details><details><summary>¿Funciona desde cualquier lugar?</summary><p>No. Solo con el teléfono y el PC en la misma Wi-Fi, para que tus documentos no vayan a internet.</p></details><details><summary>¿Cómo lo quito?</summary><p>Haz clic derecho en el icono del asistente en la barra de tareas, desmarca «Iniciar con Windows», pulsa «Salir» y borra el archivo descargado.</p></details>
+<p class="foot"><a href="https://mungworks.com/daopen.html">Privacidad</a></p>
+</section>
+<section data-l="fr" lang="fr">
+<h1>Daopen PC Print Helper</h1>
+<p class="lead">Imprimez les documents du téléphone sur une imprimante reliée en USB à votre PC. Gratuit, sans compte, Windows 10 et 11.</p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Télécharger pour Windows (zip, env. 80 Mo)</a></p>
+<p class="small">Les imprimantes Wi-Fi n’ont pas besoin de l’assistant : dans Daopen, touchez « Imprimer depuis ce téléphone ».</p>
+<h2>1. Sur le PC (une seule fois)</h2>
+<ol>
+<li>Sur le PC relié à l’imprimante, téléchargez le fichier, décompressez-le et lancez <b>DaopenPrintHelper.exe</b>.</li>
+<li>Si la fenêtre bleue <b>« Windows a protégé votre ordinateur »</b> apparaît, pas d’inquiétude : cliquez sur <b class="btn">Informations complémentaires</b> sous le texte, puis sur le nouveau bouton <b class="btn">Exécuter quand même</b>. (Ne cliquez pas sur « Ne pas exécuter ».)<div class="ssrow" aria-hidden="true">
+<div class="sswrap"><div class="tag">① D’abord</div><div class="ss"><div class="sst">Windows a protégé votre ordinateur</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">Informations complémentaires</div><div class="btns"><span class="wb">Ne pas exécuter</span></div></div></div>
+<div class="sswrap"><div class="tag">② Ensuite</div><div class="ss"><div class="sst">Windows a protégé votre ordinateur</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Exécuter quand même</span><span class="wb">Ne pas exécuter</span></div></div></div>
+</div><span class="small">Windows l’affiche une fois car le programme est nouveau et encore peu téléchargé. Ce n’est pas un virus.</span></li>
+<li>Si une fenêtre du pare-feu apparaît, cliquez sur <b class="btn">Autoriser l’accès</b>.</li>
+<li>Un <b>code à 6 chiffres</b> s’affiche. Ensuite, l’assistant démarre avec Windows.</li>
+</ol>
+<h2>2. Imprimer depuis le téléphone</h2>
+<ol><li>Connectez le téléphone et le PC au <b>même Wi-Fi</b>.</li><li>Dans Daopen : Imprimer → <b>Imprimer via le PC</b>.</li><li>Choisissez le PC et saisissez le code affiché (la première fois seulement).</li><li>Choisissez l’imprimante et le nombre de copies, puis <b>Imprimer</b>.</li></ol>
+<h2>En cas de problème</h2>
+<div class="box"><p>• PC introuvable ? Vérifiez le même Wi-Fi, ou utilisez <b>Saisir l’adresse</b> avec l’adresse affichée dans l’assistant.</p><p>• Si l’antivirus bloque, choisissez <b>Autoriser</b>.</p><p>• Fenêtre invisible ? Relancez le fichier : la fenêtre ouverte passe au premier plan.</p><p>• Pour délier les téléphones, cliquez sur <b>Déconnecter</b> dans l’assistant.</p></div>
+<p class="small">Vos documents ne vont jamais sur Internet. Ils passent seulement du téléphone au PC sur le même Wi-Fi et sont supprimés du PC après l’impression.</p>
+<h2>Questions fréquentes</h2>
+<details><summary>Puis-je l’installer sur plusieurs PC ?</summary><p>Oui. Installez-le sur chaque PC avec imprimante : tous apparaissent dans la liste du téléphone.</p></details><details><summary>J’ai oublié le code.</summary><p>Il est toujours affiché dans l’assistant. Si la fenêtre est invisible, relancez le fichier. Vous pouvez aussi créer un « Nouveau code ».</p></details><details><summary>Puis-je fermer la fenêtre ?</summary><p>Oui. L’assistant continue dans la barre des tâches (en bas à droite) et redémarre avec le PC.</p></details><details><summary>Ça marche de n’importe où ?</summary><p>Non. Seulement quand le téléphone et le PC sont sur le même Wi-Fi, pour que vos documents n’aillent pas sur Internet.</p></details><details><summary>Comment le supprimer ?</summary><p>Clic droit sur l’icône de l’assistant dans la barre des tâches, décochez « Lancer au démarrage de Windows », cliquez sur « Quitter », puis supprimez le fichier téléchargé.</p></details>
+<p class="foot"><a href="https://mungworks.com/daopen.html">Confidentialité</a></p>
+</section>
+<section data-l="id" lang="id">
+<h1>Daopen PC Print Helper</h1>
+<p class="lead">Cetak dokumen dari ponsel ke printer yang tersambung USB ke PC. Gratis, tanpa daftar, Windows 10 dan 11.</p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Unduh untuk Windows (zip, sekitar 80 MB)</a></p>
+<p class="small">Printer Wi-Fi tidak perlu helper: cukup ketuk "Cetak dari ponsel ini" di Daopen.</p>
+<h2>1. Di PC (sekali saja)</h2>
+<ol>
+<li>Di PC yang tersambung printer, unduh file di atas, ekstrak, lalu jalankan <b>DaopenPrintHelper.exe</b>.</li>
+<li>Jika muncul jendela biru <b>"Windows melindungi PC Anda"</b>, tenang saja. Klik <b class="btn">Info selengkapnya</b> di bawah teks, lalu tombol baru <b class="btn">Tetap jalankan</b>. (Jangan klik "Jangan jalankan".)<div class="ssrow" aria-hidden="true">
+<div class="sswrap"><div class="tag">① Klik dulu</div><div class="ss"><div class="sst">Windows melindungi PC Anda</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">Info selengkapnya</div><div class="btns"><span class="wb">Jangan jalankan</span></div></div></div>
+<div class="sswrap"><div class="tag">② Lalu klik</div><div class="ss"><div class="sst">Windows melindungi PC Anda</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Tetap jalankan</span><span class="wb">Jangan jalankan</span></div></div></div>
+</div><span class="small">Windows menampilkannya sekali karena program ini baru dan belum banyak diunduh. Ini bukan virus.</span></li>
+<li>Jika muncul jendela firewall, klik <b class="btn">Izinkan akses</b>.</li>
+<li><b>Kode sambungan 6 digit</b> muncul. Setelah itu helper otomatis berjalan saat Windows menyala.</li>
+</ol>
+<h2>2. Cetak dari ponsel</h2>
+<ol><li>Sambungkan ponsel dan PC ke <b>Wi-Fi yang sama</b>.</li><li>Di Daopen: Cetak → <b>Cetak lewat PC</b>.</li><li>Pilih PC dan masukkan kode di layar PC (pertama kali saja).</li><li>Pilih printer dan jumlah salinan, lalu <b>Cetak</b>.</li></ol>
+<h2>Jika tidak berhasil</h2>
+<div class="box"><p>• PC tidak muncul? Pastikan Wi-Fi sama, atau pakai <b>Masukkan alamat</b> dengan alamat di jendela helper.</p><p>• Jika antivirus memblokir, pilih <b>Izinkan</b>.</p><p>• Jendela helper tidak terlihat? Jalankan file sekali lagi, jendela akan muncul di depan.</p><p>• Untuk memutus ponsel, klik <b>Putuskan</b> di jendela helper.</p></div>
+<p class="small">Dokumen tidak pernah dikirim ke internet. Hanya dari ponsel ke PC di Wi-Fi yang sama, lalu langsung dihapus dari PC setelah dicetak.</p>
+<h2>Pertanyaan umum</h2>
+<details><summary>Boleh dipasang di beberapa PC?</summary><p>Boleh. Pasang di setiap PC yang punya printer, semuanya akan muncul di daftar ponsel.</p></details><details><summary>Saya lupa kodenya.</summary><p>Kode selalu tampil di jendela helper. Jika jendela tidak terlihat, jalankan file lagi. Bisa juga buat "Kode baru".</p></details><details><summary>Boleh menutup jendela helper?</summary><p>Boleh. Helper tetap berjalan di taskbar (kanan bawah) dan menyala lagi saat PC dinyalakan.</p></details><details><summary>Bisa dari mana saja?</summary><p>Tidak. Hanya saat ponsel dan PC di Wi-Fi yang sama, agar dokumen tidak dikirim ke internet.</p></details><details><summary>Cara menghapusnya?</summary><p>Klik kanan ikon helper di taskbar, hapus centang "Jalankan saat Windows mulai", klik "Keluar", lalu hapus file yang diunduh.</p></details>
+<p class="foot"><a href="https://mungworks.com/daopen.html">Privasi</a></p>
+</section>
+<section data-l="it" lang="it">
+<h1>Daopen PC Print Helper</h1>
+<p class="lead">Stampa i documenti del telefono su una stampante collegata via USB al PC. Gratis, senza registrazione, Windows 10 e 11.</p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Scarica per Windows (zip, circa 80 MB)</a></p>
+<p class="small">Le stampanti Wi-Fi non hanno bisogno dell’assistente: in Daopen tocca «Stampa da questo telefono».</p>
+<h2>1. Sul PC (una sola volta)</h2>
+<ol>
+<li>Sul PC con la stampante scarica il file, estrailo e avvia <b>DaopenPrintHelper.exe</b>.</li>
+<li>Se compare la finestra blu <b>«PC protetto da Windows»</b>, niente paura: fai clic su <b class="btn">Ulteriori informazioni</b> sotto il testo, poi sul nuovo pulsante <b class="btn">Esegui comunque</b>. (Non fare clic su «Non eseguire».)<div class="ssrow" aria-hidden="true">
+<div class="sswrap"><div class="tag">① Prima</div><div class="ss"><div class="sst">PC protetto da Windows</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">Ulteriori informazioni</div><div class="btns"><span class="wb">Non eseguire</span></div></div></div>
+<div class="sswrap"><div class="tag">② Poi</div><div class="ss"><div class="sst">PC protetto da Windows</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Esegui comunque</span><span class="wb">Non eseguire</span></div></div></div>
+</div><span class="small">Windows la mostra una volta perché il programma è nuovo e ancora poco scaricato. Non è un virus.</span></li>
+<li>Se compare una finestra del firewall, fai clic su <b class="btn">Consenti accesso</b>.</li>
+<li>Compare un <b>codice di 6 cifre</b>. Da quel momento l’assistente si avvia con Windows.</li>
+</ol>
+<h2>2. Stampa dal telefono</h2>
+<ol><li>Collega telefono e PC alla <b>stessa Wi-Fi</b>.</li><li>In Daopen: Stampa → <b>Stampa tramite PC</b>.</li><li>Scegli il PC e inserisci il codice mostrato (solo la prima volta).</li><li>Scegli stampante e copie, poi <b>Stampa</b>.</li></ol>
+<h2>Se non funziona</h2>
+<div class="box"><p>• Il PC non compare? Controlla che siano sulla stessa Wi-Fi o usa <b>Inserisci indirizzo</b> con l’indirizzo mostrato dall’assistente.</p><p>• Se l’antivirus blocca, scegli <b>Consenti</b>.</p><p>• Non vedi la finestra? Avvia di nuovo il file: la finestra aperta passa in primo piano.</p><p>• Per scollegare i telefoni, fai clic su <b>Disconnetti</b> nell’assistente.</p></div>
+<p class="small">I documenti non vanno mai su Internet. Passano solo dal telefono al PC sulla stessa Wi-Fi e vengono eliminati dal PC dopo la stampa.</p>
+<h2>Domande frequenti</h2>
+<details><summary>Posso installarlo su più PC?</summary><p>Sì. Installalo su ogni PC con stampante e compariranno tutti nell’elenco del telefono.</p></details><details><summary>Ho dimenticato il codice.</summary><p>È sempre visibile nell’assistente. Se non vedi la finestra, avvia di nuovo il file. Puoi anche creare un «Nuovo codice».</p></details><details><summary>Posso chiudere la finestra?</summary><p>Sì. L’assistente resta attivo nella barra delle applicazioni (in basso a destra) e si avvia con il PC.</p></details><details><summary>Funziona da ovunque?</summary><p>No. Solo con telefono e PC sulla stessa Wi-Fi, così i documenti non vanno su Internet.</p></details><details><summary>Come lo rimuovo?</summary><p>Clic destro sull’icona dell’assistente nella barra delle applicazioni, togli la spunta a «Avvia con Windows», fai clic su «Esci» e cancella il file scaricato.</p></details>
+<p class="foot"><a href="https://mungworks.com/daopen.html">Privacy</a></p>
+</section>
+<section data-l="pt" lang="pt">
+<h1>Daopen PC Print Helper</h1>
+<p class="lead">Imprima documentos do celular em uma impressora ligada por USB ao PC. Grátis, sem cadastro, Windows 10 e 11.</p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Baixar para Windows (zip, cerca de 80 MB)</a></p>
+<p class="small">Impressoras Wi-Fi não precisam do assistente: no Daopen toque em "Imprimir deste celular".</p>
+<h2>1. No PC (só uma vez)</h2>
+<ol>
+<li>No PC com a impressora, baixe o arquivo, extraia e execute <b>DaopenPrintHelper.exe</b>.</li>
+<li>Se aparecer a janela azul <b>"O Windows protegeu o computador"</b>, não se preocupe: clique em <b class="btn">Mais informações</b> abaixo do texto e depois no novo botão <b class="btn">Executar assim mesmo</b>. (Não clique em "Não executar".)<div class="ssrow" aria-hidden="true">
+<div class="sswrap"><div class="tag">① Primeiro</div><div class="ss"><div class="sst">O Windows protegeu o computador</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">Mais informações</div><div class="btns"><span class="wb">Não executar</span></div></div></div>
+<div class="sswrap"><div class="tag">② Depois</div><div class="ss"><div class="sst">O Windows protegeu o computador</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Executar assim mesmo</span><span class="wb">Não executar</span></div></div></div>
+</div><span class="small">O Windows mostra isso uma vez porque o programa é novo e ainda pouco baixado. Não é vírus.</span></li>
+<li>Se aparecer uma janela do firewall, clique em <b class="btn">Permitir acesso</b>.</li>
+<li>Aparece um <b>código de 6 dígitos</b>. Daí em diante o assistente abre junto com o Windows.</li>
+</ol>
+<h2>2. Imprimir pelo celular</h2>
+<ol><li>Conecte o celular e o PC ao <b>mesmo Wi-Fi</b>.</li><li>No Daopen: Imprimir → <b>Imprimir pelo PC</b>.</li><li>Escolha o PC e digite o código mostrado nele (só na primeira vez).</li><li>Escolha a impressora e as cópias e toque em <b>Imprimir</b>.</li></ol>
+<h2>Se não funcionar</h2>
+<div class="box"><p>• O PC não aparece? Confira se estão no mesmo Wi-Fi ou use <b>Digitar endereço</b> com o endereço mostrado no assistente.</p><p>• Se o antivírus bloquear, escolha <b>Permitir</b>.</p><p>• Não vê a janela? Execute o arquivo de novo e ela vem para a frente.</p><p>• Para desconectar os celulares, clique em <b>Desconectar</b> no assistente.</p></div>
+<p class="small">Seus documentos nunca vão para a internet. Só vão do celular ao PC no mesmo Wi-Fi e são apagados do PC após a impressão.</p>
+<h2>Perguntas frequentes</h2>
+<details><summary>Posso instalar em vários PCs?</summary><p>Sim. Instale em cada PC com impressora e todos aparecem na lista do celular.</p></details><details><summary>Esqueci o código.</summary><p>Ele sempre aparece na janela do assistente. Se não vir a janela, execute o arquivo de novo. Também dá para criar um "Novo código".</p></details><details><summary>Posso fechar a janela?</summary><p>Sim. O assistente continua na barra de tarefas (canto inferior direito) e abre de novo com o PC.</p></details><details><summary>Funciona de qualquer lugar?</summary><p>Não. Só com o celular e o PC no mesmo Wi-Fi, para que os documentos não vão para a internet.</p></details><details><summary>Como removo?</summary><p>Clique com o botão direito no ícone do assistente na barra de tarefas, desmarque "Iniciar com o Windows", clique em "Sair" e apague o arquivo baixado.</p></details>
+<p class="foot"><a href="https://mungworks.com/daopen.html">Privacidade</a></p>
+</section>
+<section data-l="ru" lang="ru">
+<h1>Daopen PC Print Helper</h1>
+<p class="lead">Печатайте документы с телефона на принтере, подключённом к ПК по USB. Бесплатно, без регистрации, Windows 10 и 11.</p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Скачать для Windows (zip, около 80 МБ)</a></p>
+<p class="small">Для Wi-Fi-принтеров помощник не нужен: в Daopen просто выберите «Печать с этого телефона».</p>
+<h2>1. На ПК (один раз)</h2>
+<ol>
+<li>На ПК с принтером скачайте файл, распакуйте его и запустите <b>DaopenPrintHelper.exe</b>.</li>
+<li>Если появилось синее окно <b>«Система Windows защитила ваш компьютер»</b>, не волнуйтесь: нажмите <b class="btn">Подробнее</b> под текстом, затем новую кнопку <b class="btn">Выполнить в любом случае</b>. (Не нажимайте «Не выполнять».)<div class="ssrow" aria-hidden="true">
+<div class="sswrap"><div class="tag">① Сначала</div><div class="ss"><div class="sst">Система Windows защитила ваш компьютер</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">Подробнее</div><div class="btns"><span class="wb">Не выполнять</span></div></div></div>
+<div class="sswrap"><div class="tag">② Затем</div><div class="ss"><div class="sst">Система Windows защитила ваш компьютер</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Выполнить в любом случае</span><span class="wb">Не выполнять</span></div></div></div>
+</div><span class="small">Windows показывает это один раз, потому что программа новая и её ещё мало скачивали. Это не вирус.</span></li>
+<li>Если появится окно брандмауэра, нажмите <b class="btn">Разрешить доступ</b>.</li>
+<li>Появится <b>6-значный код подключения</b>. Дальше помощник запускается вместе с Windows.</li>
+</ol>
+<h2>2. Печать с телефона</h2>
+<ol><li>Подключите телефон и ПК к <b>одной сети Wi-Fi</b>.</li><li>В Daopen: Печать → <b>Печать через ПК</b>.</li><li>Выберите ПК и введите код с его экрана (только в первый раз).</li><li>Выберите принтер и число копий, затем <b>Печать</b>.</li></ol>
+<h2>Если не получается</h2>
+<div class="box"><p>• ПК не виден? Проверьте, что сеть Wi-Fi одна, или используйте <b>Ввести адрес</b> с адресом из окна помощника.</p><p>• Если блокирует антивирус, выберите <b>Разрешить</b>.</p><p>• Не видно окна помощника? Запустите файл ещё раз — окно появится впереди.</p><p>• Чтобы отвязать телефоны, нажмите <b>Отключить</b> в окне помощника.</p></div>
+<p class="small">Документы не уходят в интернет. Они идут только с телефона на ПК в одной сети Wi-Fi и удаляются с ПК после печати.</p>
+<h2>Частые вопросы</h2>
+<details><summary>Можно установить на несколько ПК?</summary><p>Да. Установите на каждый ПК с принтером — все они появятся в списке на телефоне.</p></details><details><summary>Я забыл код.</summary><p>Он всегда виден в окне помощника. Если окна не видно, запустите файл ещё раз. Можно также создать «Новый код».</p></details><details><summary>Можно закрыть окно помощника?</summary><p>Да. Помощник продолжает работать в области уведомлений (справа внизу) и запускается вместе с ПК.</p></details><details><summary>Работает откуда угодно?</summary><p>Нет. Только когда телефон и ПК в одной сети Wi-Fi — так документы не попадают в интернет.</p></details><details><summary>Как удалить?</summary><p>Щёлкните правой кнопкой по значку помощника в области уведомлений, снимите «Запускать вместе с Windows», нажмите «Выход» и удалите скачанный файл.</p></details>
+<p class="foot"><a href="https://mungworks.com/daopen.html">Конфиденциальность</a></p>
+</section>
+<section data-l="vi" lang="vi">
+<h1>Daopen PC Print Helper</h1>
+<p class="lead">In tài liệu từ điện thoại ra máy in cắm USB vào PC. Miễn phí, không cần đăng ký, Windows 10 và 11.</p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Tải cho Windows (zip, khoảng 80 MB)</a></p>
+<p class="small">Máy in Wi-Fi không cần trình trợ giúp: chỉ cần chọn "In từ điện thoại này" trong Daopen.</p>
+<h2>1. Trên PC (chỉ một lần)</h2>
+<ol>
+<li>Trên PC có máy in, tải tệp ở trên, giải nén rồi chạy <b>DaopenPrintHelper.exe</b>.</li>
+<li>Nếu hiện cửa sổ xanh <b>"Windows đã bảo vệ PC của bạn"</b>, đừng lo. Bấm <b class="btn">Thông tin khác</b> bên dưới dòng chữ, rồi bấm nút mới <b class="btn">Vẫn chạy</b>. (Đừng bấm "Không chạy".)<div class="ssrow" aria-hidden="true">
+<div class="sswrap"><div class="tag">① Bấm trước</div><div class="ss"><div class="sst">Windows đã bảo vệ PC của bạn</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">Thông tin khác</div><div class="btns"><span class="wb">Không chạy</span></div></div></div>
+<div class="sswrap"><div class="tag">② Rồi bấm</div><div class="ss"><div class="sst">Windows đã bảo vệ PC của bạn</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Vẫn chạy</span><span class="wb">Không chạy</span></div></div></div>
+</div><span class="small">Windows hiện cảnh báo này một lần vì chương trình còn mới, ít người tải. Đây không phải virus.</span></li>
+<li>Nếu hiện cửa sổ tường lửa, bấm <b class="btn">Cho phép truy cập</b>.</li>
+<li><b>Mã kết nối 6 số</b> sẽ hiện ra. Từ đó trình trợ giúp tự chạy khi bật Windows.</li>
+</ol>
+<h2>2. In từ điện thoại</h2>
+<ol><li>Kết nối điện thoại và PC vào <b>cùng một Wi-Fi</b>.</li><li>Trong Daopen: In → <b>In qua PC</b>.</li><li>Chọn PC và nhập mã trên màn hình PC (chỉ lần đầu).</li><li>Chọn máy in và số bản, rồi <b>In</b>.</li></ol>
+<h2>Khi không in được</h2>
+<div class="box"><p>• Không thấy PC? Kiểm tra cùng Wi-Fi, hoặc dùng <b>Nhập địa chỉ</b> với địa chỉ trong cửa sổ trình trợ giúp.</p><p>• Nếu phần mềm diệt virus chặn, hãy chọn <b>Cho phép</b>.</p><p>• Không thấy cửa sổ? Chạy lại tệp, cửa sổ đang mở sẽ hiện lên trước.</p><p>• Để ngắt điện thoại, bấm <b>Ngắt kết nối</b> trong cửa sổ trình trợ giúp.</p></div>
+<p class="small">Tài liệu không bao giờ lên internet. Chỉ đi từ điện thoại sang PC trong cùng Wi-Fi và bị xóa khỏi PC sau khi in.</p>
+<h2>Câu hỏi thường gặp</h2>
+<details><summary>Cài trên nhiều PC được không?</summary><p>Được. Cài trên mỗi PC có máy in, tất cả sẽ hiện trong danh sách trên điện thoại.</p></details><details><summary>Tôi quên mã.</summary><p>Mã luôn hiện trong cửa sổ trình trợ giúp. Nếu không thấy cửa sổ, chạy lại tệp. Cũng có thể tạo "Mã mới".</p></details><details><summary>Đóng cửa sổ có sao không?</summary><p>Không sao. Trình trợ giúp vẫn chạy trên thanh tác vụ (góc dưới phải) và tự bật cùng PC.</p></details><details><summary>In từ bất cứ đâu được không?</summary><p>Không. Chỉ khi điện thoại và PC cùng Wi-Fi, để tài liệu không lên internet.</p></details><details><summary>Gỡ thế nào?</summary><p>Bấm chuột phải vào biểu tượng trình trợ giúp trên thanh tác vụ, bỏ chọn "Khởi động cùng Windows", bấm "Thoát" rồi xóa tệp đã tải.</p></details>
+<p class="foot"><a href="https://mungworks.com/daopen.html">Quyền riêng tư</a></p>
+</section>
+<section data-l="zh" lang="zh">
+<h1>Daopen PC 打印助手</h1>
+<p class="lead">用通过 USB 连接电脑的打印机打印手机里的文档。免费、无需注册，支持 Windows 10 和 11。</p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">下载 Windows 版（zip，约 80 MB）</a></p>
+<p class="small">Wi-Fi 打印机不需要助手：在 Daopen 中直接选择“用这部手机打印”即可。</p>
+<h2>1. 在电脑上（仅一次）</h2>
+<ol>
+<li>在连接打印机的电脑上下载上面的文件，解压后运行 <b>DaopenPrintHelper.exe</b>。</li>
+<li>如果出现蓝色的 <b>“Windows 已保护你的电脑”</b> 窗口，不用担心：点击文字下方的 <b class="btn">更多信息</b>，再点击新出现的 <b class="btn">仍要运行</b> 按钮。（不要点“不运行”。）<div class="ssrow" aria-hidden="true">
+<div class="sswrap"><div class="tag">① 先点</div><div class="ss"><div class="sst">Windows 已保护你的电脑</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">更多信息</div><div class="btns"><span class="wb">不运行</span></div></div></div>
+<div class="sswrap"><div class="tag">② 再点</div><div class="ss"><div class="sst">Windows 已保护你的电脑</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">仍要运行</span><span class="wb">不运行</span></div></div></div>
+</div><span class="small">这是新程序、下载的人还不多，所以 Windows 第一次会提示。这不是病毒。</span></li>
+<li>如果出现防火墙窗口，请点击 <b class="btn">允许访问</b>。</li>
+<li>屏幕上会出现 <b>6 位连接码</b>。之后每次开机助手都会自动运行。</li>
+</ol>
+<h2>2. 从手机打印</h2>
+<ol><li>让手机和电脑连接<b>同一个 Wi-Fi</b>。</li><li>在 Daopen 中：打印 → <b>通过电脑打印</b>。</li><li>选择电脑，并输入电脑屏幕上的连接码（仅第一次）。</li><li>选择打印机和份数，然后点击<b>打印</b>。</li></ol>
+<h2>无法打印时</h2>
+<div class="box"><p>• 找不到电脑？请确认在同一个 Wi-Fi，或用<b>输入地址</b>输入助手窗口中显示的地址。</p><p>• 如果杀毒软件拦截，请选择<b>允许</b>。</p><p>• 看不到助手窗口？再运行一次文件，窗口会显示在最前面。</p><p>• 要断开手机，请在助手窗口中点击<b>断开连接</b>。</p></div>
+<p class="small">文档不会上传到互联网，只在同一个 Wi-Fi 内从手机传到电脑，打印后立即从电脑删除。</p>
+<h2>常见问题</h2>
+<details><summary>可以安装在多台电脑上吗？</summary><p>可以。在每台连接打印机的电脑上安装，它们都会出现在手机的电脑列表中。</p></details><details><summary>忘记连接码了。</summary><p>连接码一直显示在助手窗口中。看不到窗口时，再运行一次文件。也可以点击“新连接码”更换。</p></details><details><summary>可以关闭助手窗口吗？</summary><p>可以。关闭后助手仍在任务栏（右下角）运行，电脑开机时也会自动启动。</p></details><details><summary>在任何地方都能打印吗？</summary><p>不能。只有手机和电脑在同一个 Wi-Fi 时才可以，这样文档不会上传到互联网。</p></details><details><summary>如何删除？</summary><p>在任务栏右键点击助手图标，取消勾选“随 Windows 启动”，点击“退出”，然后删除下载的文件。</p></details>
+<p class="foot"><a href="https://mungworks.com/daopen.html">隐私政策</a></p>
+</section>
+<footer>© Meongmungi (Mung Works) · contact@mungworks.com</footer>
 </main>
 <script>
 (function(){
-  var ok=['ko','en','ja','de'];
-  function set(l){document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l;
-    document.querySelectorAll('.langs button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.set===l)});}
+  var ok=["ko", "en", "ja", "de", "es", "fr", "id", "it", "pt", "ru", "vi", "zh"];
+  var sel=document.getElementById('lang');
+  function set(l){document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l;sel.value=l;}
   var q=(location.search.match(/[?&]lang=(\w+)/)||[])[1];
   var n=(navigator.language||'en').slice(0,2).toLowerCase();
   set(ok.indexOf(q)>=0?q:(ok.indexOf(n)>=0?n:'en'));
-  document.querySelectorAll('.langs button').forEach(function(b){b.onclick=function(){set(b.dataset.set)}});
+  sel.onchange=function(){set(sel.value)};
 })();
 </script>
 </body>
