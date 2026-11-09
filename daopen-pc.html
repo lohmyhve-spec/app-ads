@@ -42,6 +42,7 @@ b.btn{border:1px solid var(--line);border-radius:6px;padding:0 6px;font-weight:6
 details{border-top:1px solid var(--line);padding:10px 0}
 details summary{cursor:pointer;font-weight:600}
 details p{margin:.5em 0 0;color:var(--muted)}
+code{font-size:.85em;background:var(--box);border:1px solid var(--line);border-radius:4px;padding:0 4px;word-break:break-all}
 .foot{margin-top:2.5em;color:var(--muted);font-size:.85rem}
 footer{color:var(--muted);font-size:.85rem}
 [data-l]{display:none}
@@ -54,11 +55,11 @@ html[data-lang=ko] [data-l=ko],html[data-lang=en] [data-l=en],html[data-lang=ja]
 <section data-l="ko" lang="ko">
 <h1>다오픈 PC 인쇄 도우미</h1>
 <p class="lead">PC에 USB로 연결된 프린터로 폰 문서를 인쇄합니다. 무료, 회원가입 없음, 윈도우 10·11.</p>
-<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">윈도우용 받기 (zip, 약 80MB)</a></p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.2/DaopenPrintHelper-1.0.2-win-x64.zip">윈도우용 받기 (zip, 약 80MB)</a></p>
 <p class="small">와이파이 프린터는 도우미 없이 다오픈에서 "이 폰으로 인쇄"을 누르면 바로 됩니다.</p>
 <h2>1. PC에서 처음 한 번만</h2>
 <ol>
-<li>프린터가 연결된 PC에서 위 버튼으로 받고, 압축을 풀어 <b>DaopenPrintHelper.exe</b>를 실행합니다.</li>
+<li>프린터가 연결된 PC에서 위 버튼으로 받고, 받은 zip 파일을 열어 <b>DaopenPrintHelper.exe</b>를 더블클릭합니다. (도우미가 알아서 PC 안에 자리를 잡습니다)</li>
 <li>파란 <b>"Windows의 PC 보호"</b> 창이 떠도 놀라지 마세요. 글 아래 <b class="btn">추가 정보</b>를 누르고, 새로 생기는 <b class="btn">실행</b> 버튼을 누릅니다. ("실행 안 함"는 누르지 마세요)<div class="ssrow" aria-hidden="true">
 <div class="sswrap"><div class="tag">① 먼저 누르기</div><div class="ss"><div class="sst">Windows의 PC 보호</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">추가 정보</div><div class="btns"><span class="wb">실행 안 함</span></div></div></div>
 <div class="sswrap"><div class="tag">② 그다음 누르기</div><div class="ss"><div class="sst">Windows의 PC 보호</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">실행</span><span class="wb">실행 안 함</span></div></div></div>
@@ -72,17 +73,17 @@ html[data-lang=ko] [data-l=ko],html[data-lang=en] [data-l=en],html[data-lang=ja]
 <div class="box"><p>• PC가 안 보이면 폰과 PC가 같은 와이파이인지 확인하세요. 그래도 안 되면 <b>주소 직접 입력</b>에 도우미 창에 나온 주소를 넣으세요.</p><p>• 백신(알약 등)이 막으면 <b>허용</b>을 눌러 주세요.</p><p>• 도우미 창이 안 보이면 받은 파일을 한 번 더 실행하세요. 켜져 있던 창이 앞으로 나옵니다.</p><p>• 연결을 끊으려면 도우미 창의 <b>연결 끊기</b>를 누르세요.</p></div>
 <p class="small">문서는 인터넷으로 올라가지 않습니다. 같은 와이파이 안에서 폰에서 PC로만 가고, 인쇄가 끝나면 PC에서 바로 지워집니다.</p>
 <h2>자주 묻는 질문</h2>
-<details><summary>여러 PC에 깔아도 되나요?</summary><p>네. 프린터가 연결된 PC마다 깔면 폰의 PC 목록에 모두 보입니다.</p></details><details><summary>연결 코드를 잊어버렸어요.</summary><p>도우미 창에 항상 보입니다. 창이 안 보이면 받은 파일을 한 번 더 실행하세요. "새 코드 만들기"로 바꿀 수도 있습니다.</p></details><details><summary>도우미 창을 닫아도 되나요?</summary><p>네. 창을 닫아도 작업 표시줄(오른쪽 아래)에서 계속 켜져 있고, PC를 다시 켜면 자동으로 켜집니다.</p></details><details><summary>다른 곳에서도 인쇄되나요?</summary><p>아니요. 폰과 PC가 같은 와이파이에 있을 때만 됩니다. 문서를 인터넷으로 보내지 않기 위해서입니다.</p></details><details><summary>지우려면요?</summary><p>작업 표시줄의 도우미 아이콘을 오른쪽 클릭해 "윈도우 시작할 때 자동 실행" 체크를 끄고 "종료"를 누른 뒤, 받은 파일을 지우면 됩니다.</p></details>
+<details><summary>여러 PC에 깔아도 되나요?</summary><p>네. 프린터가 연결된 PC마다 깔면 폰의 PC 목록에 모두 보입니다.</p></details><details><summary>연결 코드를 잊어버렸어요.</summary><p>도우미 창에 항상 보입니다. 창이 안 보이면 받은 파일을 한 번 더 실행하세요. "새 코드 만들기"로 바꿀 수도 있습니다.</p></details><details><summary>도우미 창을 닫아도 되나요?</summary><p>네. 창을 닫아도 작업 표시줄(오른쪽 아래)에서 계속 켜져 있고, PC를 다시 켜면 자동으로 켜집니다.</p></details><details><summary>다른 곳에서도 인쇄되나요?</summary><p>아니요. 폰과 PC가 같은 와이파이에 있을 때만 됩니다. 문서를 인터넷으로 보내지 않기 위해서입니다.</p></details><details><summary>지우려면요?</summary><p>작업 표시줄의 도우미 아이콘을 오른쪽 클릭해 "윈도우 시작할 때 자동 실행" 체크를 끄고 "종료"를 누른 뒤, 탐색기 주소창에 <code>%LOCALAPPDATA%\DaopenPrintHelper</code> 를 넣어 열리는 폴더를 지우면 됩니다.</p></details>
 <p class="foot"><a href="https://mungworks.com/daopen.html">개인정보처리방침</a></p>
 </section>
 <section data-l="en" lang="en">
 <h1>Daopen PC Print Helper</h1>
 <p class="lead">Print documents from your phone on a printer connected to your PC by USB. Free, no sign-up, Windows 10 and 11.</p>
-<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Download for Windows (zip, about 80 MB)</a></p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.2/DaopenPrintHelper-1.0.2-win-x64.zip">Download for Windows (zip, about 80 MB)</a></p>
 <p class="small">Wi-Fi printers don’t need the helper: just tap "Print from this phone" in Daopen.</p>
 <h2>1. On the PC (once)</h2>
 <ol>
-<li>On the PC with the printer, download the file above, unzip it and run <b>DaopenPrintHelper.exe</b>.</li>
+<li>On the PC with the printer, download the file above, open the zip and double-click <b>DaopenPrintHelper.exe</b>. (The helper installs itself on the PC.)</li>
 <li>If a blue <b>"Windows protected your PC"</b> window appears, don’t worry. Click <b class="btn">More info</b> under the text, then the new <b class="btn">Run anyway</b> button. (Don’t click "Don't run".)<div class="ssrow" aria-hidden="true">
 <div class="sswrap"><div class="tag">① Click first</div><div class="ss"><div class="sst">Windows protected your PC</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">More info</div><div class="btns"><span class="wb">Don&#x27;t run</span></div></div></div>
 <div class="sswrap"><div class="tag">② Then click</div><div class="ss"><div class="sst">Windows protected your PC</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Run anyway</span><span class="wb">Don&#x27;t run</span></div></div></div>
@@ -96,17 +97,17 @@ html[data-lang=ko] [data-l=ko],html[data-lang=en] [data-l=en],html[data-lang=ja]
 <div class="box"><p>• PC not listed? Check that both are on the same Wi-Fi, or use <b>Enter address</b> with the address shown in the helper window.</p><p>• If your antivirus blocks it, choose <b>Allow</b>.</p><p>• Can’t see the helper window? Run the file again; the open window comes to the front.</p><p>• To unlink phones, click <b>Unpair</b> in the helper window.</p></div>
 <p class="small">Your documents never go to the internet. They travel only from your phone to your PC on the same Wi-Fi and are deleted from the PC after printing.</p>
 <h2>FAQ</h2>
-<details><summary>Can I install it on several PCs?</summary><p>Yes. Install it on each PC with a printer and they all appear in the list on your phone.</p></details><details><summary>I forgot the pairing code.</summary><p>It is always shown in the helper window. If you can’t see the window, run the file again. You can also make a "New code".</p></details><details><summary>Can I close the helper window?</summary><p>Yes. It keeps running in the system tray (bottom right) and starts again when the PC turns on.</p></details><details><summary>Does it work from anywhere?</summary><p>No. Only when the phone and the PC are on the same Wi-Fi, so your documents never go to the internet.</p></details><details><summary>How do I remove it?</summary><p>Right-click the helper icon in the system tray, uncheck "Start with Windows", click "Quit", then delete the downloaded file.</p></details>
+<details><summary>Can I install it on several PCs?</summary><p>Yes. Install it on each PC with a printer and they all appear in the list on your phone.</p></details><details><summary>I forgot the pairing code.</summary><p>It is always shown in the helper window. If you can’t see the window, run the file again. You can also make a "New code".</p></details><details><summary>Can I close the helper window?</summary><p>Yes. It keeps running in the system tray (bottom right) and starts again when the PC turns on.</p></details><details><summary>Does it work from anywhere?</summary><p>No. Only when the phone and the PC are on the same Wi-Fi, so your documents never go to the internet.</p></details><details><summary>How do I remove it?</summary><p>Right-click the helper icon in the system tray, uncheck "Start with Windows" and click "Quit". Then type <code>%LOCALAPPDATA%\DaopenPrintHelper</code> in the File Explorer address bar and delete that folder.</p></details>
 <p class="foot"><a href="https://mungworks.com/daopen.html">Privacy</a></p>
 </section>
 <section data-l="ja" lang="ja">
 <h1>Daopen PC印刷ヘルパー</h1>
 <p class="lead">PCにUSBでつないだプリンターで、スマホの文書を印刷できます。無料・登録不要・Windows 10/11。</p>
-<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Windows版をダウンロード（zip・約80MB）</a></p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.2/DaopenPrintHelper-1.0.2-win-x64.zip">Windows版をダウンロード（zip・約80MB）</a></p>
 <p class="small">Wi-Fiプリンターはヘルパー不要です。Daopenで「このスマホで印刷」を選ぶだけです。</p>
 <h2>1. PCで最初の1回だけ</h2>
 <ol>
-<li>プリンターをつないだPCで上のファイルをダウンロードし、展開して <b>DaopenPrintHelper.exe</b> を実行します。</li>
+<li>プリンターをつないだPCで上のファイルをダウンロードし、zipを開いて <b>DaopenPrintHelper.exe</b> をダブルクリックします。（ヘルパーが自動でPCに配置されます）</li>
 <li>青い <b>「Windows によって PC が保護されました」</b> 画面が出ても心配いりません。文の下の <b class="btn">詳細情報</b> を押し、新しく出る <b class="btn">実行</b> ボタンを押します。（「実行しない」は押さないでください）<div class="ssrow" aria-hidden="true">
 <div class="sswrap"><div class="tag">① まず押す</div><div class="ss"><div class="sst">Windows によって PC が保護されました</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">詳細情報</div><div class="btns"><span class="wb">実行しない</span></div></div></div>
 <div class="sswrap"><div class="tag">② 次に押す</div><div class="ss"><div class="sst">Windows によって PC が保護されました</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">実行</span><span class="wb">実行しない</span></div></div></div>
@@ -120,17 +121,17 @@ html[data-lang=ko] [data-l=ko],html[data-lang=en] [data-l=en],html[data-lang=ja]
 <div class="box"><p>• PCが見つからないときは同じWi-Fiか確認し、<b>アドレスを入力</b>にヘルパー画面のアドレスを入れてください。</p><p>• ウイルス対策ソフトが止めたら<b>許可</b>してください。</p><p>• ヘルパーの画面が見えないときは、もう一度ファイルを実行すると前面に出ます。</p><p>• 接続を解除するにはヘルパー画面の<b>接続解除</b>を押します。</p></div>
 <p class="small">文書はインターネットに送られません。同じWi-Fi内でスマホからPCへ送られ、印刷後すぐPCから削除されます。</p>
 <h2>よくある質問</h2>
-<details><summary>複数のPCに入れてもいいですか？</summary><p>はい。プリンターをつないだPCごとに入れると、スマホのPC一覧にすべて表示されます。</p></details><details><summary>接続コードを忘れました。</summary><p>ヘルパー画面に常に表示されています。画面が見えないときはファイルをもう一度実行してください。「新しいコード」で変えることもできます。</p></details><details><summary>ヘルパー画面を閉じてもいいですか？</summary><p>はい。閉じてもタスクバー（右下）で動き続け、PCを起動すると自動で始まります。</p></details><details><summary>外出先からも印刷できますか？</summary><p>いいえ。スマホとPCが同じWi-Fiにあるときだけです。文書をインターネットに送らないためです。</p></details><details><summary>削除するには？</summary><p>タスクバーのヘルパーアイコンを右クリックし「Windows起動時に自動で開始」のチェックを外して「終了」を押し、ダウンロードしたファイルを削除します。</p></details>
+<details><summary>複数のPCに入れてもいいですか？</summary><p>はい。プリンターをつないだPCごとに入れると、スマホのPC一覧にすべて表示されます。</p></details><details><summary>接続コードを忘れました。</summary><p>ヘルパー画面に常に表示されています。画面が見えないときはファイルをもう一度実行してください。「新しいコード」で変えることもできます。</p></details><details><summary>ヘルパー画面を閉じてもいいですか？</summary><p>はい。閉じてもタスクバー（右下）で動き続け、PCを起動すると自動で始まります。</p></details><details><summary>外出先からも印刷できますか？</summary><p>いいえ。スマホとPCが同じWi-Fiにあるときだけです。文書をインターネットに送らないためです。</p></details><details><summary>削除するには？</summary><p>タスクバーのヘルパーアイコンを右クリックし「Windows起動時に自動で開始」のチェックを外して「終了」を押します。次にエクスプローラーのアドレス欄に <code>%LOCALAPPDATA%\DaopenPrintHelper</code> と入力し、そのフォルダーを削除します。</p></details>
 <p class="foot"><a href="https://mungworks.com/daopen.html">プライバシーポリシー</a></p>
 </section>
 <section data-l="de" lang="de">
 <h1>Daopen PC-Druckhelfer</h1>
 <p class="lead">Drucke Dokumente vom Handy auf einem per USB am PC angeschlossenen Drucker. Kostenlos, ohne Konto, Windows 10 und 11.</p>
-<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Für Windows herunterladen (zip, ca. 80 MB)</a></p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.2/DaopenPrintHelper-1.0.2-win-x64.zip">Für Windows herunterladen (zip, ca. 80 MB)</a></p>
 <p class="small">WLAN-Drucker brauchen den Helfer nicht: in Daopen einfach „Von diesem Handy drucken“ wählen.</p>
 <h2>1. Am PC (einmalig)</h2>
 <ol>
-<li>Auf dem PC mit dem Drucker die Datei oben laden, entpacken und <b>DaopenPrintHelper.exe</b> starten.</li>
+<li>Auf dem PC mit dem Drucker die Datei oben laden, die ZIP-Datei öffnen und <b>DaopenPrintHelper.exe</b> doppelt anklicken. (Der Helfer installiert sich selbst.)</li>
 <li>Erscheint das blaue Fenster <b>„Der Computer wurde durch Windows geschützt“</b>, keine Sorge: unter dem Text auf <b class="btn">Weitere Informationen</b> klicken, dann auf die neue Schaltfläche <b class="btn">Trotzdem ausführen</b>. (Nicht auf „Nicht ausführen“ klicken.)<div class="ssrow" aria-hidden="true">
 <div class="sswrap"><div class="tag">① Zuerst klicken</div><div class="ss"><div class="sst">Der Computer wurde durch Windows geschützt</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">Weitere Informationen</div><div class="btns"><span class="wb">Nicht ausführen</span></div></div></div>
 <div class="sswrap"><div class="tag">② Dann klicken</div><div class="ss"><div class="sst">Der Computer wurde durch Windows geschützt</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Trotzdem ausführen</span><span class="wb">Nicht ausführen</span></div></div></div>
@@ -144,17 +145,17 @@ html[data-lang=ko] [data-l=ko],html[data-lang=en] [data-l=en],html[data-lang=ja]
 <div class="box"><p>• PC nicht gefunden? Gleiches WLAN prüfen oder <b>Adresse eingeben</b> mit der Adresse aus dem Helferfenster nutzen.</p><p>• Blockiert der Virenschutz, bitte <b>Zulassen</b> wählen.</p><p>• Helferfenster nicht sichtbar? Datei erneut starten, das Fenster kommt nach vorn.</p><p>• Zum Trennen im Helferfenster <b>Trennen</b> klicken.</p></div>
 <p class="small">Deine Dokumente gehen nicht ins Internet. Sie gehen nur im selben WLAN vom Handy zum PC und werden nach dem Druck vom PC gelöscht.</p>
 <h2>Häufige Fragen</h2>
-<details><summary>Kann ich ihn auf mehreren PCs installieren?</summary><p>Ja. Auf jedem PC mit Drucker installieren – alle erscheinen in der Liste auf dem Handy.</p></details><details><summary>Ich habe den Code vergessen.</summary><p>Er steht immer im Helferfenster. Ist das Fenster nicht sichtbar, die Datei erneut starten. Mit „Neuer Code“ lässt er sich ändern.</p></details><details><summary>Darf ich das Helferfenster schließen?</summary><p>Ja. Der Helfer läuft im Infobereich (unten rechts) weiter und startet mit dem PC automatisch.</p></details><details><summary>Funktioniert es von überall?</summary><p>Nein. Nur wenn Handy und PC im selben WLAN sind – so gehen Dokumente nie ins Internet.</p></details><details><summary>Wie entferne ich ihn?</summary><p>Im Infobereich mit rechts auf das Helfer-Symbol klicken, „Mit Windows starten“ abwählen, „Beenden“ klicken und die geladene Datei löschen.</p></details>
+<details><summary>Kann ich ihn auf mehreren PCs installieren?</summary><p>Ja. Auf jedem PC mit Drucker installieren – alle erscheinen in der Liste auf dem Handy.</p></details><details><summary>Ich habe den Code vergessen.</summary><p>Er steht immer im Helferfenster. Ist das Fenster nicht sichtbar, die Datei erneut starten. Mit „Neuer Code“ lässt er sich ändern.</p></details><details><summary>Darf ich das Helferfenster schließen?</summary><p>Ja. Der Helfer läuft im Infobereich (unten rechts) weiter und startet mit dem PC automatisch.</p></details><details><summary>Funktioniert es von überall?</summary><p>Nein. Nur wenn Handy und PC im selben WLAN sind – so gehen Dokumente nie ins Internet.</p></details><details><summary>Wie entferne ich ihn?</summary><p>Im Infobereich mit rechts auf das Helfer-Symbol klicken, „Mit Windows starten“ abwählen und „Beenden“ klicken. Dann im Explorer <code>%LOCALAPPDATA%\DaopenPrintHelper</code> eingeben und diesen Ordner löschen.</p></details>
 <p class="foot"><a href="https://mungworks.com/daopen.html">Datenschutz</a></p>
 </section>
 <section data-l="es" lang="es">
 <h1>Daopen PC Print Helper</h1>
 <p class="lead">Imprime documentos del teléfono en una impresora conectada por USB a tu PC. Gratis, sin registro, Windows 10 y 11.</p>
-<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Descargar para Windows (zip, unos 80 MB)</a></p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.2/DaopenPrintHelper-1.0.2-win-x64.zip">Descargar para Windows (zip, unos 80 MB)</a></p>
 <p class="small">Las impresoras Wi-Fi no necesitan el asistente: en Daopen toca «Imprimir desde este teléfono».</p>
 <h2>1. En el PC (solo una vez)</h2>
 <ol>
-<li>En el PC con la impresora, descarga el archivo, descomprímelo y ejecuta <b>DaopenPrintHelper.exe</b>.</li>
+<li>En el PC con la impresora, descarga el archivo, abre el zip y haz doble clic en <b>DaopenPrintHelper.exe</b>. (El asistente se instala solo.)</li>
 <li>Si aparece la ventana azul <b>«Windows protegió su PC»</b>, tranquilo: pulsa <b class="btn">Más información</b> bajo el texto y luego el nuevo botón <b class="btn">Ejecutar de todas formas</b>. (No pulses «No ejecutar».)<div class="ssrow" aria-hidden="true">
 <div class="sswrap"><div class="tag">① Primero</div><div class="ss"><div class="sst">Windows protegió su PC</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">Más información</div><div class="btns"><span class="wb">No ejecutar</span></div></div></div>
 <div class="sswrap"><div class="tag">② Después</div><div class="ss"><div class="sst">Windows protegió su PC</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Ejecutar de todas formas</span><span class="wb">No ejecutar</span></div></div></div>
@@ -168,17 +169,17 @@ html[data-lang=ko] [data-l=ko],html[data-lang=en] [data-l=en],html[data-lang=ja]
 <div class="box"><p>• ¿No aparece el PC? Comprueba que estén en la misma Wi-Fi o usa <b>Introducir dirección</b> con la dirección de la ventana del asistente.</p><p>• Si el antivirus lo bloquea, elige <b>Permitir</b>.</p><p>• ¿No ves la ventana? Ejecuta el archivo otra vez y pasará al frente.</p><p>• Para desvincular teléfonos, pulsa <b>Desconectar</b> en la ventana del asistente.</p></div>
 <p class="small">Tus documentos no van a internet. Solo viajan del teléfono al PC dentro de la misma Wi-Fi y se borran del PC tras imprimir.</p>
 <h2>Preguntas frecuentes</h2>
-<details><summary>¿Puedo instalarlo en varios PC?</summary><p>Sí. Instálalo en cada PC con impresora y todos aparecerán en la lista del teléfono.</p></details><details><summary>Olvidé el código.</summary><p>Siempre se ve en la ventana del asistente. Si no la ves, ejecuta el archivo otra vez. También puedes crear un «Nuevo código».</p></details><details><summary>¿Puedo cerrar la ventana?</summary><p>Sí. Sigue funcionando en la barra de tareas (abajo a la derecha) y se inicia con el PC.</p></details><details><summary>¿Funciona desde cualquier lugar?</summary><p>No. Solo con el teléfono y el PC en la misma Wi-Fi, para que tus documentos no vayan a internet.</p></details><details><summary>¿Cómo lo quito?</summary><p>Haz clic derecho en el icono del asistente en la barra de tareas, desmarca «Iniciar con Windows», pulsa «Salir» y borra el archivo descargado.</p></details>
+<details><summary>¿Puedo instalarlo en varios PC?</summary><p>Sí. Instálalo en cada PC con impresora y todos aparecerán en la lista del teléfono.</p></details><details><summary>Olvidé el código.</summary><p>Siempre se ve en la ventana del asistente. Si no la ves, ejecuta el archivo otra vez. También puedes crear un «Nuevo código».</p></details><details><summary>¿Puedo cerrar la ventana?</summary><p>Sí. Sigue funcionando en la barra de tareas (abajo a la derecha) y se inicia con el PC.</p></details><details><summary>¿Funciona desde cualquier lugar?</summary><p>No. Solo con el teléfono y el PC en la misma Wi-Fi, para que tus documentos no vayan a internet.</p></details><details><summary>¿Cómo lo quito?</summary><p>Haz clic derecho en el icono del asistente en la barra de tareas, desmarca «Iniciar con Windows» y pulsa «Salir». Luego escribe <code>%LOCALAPPDATA%\DaopenPrintHelper</code> en el Explorador y borra esa carpeta.</p></details>
 <p class="foot"><a href="https://mungworks.com/daopen.html">Privacidad</a></p>
 </section>
 <section data-l="fr" lang="fr">
 <h1>Daopen PC Print Helper</h1>
 <p class="lead">Imprimez les documents du téléphone sur une imprimante reliée en USB à votre PC. Gratuit, sans compte, Windows 10 et 11.</p>
-<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Télécharger pour Windows (zip, env. 80 Mo)</a></p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.2/DaopenPrintHelper-1.0.2-win-x64.zip">Télécharger pour Windows (zip, env. 80 Mo)</a></p>
 <p class="small">Les imprimantes Wi-Fi n’ont pas besoin de l’assistant : dans Daopen, touchez « Imprimer depuis ce téléphone ».</p>
 <h2>1. Sur le PC (une seule fois)</h2>
 <ol>
-<li>Sur le PC relié à l’imprimante, téléchargez le fichier, décompressez-le et lancez <b>DaopenPrintHelper.exe</b>.</li>
+<li>Sur le PC relié à l’imprimante, téléchargez le fichier, ouvrez le zip et double-cliquez sur <b>DaopenPrintHelper.exe</b>. (L’assistant s’installe tout seul.)</li>
 <li>Si la fenêtre bleue <b>« Windows a protégé votre ordinateur »</b> apparaît, pas d’inquiétude : cliquez sur <b class="btn">Informations complémentaires</b> sous le texte, puis sur le nouveau bouton <b class="btn">Exécuter quand même</b>. (Ne cliquez pas sur « Ne pas exécuter ».)<div class="ssrow" aria-hidden="true">
 <div class="sswrap"><div class="tag">① D’abord</div><div class="ss"><div class="sst">Windows a protégé votre ordinateur</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">Informations complémentaires</div><div class="btns"><span class="wb">Ne pas exécuter</span></div></div></div>
 <div class="sswrap"><div class="tag">② Ensuite</div><div class="ss"><div class="sst">Windows a protégé votre ordinateur</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Exécuter quand même</span><span class="wb">Ne pas exécuter</span></div></div></div>
@@ -192,17 +193,17 @@ html[data-lang=ko] [data-l=ko],html[data-lang=en] [data-l=en],html[data-lang=ja]
 <div class="box"><p>• PC introuvable ? Vérifiez le même Wi-Fi, ou utilisez <b>Saisir l’adresse</b> avec l’adresse affichée dans l’assistant.</p><p>• Si l’antivirus bloque, choisissez <b>Autoriser</b>.</p><p>• Fenêtre invisible ? Relancez le fichier : la fenêtre ouverte passe au premier plan.</p><p>• Pour délier les téléphones, cliquez sur <b>Déconnecter</b> dans l’assistant.</p></div>
 <p class="small">Vos documents ne vont jamais sur Internet. Ils passent seulement du téléphone au PC sur le même Wi-Fi et sont supprimés du PC après l’impression.</p>
 <h2>Questions fréquentes</h2>
-<details><summary>Puis-je l’installer sur plusieurs PC ?</summary><p>Oui. Installez-le sur chaque PC avec imprimante : tous apparaissent dans la liste du téléphone.</p></details><details><summary>J’ai oublié le code.</summary><p>Il est toujours affiché dans l’assistant. Si la fenêtre est invisible, relancez le fichier. Vous pouvez aussi créer un « Nouveau code ».</p></details><details><summary>Puis-je fermer la fenêtre ?</summary><p>Oui. L’assistant continue dans la barre des tâches (en bas à droite) et redémarre avec le PC.</p></details><details><summary>Ça marche de n’importe où ?</summary><p>Non. Seulement quand le téléphone et le PC sont sur le même Wi-Fi, pour que vos documents n’aillent pas sur Internet.</p></details><details><summary>Comment le supprimer ?</summary><p>Clic droit sur l’icône de l’assistant dans la barre des tâches, décochez « Lancer au démarrage de Windows », cliquez sur « Quitter », puis supprimez le fichier téléchargé.</p></details>
+<details><summary>Puis-je l’installer sur plusieurs PC ?</summary><p>Oui. Installez-le sur chaque PC avec imprimante : tous apparaissent dans la liste du téléphone.</p></details><details><summary>J’ai oublié le code.</summary><p>Il est toujours affiché dans l’assistant. Si la fenêtre est invisible, relancez le fichier. Vous pouvez aussi créer un « Nouveau code ».</p></details><details><summary>Puis-je fermer la fenêtre ?</summary><p>Oui. L’assistant continue dans la barre des tâches (en bas à droite) et redémarre avec le PC.</p></details><details><summary>Ça marche de n’importe où ?</summary><p>Non. Seulement quand le téléphone et le PC sont sur le même Wi-Fi, pour que vos documents n’aillent pas sur Internet.</p></details><details><summary>Comment le supprimer ?</summary><p>Clic droit sur l’icône de l’assistant dans la barre des tâches, décochez « Lancer au démarrage de Windows » et cliquez sur « Quitter ». Tapez ensuite <code>%LOCALAPPDATA%\DaopenPrintHelper</code> dans l’Explorateur et supprimez ce dossier.</p></details>
 <p class="foot"><a href="https://mungworks.com/daopen.html">Confidentialité</a></p>
 </section>
 <section data-l="id" lang="id">
 <h1>Daopen PC Print Helper</h1>
 <p class="lead">Cetak dokumen dari ponsel ke printer yang tersambung USB ke PC. Gratis, tanpa daftar, Windows 10 dan 11.</p>
-<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Unduh untuk Windows (zip, sekitar 80 MB)</a></p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.2/DaopenPrintHelper-1.0.2-win-x64.zip">Unduh untuk Windows (zip, sekitar 80 MB)</a></p>
 <p class="small">Printer Wi-Fi tidak perlu helper: cukup ketuk "Cetak dari ponsel ini" di Daopen.</p>
 <h2>1. Di PC (sekali saja)</h2>
 <ol>
-<li>Di PC yang tersambung printer, unduh file di atas, ekstrak, lalu jalankan <b>DaopenPrintHelper.exe</b>.</li>
+<li>Di PC yang tersambung printer, unduh file di atas, buka zip-nya, lalu klik dua kali <b>DaopenPrintHelper.exe</b>. (Helper memasang dirinya sendiri.)</li>
 <li>Jika muncul jendela biru <b>"Windows melindungi PC Anda"</b>, tenang saja. Klik <b class="btn">Info selengkapnya</b> di bawah teks, lalu tombol baru <b class="btn">Tetap jalankan</b>. (Jangan klik "Jangan jalankan".)<div class="ssrow" aria-hidden="true">
 <div class="sswrap"><div class="tag">① Klik dulu</div><div class="ss"><div class="sst">Windows melindungi PC Anda</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">Info selengkapnya</div><div class="btns"><span class="wb">Jangan jalankan</span></div></div></div>
 <div class="sswrap"><div class="tag">② Lalu klik</div><div class="ss"><div class="sst">Windows melindungi PC Anda</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Tetap jalankan</span><span class="wb">Jangan jalankan</span></div></div></div>
@@ -216,17 +217,17 @@ html[data-lang=ko] [data-l=ko],html[data-lang=en] [data-l=en],html[data-lang=ja]
 <div class="box"><p>• PC tidak muncul? Pastikan Wi-Fi sama, atau pakai <b>Masukkan alamat</b> dengan alamat di jendela helper.</p><p>• Jika antivirus memblokir, pilih <b>Izinkan</b>.</p><p>• Jendela helper tidak terlihat? Jalankan file sekali lagi, jendela akan muncul di depan.</p><p>• Untuk memutus ponsel, klik <b>Putuskan</b> di jendela helper.</p></div>
 <p class="small">Dokumen tidak pernah dikirim ke internet. Hanya dari ponsel ke PC di Wi-Fi yang sama, lalu langsung dihapus dari PC setelah dicetak.</p>
 <h2>Pertanyaan umum</h2>
-<details><summary>Boleh dipasang di beberapa PC?</summary><p>Boleh. Pasang di setiap PC yang punya printer, semuanya akan muncul di daftar ponsel.</p></details><details><summary>Saya lupa kodenya.</summary><p>Kode selalu tampil di jendela helper. Jika jendela tidak terlihat, jalankan file lagi. Bisa juga buat "Kode baru".</p></details><details><summary>Boleh menutup jendela helper?</summary><p>Boleh. Helper tetap berjalan di taskbar (kanan bawah) dan menyala lagi saat PC dinyalakan.</p></details><details><summary>Bisa dari mana saja?</summary><p>Tidak. Hanya saat ponsel dan PC di Wi-Fi yang sama, agar dokumen tidak dikirim ke internet.</p></details><details><summary>Cara menghapusnya?</summary><p>Klik kanan ikon helper di taskbar, hapus centang "Jalankan saat Windows mulai", klik "Keluar", lalu hapus file yang diunduh.</p></details>
+<details><summary>Boleh dipasang di beberapa PC?</summary><p>Boleh. Pasang di setiap PC yang punya printer, semuanya akan muncul di daftar ponsel.</p></details><details><summary>Saya lupa kodenya.</summary><p>Kode selalu tampil di jendela helper. Jika jendela tidak terlihat, jalankan file lagi. Bisa juga buat "Kode baru".</p></details><details><summary>Boleh menutup jendela helper?</summary><p>Boleh. Helper tetap berjalan di taskbar (kanan bawah) dan menyala lagi saat PC dinyalakan.</p></details><details><summary>Bisa dari mana saja?</summary><p>Tidak. Hanya saat ponsel dan PC di Wi-Fi yang sama, agar dokumen tidak dikirim ke internet.</p></details><details><summary>Cara menghapusnya?</summary><p>Klik kanan ikon helper di taskbar, hapus centang "Jalankan saat Windows mulai" dan klik "Keluar". Lalu ketik <code>%LOCALAPPDATA%\DaopenPrintHelper</code> di File Explorer dan hapus folder itu.</p></details>
 <p class="foot"><a href="https://mungworks.com/daopen.html">Privasi</a></p>
 </section>
 <section data-l="it" lang="it">
 <h1>Daopen PC Print Helper</h1>
 <p class="lead">Stampa i documenti del telefono su una stampante collegata via USB al PC. Gratis, senza registrazione, Windows 10 e 11.</p>
-<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Scarica per Windows (zip, circa 80 MB)</a></p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.2/DaopenPrintHelper-1.0.2-win-x64.zip">Scarica per Windows (zip, circa 80 MB)</a></p>
 <p class="small">Le stampanti Wi-Fi non hanno bisogno dell’assistente: in Daopen tocca «Stampa da questo telefono».</p>
 <h2>1. Sul PC (una sola volta)</h2>
 <ol>
-<li>Sul PC con la stampante scarica il file, estrailo e avvia <b>DaopenPrintHelper.exe</b>.</li>
+<li>Sul PC con la stampante scarica il file, apri lo zip e fai doppio clic su <b>DaopenPrintHelper.exe</b>. (L’assistente si installa da solo.)</li>
 <li>Se compare la finestra blu <b>«PC protetto da Windows»</b>, niente paura: fai clic su <b class="btn">Ulteriori informazioni</b> sotto il testo, poi sul nuovo pulsante <b class="btn">Esegui comunque</b>. (Non fare clic su «Non eseguire».)<div class="ssrow" aria-hidden="true">
 <div class="sswrap"><div class="tag">① Prima</div><div class="ss"><div class="sst">PC protetto da Windows</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">Ulteriori informazioni</div><div class="btns"><span class="wb">Non eseguire</span></div></div></div>
 <div class="sswrap"><div class="tag">② Poi</div><div class="ss"><div class="sst">PC protetto da Windows</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Esegui comunque</span><span class="wb">Non eseguire</span></div></div></div>
@@ -240,17 +241,17 @@ html[data-lang=ko] [data-l=ko],html[data-lang=en] [data-l=en],html[data-lang=ja]
 <div class="box"><p>• Il PC non compare? Controlla che siano sulla stessa Wi-Fi o usa <b>Inserisci indirizzo</b> con l’indirizzo mostrato dall’assistente.</p><p>• Se l’antivirus blocca, scegli <b>Consenti</b>.</p><p>• Non vedi la finestra? Avvia di nuovo il file: la finestra aperta passa in primo piano.</p><p>• Per scollegare i telefoni, fai clic su <b>Disconnetti</b> nell’assistente.</p></div>
 <p class="small">I documenti non vanno mai su Internet. Passano solo dal telefono al PC sulla stessa Wi-Fi e vengono eliminati dal PC dopo la stampa.</p>
 <h2>Domande frequenti</h2>
-<details><summary>Posso installarlo su più PC?</summary><p>Sì. Installalo su ogni PC con stampante e compariranno tutti nell’elenco del telefono.</p></details><details><summary>Ho dimenticato il codice.</summary><p>È sempre visibile nell’assistente. Se non vedi la finestra, avvia di nuovo il file. Puoi anche creare un «Nuovo codice».</p></details><details><summary>Posso chiudere la finestra?</summary><p>Sì. L’assistente resta attivo nella barra delle applicazioni (in basso a destra) e si avvia con il PC.</p></details><details><summary>Funziona da ovunque?</summary><p>No. Solo con telefono e PC sulla stessa Wi-Fi, così i documenti non vanno su Internet.</p></details><details><summary>Come lo rimuovo?</summary><p>Clic destro sull’icona dell’assistente nella barra delle applicazioni, togli la spunta a «Avvia con Windows», fai clic su «Esci» e cancella il file scaricato.</p></details>
+<details><summary>Posso installarlo su più PC?</summary><p>Sì. Installalo su ogni PC con stampante e compariranno tutti nell’elenco del telefono.</p></details><details><summary>Ho dimenticato il codice.</summary><p>È sempre visibile nell’assistente. Se non vedi la finestra, avvia di nuovo il file. Puoi anche creare un «Nuovo codice».</p></details><details><summary>Posso chiudere la finestra?</summary><p>Sì. L’assistente resta attivo nella barra delle applicazioni (in basso a destra) e si avvia con il PC.</p></details><details><summary>Funziona da ovunque?</summary><p>No. Solo con telefono e PC sulla stessa Wi-Fi, così i documenti non vanno su Internet.</p></details><details><summary>Come lo rimuovo?</summary><p>Clic destro sull’icona dell’assistente nella barra delle applicazioni, togli la spunta a «Avvia con Windows» e fai clic su «Esci». Poi digita <code>%LOCALAPPDATA%\DaopenPrintHelper</code> in Esplora file ed elimina quella cartella.</p></details>
 <p class="foot"><a href="https://mungworks.com/daopen.html">Privacy</a></p>
 </section>
 <section data-l="pt" lang="pt">
 <h1>Daopen PC Print Helper</h1>
 <p class="lead">Imprima documentos do celular em uma impressora ligada por USB ao PC. Grátis, sem cadastro, Windows 10 e 11.</p>
-<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Baixar para Windows (zip, cerca de 80 MB)</a></p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.2/DaopenPrintHelper-1.0.2-win-x64.zip">Baixar para Windows (zip, cerca de 80 MB)</a></p>
 <p class="small">Impressoras Wi-Fi não precisam do assistente: no Daopen toque em "Imprimir deste celular".</p>
 <h2>1. No PC (só uma vez)</h2>
 <ol>
-<li>No PC com a impressora, baixe o arquivo, extraia e execute <b>DaopenPrintHelper.exe</b>.</li>
+<li>No PC com a impressora, baixe o arquivo, abra o zip e clique duas vezes em <b>DaopenPrintHelper.exe</b>. (O assistente se instala sozinho.)</li>
 <li>Se aparecer a janela azul <b>"O Windows protegeu o computador"</b>, não se preocupe: clique em <b class="btn">Mais informações</b> abaixo do texto e depois no novo botão <b class="btn">Executar assim mesmo</b>. (Não clique em "Não executar".)<div class="ssrow" aria-hidden="true">
 <div class="sswrap"><div class="tag">① Primeiro</div><div class="ss"><div class="sst">O Windows protegeu o computador</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">Mais informações</div><div class="btns"><span class="wb">Não executar</span></div></div></div>
 <div class="sswrap"><div class="tag">② Depois</div><div class="ss"><div class="sst">O Windows protegeu o computador</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Executar assim mesmo</span><span class="wb">Não executar</span></div></div></div>
@@ -264,17 +265,17 @@ html[data-lang=ko] [data-l=ko],html[data-lang=en] [data-l=en],html[data-lang=ja]
 <div class="box"><p>• O PC não aparece? Confira se estão no mesmo Wi-Fi ou use <b>Digitar endereço</b> com o endereço mostrado no assistente.</p><p>• Se o antivírus bloquear, escolha <b>Permitir</b>.</p><p>• Não vê a janela? Execute o arquivo de novo e ela vem para a frente.</p><p>• Para desconectar os celulares, clique em <b>Desconectar</b> no assistente.</p></div>
 <p class="small">Seus documentos nunca vão para a internet. Só vão do celular ao PC no mesmo Wi-Fi e são apagados do PC após a impressão.</p>
 <h2>Perguntas frequentes</h2>
-<details><summary>Posso instalar em vários PCs?</summary><p>Sim. Instale em cada PC com impressora e todos aparecem na lista do celular.</p></details><details><summary>Esqueci o código.</summary><p>Ele sempre aparece na janela do assistente. Se não vir a janela, execute o arquivo de novo. Também dá para criar um "Novo código".</p></details><details><summary>Posso fechar a janela?</summary><p>Sim. O assistente continua na barra de tarefas (canto inferior direito) e abre de novo com o PC.</p></details><details><summary>Funciona de qualquer lugar?</summary><p>Não. Só com o celular e o PC no mesmo Wi-Fi, para que os documentos não vão para a internet.</p></details><details><summary>Como removo?</summary><p>Clique com o botão direito no ícone do assistente na barra de tarefas, desmarque "Iniciar com o Windows", clique em "Sair" e apague o arquivo baixado.</p></details>
+<details><summary>Posso instalar em vários PCs?</summary><p>Sim. Instale em cada PC com impressora e todos aparecem na lista do celular.</p></details><details><summary>Esqueci o código.</summary><p>Ele sempre aparece na janela do assistente. Se não vir a janela, execute o arquivo de novo. Também dá para criar um "Novo código".</p></details><details><summary>Posso fechar a janela?</summary><p>Sim. O assistente continua na barra de tarefas (canto inferior direito) e abre de novo com o PC.</p></details><details><summary>Funciona de qualquer lugar?</summary><p>Não. Só com o celular e o PC no mesmo Wi-Fi, para que os documentos não vão para a internet.</p></details><details><summary>Como removo?</summary><p>Clique com o botão direito no ícone do assistente na barra de tarefas, desmarque "Iniciar com o Windows" e clique em "Sair". Depois digite <code>%LOCALAPPDATA%\DaopenPrintHelper</code> no Explorador de Arquivos e apague essa pasta.</p></details>
 <p class="foot"><a href="https://mungworks.com/daopen.html">Privacidade</a></p>
 </section>
 <section data-l="ru" lang="ru">
 <h1>Daopen PC Print Helper</h1>
 <p class="lead">Печатайте документы с телефона на принтере, подключённом к ПК по USB. Бесплатно, без регистрации, Windows 10 и 11.</p>
-<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Скачать для Windows (zip, около 80 МБ)</a></p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.2/DaopenPrintHelper-1.0.2-win-x64.zip">Скачать для Windows (zip, около 80 МБ)</a></p>
 <p class="small">Для Wi-Fi-принтеров помощник не нужен: в Daopen просто выберите «Печать с этого телефона».</p>
 <h2>1. На ПК (один раз)</h2>
 <ol>
-<li>На ПК с принтером скачайте файл, распакуйте его и запустите <b>DaopenPrintHelper.exe</b>.</li>
+<li>На ПК с принтером скачайте файл, откройте zip и дважды щёлкните <b>DaopenPrintHelper.exe</b>. (Помощник сам установится на ПК.)</li>
 <li>Если появилось синее окно <b>«Система Windows защитила ваш компьютер»</b>, не волнуйтесь: нажмите <b class="btn">Подробнее</b> под текстом, затем новую кнопку <b class="btn">Выполнить в любом случае</b>. (Не нажимайте «Не выполнять».)<div class="ssrow" aria-hidden="true">
 <div class="sswrap"><div class="tag">① Сначала</div><div class="ss"><div class="sst">Система Windows защитила ваш компьютер</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">Подробнее</div><div class="btns"><span class="wb">Не выполнять</span></div></div></div>
 <div class="sswrap"><div class="tag">② Затем</div><div class="ss"><div class="sst">Система Windows защитила ваш компьютер</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Выполнить в любом случае</span><span class="wb">Не выполнять</span></div></div></div>
@@ -288,17 +289,17 @@ html[data-lang=ko] [data-l=ko],html[data-lang=en] [data-l=en],html[data-lang=ja]
 <div class="box"><p>• ПК не виден? Проверьте, что сеть Wi-Fi одна, или используйте <b>Ввести адрес</b> с адресом из окна помощника.</p><p>• Если блокирует антивирус, выберите <b>Разрешить</b>.</p><p>• Не видно окна помощника? Запустите файл ещё раз — окно появится впереди.</p><p>• Чтобы отвязать телефоны, нажмите <b>Отключить</b> в окне помощника.</p></div>
 <p class="small">Документы не уходят в интернет. Они идут только с телефона на ПК в одной сети Wi-Fi и удаляются с ПК после печати.</p>
 <h2>Частые вопросы</h2>
-<details><summary>Можно установить на несколько ПК?</summary><p>Да. Установите на каждый ПК с принтером — все они появятся в списке на телефоне.</p></details><details><summary>Я забыл код.</summary><p>Он всегда виден в окне помощника. Если окна не видно, запустите файл ещё раз. Можно также создать «Новый код».</p></details><details><summary>Можно закрыть окно помощника?</summary><p>Да. Помощник продолжает работать в области уведомлений (справа внизу) и запускается вместе с ПК.</p></details><details><summary>Работает откуда угодно?</summary><p>Нет. Только когда телефон и ПК в одной сети Wi-Fi — так документы не попадают в интернет.</p></details><details><summary>Как удалить?</summary><p>Щёлкните правой кнопкой по значку помощника в области уведомлений, снимите «Запускать вместе с Windows», нажмите «Выход» и удалите скачанный файл.</p></details>
+<details><summary>Можно установить на несколько ПК?</summary><p>Да. Установите на каждый ПК с принтером — все они появятся в списке на телефоне.</p></details><details><summary>Я забыл код.</summary><p>Он всегда виден в окне помощника. Если окна не видно, запустите файл ещё раз. Можно также создать «Новый код».</p></details><details><summary>Можно закрыть окно помощника?</summary><p>Да. Помощник продолжает работать в области уведомлений (справа внизу) и запускается вместе с ПК.</p></details><details><summary>Работает откуда угодно?</summary><p>Нет. Только когда телефон и ПК в одной сети Wi-Fi — так документы не попадают в интернет.</p></details><details><summary>Как удалить?</summary><p>Щёлкните правой кнопкой по значку помощника в области уведомлений, снимите «Запускать вместе с Windows» и нажмите «Выход». Затем введите <code>%LOCALAPPDATA%\DaopenPrintHelper</code> в адресной строке Проводника и удалите эту папку.</p></details>
 <p class="foot"><a href="https://mungworks.com/daopen.html">Конфиденциальность</a></p>
 </section>
 <section data-l="vi" lang="vi">
 <h1>Daopen PC Print Helper</h1>
 <p class="lead">In tài liệu từ điện thoại ra máy in cắm USB vào PC. Miễn phí, không cần đăng ký, Windows 10 và 11.</p>
-<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">Tải cho Windows (zip, khoảng 80 MB)</a></p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.2/DaopenPrintHelper-1.0.2-win-x64.zip">Tải cho Windows (zip, khoảng 80 MB)</a></p>
 <p class="small">Máy in Wi-Fi không cần trình trợ giúp: chỉ cần chọn "In từ điện thoại này" trong Daopen.</p>
 <h2>1. Trên PC (chỉ một lần)</h2>
 <ol>
-<li>Trên PC có máy in, tải tệp ở trên, giải nén rồi chạy <b>DaopenPrintHelper.exe</b>.</li>
+<li>Trên PC có máy in, tải tệp ở trên, mở tệp zip rồi nhấp đúp <b>DaopenPrintHelper.exe</b>. (Trình trợ giúp tự cài vào PC.)</li>
 <li>Nếu hiện cửa sổ xanh <b>"Windows đã bảo vệ PC của bạn"</b>, đừng lo. Bấm <b class="btn">Thông tin khác</b> bên dưới dòng chữ, rồi bấm nút mới <b class="btn">Vẫn chạy</b>. (Đừng bấm "Không chạy".)<div class="ssrow" aria-hidden="true">
 <div class="sswrap"><div class="tag">① Bấm trước</div><div class="ss"><div class="sst">Windows đã bảo vệ PC của bạn</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">Thông tin khác</div><div class="btns"><span class="wb">Không chạy</span></div></div></div>
 <div class="sswrap"><div class="tag">② Rồi bấm</div><div class="ss"><div class="sst">Windows đã bảo vệ PC của bạn</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">Vẫn chạy</span><span class="wb">Không chạy</span></div></div></div>
@@ -312,17 +313,17 @@ html[data-lang=ko] [data-l=ko],html[data-lang=en] [data-l=en],html[data-lang=ja]
 <div class="box"><p>• Không thấy PC? Kiểm tra cùng Wi-Fi, hoặc dùng <b>Nhập địa chỉ</b> với địa chỉ trong cửa sổ trình trợ giúp.</p><p>• Nếu phần mềm diệt virus chặn, hãy chọn <b>Cho phép</b>.</p><p>• Không thấy cửa sổ? Chạy lại tệp, cửa sổ đang mở sẽ hiện lên trước.</p><p>• Để ngắt điện thoại, bấm <b>Ngắt kết nối</b> trong cửa sổ trình trợ giúp.</p></div>
 <p class="small">Tài liệu không bao giờ lên internet. Chỉ đi từ điện thoại sang PC trong cùng Wi-Fi và bị xóa khỏi PC sau khi in.</p>
 <h2>Câu hỏi thường gặp</h2>
-<details><summary>Cài trên nhiều PC được không?</summary><p>Được. Cài trên mỗi PC có máy in, tất cả sẽ hiện trong danh sách trên điện thoại.</p></details><details><summary>Tôi quên mã.</summary><p>Mã luôn hiện trong cửa sổ trình trợ giúp. Nếu không thấy cửa sổ, chạy lại tệp. Cũng có thể tạo "Mã mới".</p></details><details><summary>Đóng cửa sổ có sao không?</summary><p>Không sao. Trình trợ giúp vẫn chạy trên thanh tác vụ (góc dưới phải) và tự bật cùng PC.</p></details><details><summary>In từ bất cứ đâu được không?</summary><p>Không. Chỉ khi điện thoại và PC cùng Wi-Fi, để tài liệu không lên internet.</p></details><details><summary>Gỡ thế nào?</summary><p>Bấm chuột phải vào biểu tượng trình trợ giúp trên thanh tác vụ, bỏ chọn "Khởi động cùng Windows", bấm "Thoát" rồi xóa tệp đã tải.</p></details>
+<details><summary>Cài trên nhiều PC được không?</summary><p>Được. Cài trên mỗi PC có máy in, tất cả sẽ hiện trong danh sách trên điện thoại.</p></details><details><summary>Tôi quên mã.</summary><p>Mã luôn hiện trong cửa sổ trình trợ giúp. Nếu không thấy cửa sổ, chạy lại tệp. Cũng có thể tạo "Mã mới".</p></details><details><summary>Đóng cửa sổ có sao không?</summary><p>Không sao. Trình trợ giúp vẫn chạy trên thanh tác vụ (góc dưới phải) và tự bật cùng PC.</p></details><details><summary>In từ bất cứ đâu được không?</summary><p>Không. Chỉ khi điện thoại và PC cùng Wi-Fi, để tài liệu không lên internet.</p></details><details><summary>Gỡ thế nào?</summary><p>Bấm chuột phải vào biểu tượng trình trợ giúp trên thanh tác vụ, bỏ chọn "Khởi động cùng Windows" và bấm "Thoát". Sau đó gõ <code>%LOCALAPPDATA%\DaopenPrintHelper</code> vào thanh địa chỉ File Explorer và xóa thư mục đó.</p></details>
 <p class="foot"><a href="https://mungworks.com/daopen.html">Quyền riêng tư</a></p>
 </section>
 <section data-l="zh" lang="zh">
 <h1>Daopen PC 打印助手</h1>
 <p class="lead">用通过 USB 连接电脑的打印机打印手机里的文档。免费、无需注册，支持 Windows 10 和 11。</p>
-<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.1/DaopenPrintHelper-1.0.1-win-x64.zip">下载 Windows 版（zip，约 80 MB）</a></p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.2/DaopenPrintHelper-1.0.2-win-x64.zip">下载 Windows 版（zip，约 80 MB）</a></p>
 <p class="small">Wi-Fi 打印机不需要助手：在 Daopen 中直接选择“用这部手机打印”即可。</p>
 <h2>1. 在电脑上（仅一次）</h2>
 <ol>
-<li>在连接打印机的电脑上下载上面的文件，解压后运行 <b>DaopenPrintHelper.exe</b>。</li>
+<li>在连接打印机的电脑上下载上面的文件，打开 zip，双击 <b>DaopenPrintHelper.exe</b>。（助手会自动安装到电脑上）</li>
 <li>如果出现蓝色的 <b>“Windows 已保护你的电脑”</b> 窗口，不用担心：点击文字下方的 <b class="btn">更多信息</b>，再点击新出现的 <b class="btn">仍要运行</b> 按钮。（不要点“不运行”。）<div class="ssrow" aria-hidden="true">
 <div class="sswrap"><div class="tag">① 先点</div><div class="ss"><div class="sst">Windows 已保护你的电脑</div><div class="bar"></div><div class="bar s"></div><div class="lnk hl">更多信息</div><div class="btns"><span class="wb">不运行</span></div></div></div>
 <div class="sswrap"><div class="tag">② 再点</div><div class="ss"><div class="sst">Windows 已保护你的电脑</div><div class="bar"></div><div class="bar s"></div><div class="bar m"></div><div class="btns"><span class="wb hl">仍要运行</span><span class="wb">不运行</span></div></div></div>
@@ -336,7 +337,7 @@ html[data-lang=ko] [data-l=ko],html[data-lang=en] [data-l=en],html[data-lang=ja]
 <div class="box"><p>• 找不到电脑？请确认在同一个 Wi-Fi，或用<b>输入地址</b>输入助手窗口中显示的地址。</p><p>• 如果杀毒软件拦截，请选择<b>允许</b>。</p><p>• 看不到助手窗口？再运行一次文件，窗口会显示在最前面。</p><p>• 要断开手机，请在助手窗口中点击<b>断开连接</b>。</p></div>
 <p class="small">文档不会上传到互联网，只在同一个 Wi-Fi 内从手机传到电脑，打印后立即从电脑删除。</p>
 <h2>常见问题</h2>
-<details><summary>可以安装在多台电脑上吗？</summary><p>可以。在每台连接打印机的电脑上安装，它们都会出现在手机的电脑列表中。</p></details><details><summary>忘记连接码了。</summary><p>连接码一直显示在助手窗口中。看不到窗口时，再运行一次文件。也可以点击“新连接码”更换。</p></details><details><summary>可以关闭助手窗口吗？</summary><p>可以。关闭后助手仍在任务栏（右下角）运行，电脑开机时也会自动启动。</p></details><details><summary>在任何地方都能打印吗？</summary><p>不能。只有手机和电脑在同一个 Wi-Fi 时才可以，这样文档不会上传到互联网。</p></details><details><summary>如何删除？</summary><p>在任务栏右键点击助手图标，取消勾选“随 Windows 启动”，点击“退出”，然后删除下载的文件。</p></details>
+<details><summary>可以安装在多台电脑上吗？</summary><p>可以。在每台连接打印机的电脑上安装，它们都会出现在手机的电脑列表中。</p></details><details><summary>忘记连接码了。</summary><p>连接码一直显示在助手窗口中。看不到窗口时，再运行一次文件。也可以点击“新连接码”更换。</p></details><details><summary>可以关闭助手窗口吗？</summary><p>可以。关闭后助手仍在任务栏（右下角）运行，电脑开机时也会自动启动。</p></details><details><summary>在任何地方都能打印吗？</summary><p>不能。只有手机和电脑在同一个 Wi-Fi 时才可以，这样文档不会上传到互联网。</p></details><details><summary>如何删除？</summary><p>在任务栏右键点击助手图标，取消勾选“随 Windows 启动”并点击“退出”。然后在文件资源管理器地址栏输入 <code>%LOCALAPPDATA%\DaopenPrintHelper</code> 并删除该文件夹。</p></details>
 <p class="foot"><a href="https://mungworks.com/daopen.html">隐私政策</a></p>
 </section>
 <footer>© Meongmungi (Mung Works) · contact@mungworks.com</footer>
