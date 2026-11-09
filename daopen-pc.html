@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>다오픈 PC 인쇄 도우미</title>
+<meta name="description" content="PC에 연결된 프린터로 폰 문서를 인쇄하세요. 같은 와이파이에서 무료, 회원가입 없음.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mungworks.com/daopen-pc">
+<meta property="og:title" content="다오픈 PC 인쇄 도우미">
+<meta property="og:description" content="PC에 연결된 프린터로 폰 문서를 인쇄하세요. 같은 와이파이에서 무료, 회원가입 없음.">
+<meta property="og:image" content="https://play-lh.googleusercontent.com/zFXNvPgiZffzV4lc5p-dHkLtSnSWzuAllvScnGebyucgTwHLEtYFL4FgLotDWE-p7iR_Iu9Cty1rr8STnut43Do=s512">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--bg:#fff;--fg:#1d1d1f;--muted:#5f6368;--line:#e3e5e8;--accent:#1a73e8;--box:#f5f7fa}
+@media (prefers-color-scheme:dark){:root{--bg:#121316;--fg:#ececf0;--muted:#a3a7ad;--line:#2c2f34;--accent:#8ab4f8;--box:#1c1e22}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,"Segoe UI","Malgun Gothic","Apple SD Gothic Neo",sans-serif}
+main{max-width:720px;margin:0 auto;padding:28px 16px 56px}
+h1{font-size:1.6rem;margin:.2em 0 .3em}
+h2{font-size:1.15rem;margin:2em 0 .6em}
+p.lead{color:var(--muted);margin:0 0 1.2em}
+.langs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.langs button{border:1px solid var(--line);background:none;color:var(--fg);border-radius:999px;padding:4px 12px;font:inherit;font-size:.9rem;cursor:pointer}
+.langs button[aria-pressed=true]{border-color:var(--accent);color:var(--accent)}
+.dl{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 22px;border-radius:10px}
+@media (prefers-color-scheme:dark){.dl{color:#111}}
+.small{color:var(--muted);font-size:.9rem}
+ol{padding-left:1.3em}
+li{margin:.45em 0}
+.box{background:var(--box);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:1em 0}
+b.btn{border:1px solid var(--line);border-radius:6px;padding:0 6px;font-weight:600;white-space:nowrap}
+footer{margin-top:3em;color:var(--muted);font-size:.85rem}
+[data-l]{display:none}
+html[data-lang=ko] [data-l=ko],html[data-lang=en] [data-l=en],html[data-lang=ja] [data-l=ja],html[data-lang=de] [data-l=de]{display:block}
+</style>
+</head>
+<body>
+<main>
+<nav class="langs" aria-label="language">
+<button data-set="ko">한국어</button><button data-set="en">English</button><button data-set="ja">日本語</button><button data-set="de">Deutsch</button>
+</nav>
+
+<!-- ===== 한국어 ===== -->
+<section data-l="ko">
+<h1>다오픈 PC 인쇄 도우미</h1>
+<p class="lead">PC에 USB로 연결된 프린터로 폰 문서를 인쇄합니다. 무료, 회원가입 없음, 윈도우 10·11.</p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.0/DaopenPrintHelper-1.0.0-win-x64.zip">윈도우용 받기 (zip, 약 80MB)</a></p>
+<p class="small">와이파이 프린터는 도우미 없이 다오픈에서 "이 폰으로 인쇄"를 누르면 바로 됩니다.</p>
+
+<h2>1. PC에서 처음 한 번만</h2>
+<ol>
+<li>프린터가 연결된 PC에서 위 버튼으로 받고, 압축을 풀어 <b>DaopenPrintHelper.exe</b>를 실행합니다.</li>
+<li>파란 <b>"Windows의 PC 보호"</b> 창이 뜨면 <b class="btn">추가 정보</b> → <b class="btn">실행</b>을 누릅니다.<br><span class="small">작은 회사의 무료 프로그램이라 처음 한 번 뜨는 창입니다.</span></li>
+<li>방화벽 창이 뜨면 <b class="btn">허용</b>을 누릅니다.</li>
+<li>화면에 <b>6자리 연결 코드</b>가 나옵니다. 이후로는 PC를 켜면 도우미가 자동으로 켜집니다.</li>
+</ol>
+
+<h2>2. 폰에서 인쇄</h2>
+<ol>
+<li>폰과 PC를 <b>같은 와이파이</b>에 연결합니다.</li>
+<li>다오픈에서 인쇄 → <b>PC로 인쇄</b>를 고릅니다.</li>
+<li>PC를 고르고, 처음 한 번만 PC 화면의 코드를 넣습니다.</li>
+<li>프린터와 매수를 고르고 <b>인쇄</b>.</li>
+</ol>
+
+<h2>안 될 때</h2>
+<div class="box">
+<p>• PC가 안 보이면 폰과 PC가 같은 와이파이인지 확인하세요. 그래도 안 되면 <b>주소 직접 입력</b>에 PC 도우미 창에 나온 주소를 넣으세요.</p>
+<p>• 백신(알약 등)이 막으면 <b>허용</b>을 눌러 주세요.</p>
+<p>• 도우미 창이 안 보이면 받은 파일을 한 번 더 실행하세요. 켜져 있던 창이 앞으로 나옵니다.</p>
+<p>• 연결을 끊으려면 도우미 창의 <b>연결 끊기</b>를 누르세요.</p>
+</div>
+<p class="small">문서는 인터넷으로 올라가지 않습니다. 같은 와이파이 안에서 폰에서 PC로만 가고, 인쇄가 끝나면 PC에서 바로 지워집니다.</p>
+</section>
+
+<!-- ===== English ===== -->
+<section data-l="en">
+<h1>Daopen PC Print Helper</h1>
+<p class="lead">Print documents from your phone on a printer connected to your PC by USB. Free, no sign-up, Windows 10 and 11.</p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.0/DaopenPrintHelper-1.0.0-win-x64.zip">Download for Windows (zip, about 80 MB)</a></p>
+<p class="small">Wi-Fi printers don't need the helper: tap "Print from this phone" in Daopen.</p>
+<h2>1. On the PC (once)</h2>
+<ol>
+<li>On the PC with the printer, download the file above, unzip it and run <b>DaopenPrintHelper.exe</b>.</li>
+<li>If a blue <b>"Windows protected your PC"</b> window appears, click <b class="btn">More info</b> → <b class="btn">Run anyway</b>.<br><span class="small">It appears once because this is a free program from a small developer.</span></li>
+<li>If a firewall window appears, click <b class="btn">Allow</b>.</li>
+<li>A <b>6-digit code</b> appears. From now on the helper starts with Windows.</li>
+</ol>
+<h2>2. Print from your phone</h2>
+<ol>
+<li>Connect the phone and the PC to the <b>same Wi-Fi</b>.</li>
+<li>In Daopen, tap Print → <b>Print via PC</b>.</li>
+<li>Pick the PC and enter the code shown on the PC (first time only).</li>
+<li>Choose the printer and copies, then <b>Print</b>.</li>
+</ol>
+<h2>Troubleshooting</h2>
+<div class="box">
+<p>• PC not listed? Check that both are on the same Wi-Fi, or use <b>Enter address</b> with the address shown in the helper window.</p>
+<p>• If your antivirus blocks it, choose <b>Allow</b>.</p>
+<p>• Can't see the helper window? Run the file again; the open window comes to the front.</p>
+<p>• To unlink phones, click <b>Unpair</b> in the helper window.</p>
+</div>
+<p class="small">Your documents never go to the internet. They travel only from your phone to your PC on the same Wi-Fi and are deleted from the PC after printing.</p>
+</section>
+
+<!-- ===== 日本語 ===== -->
+<section data-l="ja">
+<h1>Daopen PC印刷ヘルパー</h1>
+<p class="lead">PCにUSBでつないだプリンターで、スマホの文書を印刷できます。無料・登録不要・Windows 10/11。</p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.0/DaopenPrintHelper-1.0.0-win-x64.zip">Windows版をダウンロード（zip・約80MB）</a></p>
+<p class="small">Wi-Fiプリンターはヘルパー不要です。Daopenで「このスマホで印刷」を選んでください。</p>
+<h2>1. PCで最初の1回だけ</h2>
+<ol>
+<li>プリンターをつないだPCで上のファイルをダウンロードし、展開して <b>DaopenPrintHelper.exe</b> を実行します。</li>
+<li>青い <b>「WindowsによってPCが保護されました」</b> 画面が出たら <b class="btn">詳細情報</b> → <b class="btn">実行</b>。<br><span class="small">小さな開発者の無料ソフトのため、最初に1回だけ表示されます。</span></li>
+<li>ファイアウォールの画面が出たら <b class="btn">許可</b>。</li>
+<li><b>6桁の接続コード</b>が表示されます。以後、PCを起動するとヘルパーも自動で起動します。</li>
+</ol>
+<h2>2. スマホから印刷</h2>
+<ol>
+<li>スマホとPCを<b>同じWi-Fi</b>につなぎます。</li>
+<li>Daopenで印刷 → <b>PCで印刷</b>。</li>
+<li>PCを選び、最初の1回だけPC画面のコードを入力します。</li>
+<li>プリンターと部数を選んで<b>印刷</b>。</li>
+</ol>
+<h2>うまくいかないとき</h2>
+<div class="box">
+<p>• PCが見つからないときは同じWi-Fiか確認し、<b>アドレスを入力</b>にヘルパー画面のアドレスを入れてください。</p>
+<p>• ウイルス対策ソフトが止めたら<b>許可</b>してください。</p>
+<p>• ヘルパーの画面が見えないときは、もう一度ファイルを実行すると前面に出ます。</p>
+<p>• 接続を解除するにはヘルパー画面の<b>Unpair</b>を押します。</p>
+</div>
+<p class="small">文書はインターネットに送られません。同じWi-Fi内でスマホからPCへ送られ、印刷後すぐPCから削除されます。</p>
+</section>
+
+<!-- ===== Deutsch ===== -->
+<section data-l="de">
+<h1>Daopen PC-Druckhelfer</h1>
+<p class="lead">Drucke Dokumente vom Handy auf einem per USB am PC angeschlossenen Drucker. Kostenlos, ohne Konto, Windows 10 und 11.</p>
+<p><a class="dl" href="https://github.com/lohmyhve-spec/app-ads/releases/download/daopen-pc-1.0.0/DaopenPrintHelper-1.0.0-win-x64.zip">Für Windows herunterladen (zip, ca. 80 MB)</a></p>
+<p class="small">WLAN-Drucker brauchen den Helfer nicht: in Daopen „Von diesem Handy drucken“ wählen.</p>
+<h2>1. Am PC (einmalig)</h2>
+<ol>
+<li>Auf dem PC mit dem Drucker die Datei oben laden, entpacken und <b>DaopenPrintHelper.exe</b> starten.</li>
+<li>Erscheint das blaue Fenster <b>„Der Computer wurde durch Windows geschützt“</b>: <b class="btn">Weitere Informationen</b> → <b class="btn">Trotzdem ausführen</b>.<br><span class="small">Es erscheint einmal, weil es ein kostenloses Programm eines kleinen Entwicklers ist.</span></li>
+<li>Erscheint ein Firewall-Fenster: <b class="btn">Zulassen</b>.</li>
+<li>Ein <b>6-stelliger Code</b> wird angezeigt. Danach startet der Helfer automatisch mit Windows.</li>
+</ol>
+<h2>2. Vom Handy drucken</h2>
+<ol>
+<li>Handy und PC mit <b>demselben WLAN</b> verbinden.</li>
+<li>In Daopen Drucken → <b>Über PC drucken</b>.</li>
+<li>PC wählen und beim ersten Mal den Code vom PC eingeben.</li>
+<li>Drucker und Anzahl wählen, dann <b>Drucken</b>.</li>
+</ol>
+<h2>Wenn es nicht klappt</h2>
+<div class="box">
+<p>• PC nicht gefunden? Gleiches WLAN prüfen oder <b>Adresse eingeben</b> mit der Adresse aus dem Helferfenster.</p>
+<p>• Blockiert der Virenschutz, bitte <b>Zulassen</b> wählen.</p>
+<p>• Helferfenster nicht sichtbar? Datei erneut starten, das Fenster kommt nach vorn.</p>
+<p>• Zum Trennen im Helferfenster <b>Unpair</b> klicken.</p>
+</div>
+<p class="small">Deine Dokumente gehen nicht ins Internet. Sie gehen nur im selben WLAN vom Handy zum PC und werden nach dem Druck vom PC gelöscht.</p>
+</section>
+
+<footer>© Meongmungi (Mung Works) · <a href="https://mungworks.com/daopen.html">개인정보처리방침 / Privacy</a> · contact@mungworks.com</footer>
+</main>
+<script>
+(function(){
+  var ok=['ko','en','ja','de'];
+  function set(l){document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l;
+    document.querySelectorAll('.langs button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.set===l)});}
+  var q=(location.search.match(/[?&]lang=(\w+)/)||[])[1];
+  var n=(navigator.language||'en').slice(0,2).toLowerCase();
+  set(ok.indexOf(q)>=0?q:(ok.indexOf(n)>=0?n:'en'));
+  document.querySelectorAll('.langs button').forEach(function(b){b.onclick=function(){set(b.dataset.set)}});
+})();
+</script>
+</body>
+</html>
