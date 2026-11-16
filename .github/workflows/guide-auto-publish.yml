@@ -34,12 +34,20 @@ jobs:
           files = [f.split('\t') for f in files if f.strip()]
           print('[check] changed:', files)
           pages = [p for s, p in files if s == 'A' and re.fullmatch(r'(?:(en|it|es|ja|de|fr|pt)/)?guide/[a-z0-9-]+/index\.html', p)]
-          others = [p for s, p in files if p != 'sitemap.xml' and p not in pages]
-          if len(files) != 2 or len(pages) != 1 or others or not any(p == 'sitemap.xml' and s == 'M' for s, p in files):
-              fail.append('1) 바뀐 파일은 새 글 1개 + sitemap.xml 수정 1개여야 함')
+          lang = (re.match(r'([a-z]{2})/guide/', pages[0]).group(1) if pages and re.match(r'[a-z]{2}/guide/', pages[0]) else 'ko')
+          hub = 'guide/index.html' if lang == 'ko' else f'{lang}/guide/index.html'
+          hubst = [s for s, p in files if p == hub]
+          others = [p for s, p in files if p not in ('sitemap.xml', hub) and p not in pages]
+          if len(pages) != 1 or others or not any(p == 'sitemap.xml' and s == 'M' for s, p in files) or len(hubst) != 1:
+              fail.append('1) 바뀐 파일은 새 글 1개 + sitemap.xml 수정 + 그 언어 목록 페이지(' + hub + ')여야 함')
           num = git('diff', '--numstat', base, head, '--', 'sitemap.xml').split()
-          if num[:2] != ['4', '0']:
-              fail.append(f'2) sitemap.xml numstat {num[:2]} != 4 0')
+          want = ['8', '0'] if hubst == ['A'] else ['4', '0']
+          if num[:2] != want:
+              fail.append(f'2) sitemap.xml numstat {num[:2]} != {" ".join(want)}')
+          r = subprocess.run(['python3', '.github/scripts/guide_links.py', '--check'], capture_output=True, text=True)
+          print(r.stdout)
+          if r.returncode != 0:
+              fail.append('11) 내부 링크 검사 실패: ' + r.stdout.strip().replace('\n', ' / ')[:300])
           if pages:
               page = pages[0]
               h = open(page, encoding='utf-8').read()
