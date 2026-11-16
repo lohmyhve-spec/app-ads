@@ -33,7 +33,7 @@ jobs:
           files = git('diff', '--name-status', base, head).split('\n')
           files = [f.split('\t') for f in files if f.strip()]
           print('[check] changed:', files)
-          pages = [p for s, p in files if s == 'A' and re.fullmatch(r'(?:(en|it|es|ja)/)?guide/[a-z0-9-]+/index\.html', p)]
+          pages = [p for s, p in files if s == 'A' and re.fullmatch(r'(?:(en|it|es|ja|de|fr|pt)/)?guide/[a-z0-9-]+/index\.html', p)]
           others = [p for s, p in files if p != 'sitemap.xml' and p not in pages]
           if len(files) != 2 or len(pages) != 1 or others or not any(p == 'sitemap.xml' and s == 'M' for s, p in files):
               fail.append('1) 바뀐 파일은 새 글 1개 + sitemap.xml 수정 1개여야 함')

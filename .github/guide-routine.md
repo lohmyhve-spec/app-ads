@@ -38,6 +38,11 @@
 | feverpal | 사용 | ko, en | /go/feverpal | ko "FeverPal(우리아이 열기록) 받기", en "Get FeverPal" |
 | 단식시그널·펜데이·지원콕·댕댕마일·100 Bites·나란히 한걸음·물한잔 | 사실 목록 없음 | - | - | - |
 
+언어 원칙 (사장 결정 2026-11-16):
+- 글로벌 앱은 글로벌로 홍보한다. "언어" 칸은 그 앱이 실제로 지원하는 언어 중 우리가 쓰는 언어(ko, en, ja, es, it, de, fr, pt) 전부다.
+- 한국 전용 앱(지원콕·물한잔 등)은 ko 만 쓴다.
+- 글로벌 앱의 대기열은 한 언어에 몰리지 않게 언어를 섞어서 적는다. 글 주소는 ko=guide/<slug>/, 그 외=<언어>/guide/<slug>/ (pt 는 브라질 포르투갈어).
+
 CTA 링크 형식은 모든 앱이 같다:
 https://mungworks.com/go/<앱>?utm_source=mungworks&amp;utm_medium=guide&amp;utm_campaign=<ko면 slug, 아니면 언어코드-slug>
 
@@ -106,7 +111,7 @@ https://mungworks.com/go/<앱>?utm_source=mungworks&amp;utm_medium=guide&amp;utm
 
 ## 7. 공통 글 규칙
 - 문체: 자연스럽게 쓴다. 한국어는 존댓말.
-- 길이(본문): ko·ja는 공백 빼고 600~1,000자, en·it·es는 350~600단어
+- 길이(본문): ko·ja는 공백 빼고 600~1,000자, en·it·es·de·fr·pt는 350~600단어
 - h2는 2~4개, 단계 중심으로 쓴다.
 - 제목은 40자 이내(라틴 문자 언어는 60자 이내), 메타 설명은 한두 문장.
 - 쓸 수 있는 태그: h2, ol, ul, li, p, 그리고 mungworks.com 안으로 가는 a 만
