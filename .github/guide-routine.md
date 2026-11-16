@@ -4,55 +4,66 @@
 사람은 없다. 묻지 말고 이대로 하고, 막히면 멈추고 마지막 보고에 이유를 적는다.
 규칙을 바꾸려면 이 파일만 고치면 된다. 루틴 프롬프트는 고칠 필요가 없다.
 
-## 0. 요일 확인
-오늘(Asia/Seoul)이 월·수·금이 아니면 아무것도 하지 않고 "오늘은 발행일 아님"이라고만 보고하고 끝낸다.
+## 0. 오늘 발행 수 확인
+- 매일(Asia/Seoul) 발행한다. 루틴은 하루 2번 실행되고, 하루 최대 2편이다.
+- 오늘 이미 나간 글 수를 센다:
+  - TZ=Asia/Seoul git log origin/main --diff-filter=A --date=format-local:%Y-%m-%d --format='@%ad' --name-only -- 'guide/*/index.html' '*/guide/*/index.html'
+  - 날짜가 오늘인 글 파일 수 + 아직 병합 안 된 열린 draft/ PR 수
+- 2편 이상이면 아무것도 하지 않고 "오늘 발행 한도(2편) 채움"이라고만 보고하고 끝낸다.
 
 ## 1. 저장소와 발행 방식
 - 저장소: lohmyhve-spec/app-ads (mungworks.com, GitHub Pages)
 - draft/ 로 시작하는 PR을 올리면 .github/workflows/guide-auto-publish.yml 이 기계 확인을 한 뒤 자동으로 squash 병합한다. 병합이 곧 발행이다. 루틴은 직접 병합하지 않는다.
 
 ## 2. 이번 차례 정하기 (저장소 상태로만 판단)
-- 언어 순서: ko → en → it → es → ja → ko …
+- 순서는 언어가 아니라 앱을 돌아가며 정한다.
 - 글 주소: ko=guide/<slug>/, 나머지=<언어>/guide/<slug>/
-- 이번 언어 찾기:
-  - git log --diff-filter=A --name-only -- 'guide/*/index.html' '*/guide/*/index.html' 로 가장 최근에 추가된 글의 언어를 찾는다.
-  - 그다음 언어가 이번 차례다.
-- 주제 고르기:
-  - 그 언어 대기열을 위에서부터 본다.
-  - 폴더가 이미 있거나, 앱 상태가 "보류"인 줄은 건너뛴다.
-  - 그 언어 대기열이 비었으면 다음 언어로 넘어간다.
-  - 모든 대기열이 비었으면 아무것도 만들지 않고 "주제 대기열 소진"으로 보고한다.
+- 앱마다 마지막 발행일:
+  - 기존 글(guide/*/index.html, */guide/*/index.html) 중 https://mungworks.com/go/<앱> 이 들어 있는 글의 추가일(0번 명령의 날짜) 중 가장 최근 날
+  - 글이 한 번도 없는 앱은 가장 오래된 것으로 본다
+- 후보 앱: 등록부 상태가 "사용"이고, 대기열에 폴더가 아직 없는 줄이 남아 있는 앱
+  - 오늘 이미 글이 나간 앱은 뺀다 (하루에 같은 앱 2편 금지)
+  - 후보가 없으면 아무것도 만들지 않고 "오늘 더 쓸 앱 없음"으로 보고한다.
+- 마지막 발행일이 가장 오래된 앱을 고른다. 같으면 등록부에서 위에 있는 앱.
+- 그 앱의 대기열 줄을 위에서부터 보고, 폴더가 이미 있는 줄은 건너뛰고 첫 줄을 쓴다.
+  - 언어는 그 줄에 적힌 언어. 등록부의 그 앱 "언어" 칸에 없는 언어면 그 줄은 건너뛴다.
+- 모든 앱의 대기열이 비었으면 아무것도 만들지 않고 "주제 대기열 소진"으로 보고한다.
 - 한 글에는 앱 하나만 다룬다. 해당 앱의 [사실 목록]과 [추가 규칙]만 쓴다.
 - 앱 등록부에 사실 목록이 없는 앱은 주제를 만들지 않는다.
 
 ## 3. 앱 등록부
-| 앱 | 상태 | CTA 이동 주소 | CTA 문구 |
-|---|---|---|---|
-| daopen | 사용 | /go/daopen | ko "다오픈 받기", en "Get Daopen", it "Scarica Daopen", es "Descargar Daopen", ja "Daopenを入手" |
-| feverpal | 사용 | /go/feverpal | ko "FeverPal(우리아이 열기록) 받기", en "Get FeverPal" |
-| 단식시그널·펜데이·지원콕·댕댕마일·100 Bites·나란히 한걸음·물한잔 | 사실 목록 없음 | - | - |
+| 앱 | 상태 | 언어 | CTA 이동 주소 | CTA 문구 |
+|---|---|---|---|---|
+| daopen | 사용 | ko, en, it, es, ja | /go/daopen | ko "다오픈 받기", en "Get Daopen", it "Scarica Daopen", es "Descargar Daopen", ja "Daopenを入手" |
+| feverpal | 사용 | ko, en | /go/feverpal | ko "FeverPal(우리아이 열기록) 받기", en "Get FeverPal" |
+| 단식시그널·펜데이·지원콕·댕댕마일·100 Bites·나란히 한걸음·물한잔 | 사실 목록 없음 | - | - | - |
 
 CTA 링크 형식은 모든 앱이 같다:
 https://mungworks.com/go/<앱>?utm_source=mungworks&amp;utm_medium=guide&amp;utm_campaign=<ko면 slug, 아니면 언어코드-slug>
 
-## 4. 주제 대기열 (형식: 앱|slug(설명))
-- ko:
-  - daopen|hwp-iphone-open(아이폰에서 hwp 파일 여는 방법)
-  - feverpal|kids-fever-log(아이 열 났을 때 체온·해열제 기록하는 방법)
-  - feverpal|fever-medicine-time-log(해열제 먹인 시간 헷갈리지 않게 기록하는 방법)
-- en:
-  - daopen|odt-file-android(How to open an ODT file on Android)
-  - daopen|pages-file-android(How to open a Pages file on Android)
-  - feverpal|child-fever-log(How to keep a fever log for your child)
-  - daopen|msg-email-phone(How to open an .msg email file on your phone)
-  - feverpal|fever-log-night(Tracking a child's fever at night without losing track)
-  - daopen|old-doc-xls-android(How to open old .doc and .xls files on Android)
-- it:
-  - daopen|fatturapa-telefono(aprire una FatturaPA sul telefono)
-- es:
-  - daopen|facturae-movil(abrir una FacturaE en el móvil)
-- ja:
-  - daopen|pages-file-android-ja(AndroidでPagesファイルを開く方法)
+## 4. 주제 대기열 (형식: 앱|언어|slug(설명))
+- 앱 순서는 2번 규칙이 정한다. 여기서는 앱마다 위에서부터 쓴다.
+- slug 는 영어 소문자·숫자·하이픈만. 이미 있는 폴더 이름과 겹치면 안 된다.
+
+### daopen
+- daopen|en|msg-email-phone(How to open an .msg email file on your phone)
+- daopen|ko|photos-to-one-pdf(사진 여러 장을 PDF 하나로 만드는 방법)
+- daopen|en|old-doc-xls-android(How to open old .doc and .xls files on Android)
+- daopen|ko|pdf-sign-phone(폰에서 PDF에 서명하는 방법)
+- daopen|it|pages-file-android-it(aprire un file Pages su Android)
+- daopen|en|keynote-file-android(How to open a Keynote file on Android)
+- daopen|es|pages-file-android-es(abrir un archivo Pages en Android)
+- daopen|ko|hwp-to-pdf-phone(폰에서 hwp 파일을 PDF로 바꾸는 방법)
+- daopen|ja|numbers-file-android-ja(AndroidでNumbersファイルを開く方法)
+- daopen|en|numbers-file-android(How to open a Numbers file on Android)
+
+### feverpal
+- feverpal|ko|kids-fever-log(아이 열 났을 때 체온·해열제 기록하는 방법)
+- feverpal|en|child-fever-log(How to keep a fever log for your child)
+- feverpal|ko|fever-medicine-time-log(해열제 먹인 시간 헷갈리지 않게 기록하는 방법)
+- feverpal|en|fever-log-night(Tracking a child's fever at night without losing track)
+- feverpal|ko|siblings-fever-log(아이가 둘 이상일 때 열 기록 따로 관리하는 방법)
+- feverpal|en|share-fever-log(How to share your child's fever log with family)
 
 ## 5. 조사
 - 그 언어로 웹 검색을 3~5회 한다. 확인한 사실만 쓴다.
@@ -187,4 +198,5 @@ https://mungworks.com/go/<앱>?utm_source=mungworks&amp;utm_medium=guide&amp;utm
   - PR 주소·병합 여부·발행 여부
   - 사장님 확인 필요 사항
   - 위험 신호(없으면 "없음")
-- 발행했거나 막혔으면 알림을 보낸다. 발행일이 아니면 알림을 보내지 않는다.
+- 발행했거나 막혔으면 알림을 보낸다. "오늘 발행 한도 채움"·"오늘 더 쓸 앱 없음"이면 알림을 보내지 않는다.
+- 대기열에 남은 줄이 3줄 이하인 앱이 있으면 보고에 "대기열 보충 필요: <앱>"을 적는다.
