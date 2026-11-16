@@ -2,7 +2,7 @@ name: gsc-report
 
 # 매일 08:00 KST 에 구글 서치콘솔 숫자를 받아 artifact(gsc-report) 로 남긴다.
 # 키 없음: GitHub OIDC → Google Workload Identity Federation (main 브랜치만 허용).
-# 필요한 저장소 변수: GCP_WIF_PROVIDER, GCP_SA (비밀값 아님)
+# 아래 공급자·서비스 계정 이름은 비밀값이 아니다 (Google 프로젝트 mungworks-seo, 2026-11-16 생성)
 on:
   schedule:
     - cron: "0 23 * * *"
@@ -18,21 +18,15 @@ jobs:
     steps:
       - name: Check setup
         id: chk
-        run: |
-          if [ -z "${{ vars.GCP_WIF_PROVIDER }}" ] || [ -z "${{ vars.GCP_SA }}" ]; then
-            echo "[gsc] 설정 전: 저장소 변수 GCP_WIF_PROVIDER / GCP_SA 없음" | tee -a "$GITHUB_STEP_SUMMARY"
-            echo "ready=no" >> "$GITHUB_OUTPUT"
-          else
-            echo "ready=yes" >> "$GITHUB_OUTPUT"
-          fi
+        run: echo "ready=yes" >> "$GITHUB_OUTPUT"
 
       - name: Google auth (keyless)
         if: steps.chk.outputs.ready == 'yes'
         id: auth
         uses: google-github-actions/auth@v2
         with:
-          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
-          service_account: ${{ vars.GCP_SA }}
+          workload_identity_provider: projects/162922164514/locations/global/workloadIdentityPools/github/providers/app-ads
+          service_account: gsc-reader@mungworks-seo.iam.gserviceaccount.com
           token_format: access_token
           access_token_scopes: https://www.googleapis.com/auth/webmasters.readonly
 
