@@ -1,0 +1,77 @@
+name: gsc-report
+
+# 매일 08:00 KST 에 구글 서치콘솔 숫자를 받아 artifact(gsc-report) 로 남긴다.
+# 키 없음: GitHub OIDC → Google Workload Identity Federation (main 브랜치만 허용).
+# 필요한 저장소 변수: GCP_WIF_PROVIDER, GCP_SA (비밀값 아님)
+on:
+  schedule:
+    - cron: "0 23 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check setup
+        id: chk
+        run: |
+          if [ -z "${{ vars.GCP_WIF_PROVIDER }}" ] || [ -z "${{ vars.GCP_SA }}" ]; then
+            echo "[gsc] 설정 전: 저장소 변수 GCP_WIF_PROVIDER / GCP_SA 없음" | tee -a "$GITHUB_STEP_SUMMARY"
+            echo "ready=no" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=yes" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Google auth (keyless)
+        if: steps.chk.outputs.ready == 'yes'
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SA }}
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/webmasters.readonly
+
+      - name: Query Search Console
+        if: steps.chk.outputs.ready == 'yes'
+        env:
+          TOKEN: ${{ steps.auth.outputs.access_token }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request, urllib.parse, datetime as dt
+          site = "https://mungworks.com/"
+          tok = os.environ["TOKEN"]
+          def q(body):
+              url = "https://searchconsole.googleapis.com/webmasters/v3/sites/" + urllib.parse.quote(site, safe="") + "/searchAnalytics/query"
+              req = urllib.request.Request(url, data=json.dumps(body).encode(), headers={"Authorization": "Bearer " + tok, "Content-Type": "application/json"})
+              return json.load(urllib.request.urlopen(req)).get("rows", [])
+          end = dt.date.today()
+          start = end - dt.timedelta(days=28)
+          base = {"startDate": str(start), "endDate": str(end), "dataState": "all", "rowLimit": 25000}
+          by_page = q({**base, "dimensions": ["page"]})
+          by_page_date = q({**base, "dimensions": ["page", "date"]})
+          by_date = q({**base, "dimensions": ["date"]})
+          out = {"generated_utc": dt.datetime.utcnow().isoformat(timespec="seconds"), "site": site,
+                 "range": [str(start), str(end)], "by_page": by_page, "by_page_date": by_page_date, "by_date": by_date}
+          json.dump(out, open("gsc.json", "w"), ensure_ascii=False, indent=1)
+          imp = sum(r["impressions"] for r in by_date); clk = sum(r["clicks"] for r in by_date)
+          guide = [r for r in by_page if "/guide/" in r["keys"][0]]
+          # 검증: 0 이 '데이터 없음'인지 '기능 고장'인지 구분하려고 행 수를 같이 남긴다
+          lines = [f"[gsc] 기간 {start}~{end} 노출 {imp:.0f} 클릭 {clk:.0f}",
+                   f"[gsc] 행 수: page {len(by_page)}, page-date {len(by_page_date)}, date {len(by_date)}, 가이드 글 페이지 {len(guide)}"]
+          for r in sorted(guide, key=lambda r: -r["impressions"])[:20]:
+              lines.append(f"- {r['keys'][0]} 노출 {r['impressions']:.0f} 클릭 {r['clicks']:.0f} 평균순위 {r['position']:.1f}")
+          print("\n".join(lines)); open(os.environ["GITHUB_STEP_SUMMARY"], "a").write("\n".join(lines) + "\n")
+          PY
+
+      - name: Upload
+        if: steps.chk.outputs.ready == 'yes'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gsc-report
+          path: gsc.json
+          retention-days: 7

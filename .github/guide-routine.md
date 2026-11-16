@@ -11,6 +11,18 @@
   - 날짜가 오늘인 글 파일 수 + 아직 병합 안 된 열린 draft/ PR 수
 - 4편 이상이면 아무것도 하지 않고 "오늘 발행 한도(4편) 채움"이라고만 보고하고 끝낸다.
 
+## 0-1. 지난 글 노출 보고 (글을 쓰기 전에 먼저)
+- 숫자 출처: 워크플로 gsc-report (매일 08:00 KST, 구글 서치콘솔 최근 28일)
+  - gh run list --repo lohmyhve-spec/app-ads --workflow gsc-report.yml --status success --limit 1 --json databaseId,createdAt
+  - gh run download <databaseId> --repo lohmyhve-spec/app-ads -n gsc-report → gsc.json
+- 보고할 것:
+  - 직전에 발행된 글 1편: 주소, 발행일, 노출·클릭·평균순위 (by_page). 숫자가 없으면 "아직 집계 전(서치콘솔은 2~3일 늦음)"
+  - 발행 3일 이상 지난 글 중 노출 상위 5편
+  - 가이드 글 전체 최근 7일 노출·클릭 합계 (by_page_date 에서 /guide/ 주소만)
+- 노출 0 을 그대로 믿지 않는다: gsc.json 의 by_date 행 수가 0 이면 "데이터 연결 문제"로, 행은 있는데 그 글만 0 이면 "아직 노출 없음"으로 구분해 적는다.
+- 성공한 실행이 없거나 2일보다 오래됐으면 "노출 데이터 없음 (gsc-report 실행 상태: …)"이라고 적고 글 쓰기는 그대로 진행한다.
+- 오늘 발행 한도 채움·쓸 앱 없음으로 끝나는 실행에서는 이 보고를 하지 않는다 (0번 확인을 먼저 한다).
+
 ## 1. 저장소와 발행 방식
 - 저장소: lohmyhve-spec/app-ads (mungworks.com, GitHub Pages)
 - draft/ 로 시작하는 PR을 올리면 .github/workflows/guide-auto-publish.yml 이 기계 확인을 한 뒤 자동으로 squash 병합한다. 병합이 곧 발행이다. 루틴은 직접 병합하지 않는다.
@@ -334,6 +346,7 @@ https://mungworks.com/go/<앱>?utm_source=mungworks&amp;utm_medium=guide&amp;utm
   - PR 작성자 계정 이름과 워크플로 실행 상태(건너뜀/실패/대기)를 확인해 보고에 적는다.
 
 ## 11. 마지막 보고 (한국어, 짧게)
+- 맨 앞에 0-1 의 지난 글 노출 보고를 3~6줄로 적는다.
 - 첫 줄은 반드시 둘 중 하나:
   - "발행 완료: <글 주소>"
   - "사장님 할 일: 이 PR에서 병합 버튼만 누르세요 → <PR 주소>"
