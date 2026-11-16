@@ -29,7 +29,7 @@
 | 앱 | 상태 | CTA 이동 주소 | CTA 문구 |
 |---|---|---|---|
 | daopen | 사용 | /go/daopen | ko "다오픈 받기", en "Get Daopen", it "Scarica Daopen", es "Descargar Daopen", ja "Daopenを入手" |
-| feverpal | 보류 (Android 승인 확인 전) | /go/feverpal | ko "FeverPal 받기", en "Get FeverPal" |
+| feverpal | 사용 | /go/feverpal | ko "FeverPal(우리아이 열기록) 받기", en "Get FeverPal" |
 | 단식시그널·펜데이·지원콕·댕댕마일·100 Bites·나란히 한걸음·물한잔 | 사실 목록 없음 | - | - |
 
 CTA 링크 형식은 모든 앱이 같다:
