@@ -36,7 +36,12 @@
 |---|---|---|---|---|
 | daopen | 사용 | ko, en, it, es, ja | /go/daopen | ko "다오픈 받기", en "Get Daopen", it "Scarica Daopen", es "Descargar Daopen", ja "Daopenを入手" |
 | feverpal | 사용 | ko, en | /go/feverpal | ko "FeverPal(우리아이 열기록) 받기", en "Get FeverPal" |
-| 단식시그널·펜데이·지원콕·댕댕마일·100 Bites·나란히 한걸음·물한잔 | 사실 목록 없음 | - | - | - |
+| fastingsignal | 사용 | ko, en, ja, de, es, pt, fr | /go/fastingsignal | ko "단식시그널 받기", en "Get Fasting Signal", ja "Fasting Signalを入手", de "Fasting Signal herunterladen", es "Descargar Fasting Signal", pt "Baixar Fasting Signal", fr "Télécharger Fasting Signal" |
+| penday | 사용 | ko, en | /go/penday | ko "펜데이 받기", en "Get PenDay" |
+| bojogeum | 사용 (한국 전용) | ko | /go/bojogeum | ko "지원콕 받기" |
+| multech | 사용 (한국 전용) | ko | /go/multech | ko "물한잔 받기" |
+| 댕댕마일·100 Bites | 사실 목록 없음 (이사 중·출시 전) | - | - | - |
+| 나란히 한걸음 | 홍보 안 함 (사장 결정 2026-11-16) | - | - | - |
 
 언어 원칙 (사장 결정 2026-11-16):
 - 글로벌 앱은 글로벌로 홍보한다. "언어" 칸은 그 앱이 실제로 지원하는 언어 중 우리가 쓰는 언어(ko, en, ja, es, it, de, fr, pt) 전부다.
@@ -69,6 +74,38 @@ https://mungworks.com/go/<앱>?utm_source=mungworks&amp;utm_medium=guide&amp;utm
 - feverpal|en|fever-log-night(Tracking a child's fever at night without losing track)
 - feverpal|ko|siblings-fever-log(아이가 둘 이상일 때 열 기록 따로 관리하는 방법)
 - feverpal|en|share-fever-log(How to share your child's fever log with family)
+
+### fastingsignal
+- fastingsignal|ko|fasting-timer-phone(간헐적 단식 시간을 폰으로 재고 기록하는 방법)
+- fastingsignal|en|track-intermittent-fasting(How to track intermittent fasting on your phone)
+- fastingsignal|ja|fasting-timer-ja(スマホで断食時間を記録する方法)
+- fastingsignal|de|intervallfasten-protokoll(Intervallfasten mit dem Handy protokollieren)
+- fastingsignal|es|ayuno-intermitente-registro(cómo registrar el ayuno intermitente en el móvil)
+- fastingsignal|ko|meal-photo-log(먹은 음식을 사진으로 기록하는 방법)
+- fastingsignal|pt|jejum-intermitente-registro(como registrar o jejum intermitente no celular)
+- fastingsignal|fr|jeune-intermittent-suivi(suivre son jeûne intermittent sur son téléphone)
+- fastingsignal|en|weekly-fasting-routine(How to set a weekly fasting routine with reminders)
+
+### penday
+- penday|ko|diet-injection-reminder(다이어트 주사 맞는 날 잊지 않는 방법)
+- penday|en|glp1-shot-reminder(How to never miss your weekly GLP-1 shot)
+- penday|ko|injection-log-weight(주사 기록과 체중 기록을 한곳에 남기는 방법)
+- penday|en|glp1-side-effect-log(How to keep a symptom log while on a GLP-1 medication)
+- penday|en|glp1-pen-refill-reminder(How to get a reminder before your pen runs out)
+- penday|ko|injection-site-log(주사 부위를 헷갈리지 않게 기록하는 방법)
+
+### bojogeum
+- bojogeum|ko|policy-fund-alert(소상공인 정책자금 공고 놓치지 않는 방법)
+- bojogeum|ko|bizinfo-deadline-alert(기업마당 지원사업 마감일 알림 받는 방법)
+- bojogeum|ko|interest-support-notice(이자지원·보증 공고만 골라 보는 방법)
+- bojogeum|ko|region-support-program(우리 지역 지원사업 공고 찾는 방법)
+- bojogeum|ko|startup-support-notice(창업 지원사업 공고 모아 보는 방법)
+
+### multech
+- multech|ko|water-reminder-app(물 마실 시간 알림 받는 방법)
+- multech|ko|water-intake-log(하루 물 마신 양 기록하는 방법)
+- multech|ko|water-widget-home(홈 화면에서 물 마신 기록 바로 남기는 방법)
+- multech|ko|water-points-coupon(물 마시고 포인트로 모바일 쿠폰 받는 방법)
 
 ## 5. 조사
 - 그 언어로 웹 검색을 3~5회 한다. 확인한 사실만 쓴다.
@@ -109,6 +146,70 @@ https://mungworks.com/go/<앱>?utm_source=mungworks&amp;utm_medium=guide&amp;utm
 - 아래 문장을 본문에 한 번 넣는다: 앱은 기록 도구라서 체온을 재지 않고, 진단하지 않고, 용량이나 간격을 정해 주지 않는다.
 - 쓰지 않는 것: 광고 빈도 숫자, 광고 없는 화면 목록, 지원 언어 개수, 알람 반복 기능, 출시 상태
 
+### 6-S. fastingsignal (단식시그널 / Fasting Signal) — 1.1 기준, 사장 확인 2026-11-16
+- 간헐적 단식 타이머다. 목표 시간을 정하고 버튼 하나로 시작한다. 진행 단계를 색과 설명으로 보여 준다.
+- 알림: 단계가 바뀔 때, 목표 시간에 도달했을 때, 다음 단식을 시작할 때. 단식 뒤 식사 안내와 알림이 있다.
+- 루틴: 요일별 단식 루틴, "오늘만 쉬기"
+- 기록: 단식 달력, 7일·30일·전체 통계, 연속 기록, 배지, 체중·물·식사 기록
+- 캐릭터 "참곰"이 단계마다 표정이 바뀐다. 옷과 친구 캐릭터로 꾸밀 수 있다(앱 안 구매).
+- AI 음식 분석:
+  - 음식 사진을 찍거나 이름을 입력하면 칼로리와 탄수화물·단백질·지방을 "추정"한다.
+  - 하루 1회 무료, 그다음은 짧은 광고를 볼 때마다 1회씩 더 쓸 수 있다. 광고 제거를 사면 광고 없이 바로 분석된다.
+  - 하루 상한이 있다. "무제한"이라고 쓰지 않는다. 횟수 숫자도 쓰지 않는다.
+- 데이터:
+  - 회원가입이 없다. 단식·체중·식단 기록은 기기 안에만 저장된다.
+  - AI 분석 버튼을 누를 때만 고른 사진 1장이나 입력한 음식 이름을 Google의 AI 서비스로 보내 분석한다. 사진은 기기에도 회사 쪽에도 저장하지 않는다.
+  - "어디에도 남지 않는다", "외부로 보내지 않는다"라고 쓰지 않는다.
+- 결제: 광고와 함께 무료로 쓸 수 있다. 광고 제거와 꾸미기 아이템을 앱 안에서 살 수 있다. 금액은 쓰지 않는다.
+  - "구독 없음", "한 번 결제로 끝"이라고 쓰지 않는다 (Android 에 연간 상품이 있음).
+- 쓰지 않는 것: 홈 화면 위젯, 지원 언어 개수, 출시 상태
+
+### 6-P. penday (펜데이 / PenDay) — 사장 확인 2026-11-16
+- 주 1회 주사(다이어트 주사·GLP-1 계열)나 매일 먹는 약의 투여 알림·기록 앱이다. 특정 제약사와 관련이 없다.
+- 알림: 투여일 알림, 놓쳤을 때 다음 날 다시 알림(선택), 남은 펜·알약이 적을 때 리필 알림
+- 기록:
+  - 버튼 한 번으로 주사 기록, 주사 부위(배·허벅지·팔) 추천
+  - 체중 기록(kg·lb)과 변화 그래프
+  - 컨디션·부작용 기록과 투여 후 지난 날짜 표시
+  - 잘못 누른 기록 되돌리기, 연속 투여 배지, 지난 7일 요약
+- 홈 화면 위젯은 Android 에만 있다. "아이폰 위젯"이라고 쓰지 않는다.
+- 결제:
+  - 투여 알림과 기본 기록은 무료이고 잠기지 않는다(광고 있음).
+  - 한 번 결제하면 평생 Pro: 광고 제거, 오래된 기록 전체 보기, 허리둘레 기록, 진료용 요약 카드, CSV 내보내기, 테마 색 추가
+  - 광고 하나를 보면 Pro 기능을 24시간 체험할 수 있다. 금액은 쓰지 않는다.
+- 데이터: 기록은 폰에만 저장되고, 건강 기록을 서버로 보내지 않는다. 회원가입·로그인이 없다.
+
+### 6-B. bojogeum (지원콕) — 한국 전용, 사장 확인 2026-11-16
+- 기업마당의 중앙부처·지자체 지원사업 공고를 모아 보여 주는 앱이다.
+- 정책자금 모아보기: 대출, 이자지원(이차보전), 보증료 지원 공고를 금융 분야로 묶어 보여 준다.
+- 필터: 17개 시도, 분야(금융·기술·인력·수출·내수·창업·경영)
+- 알림:
+  - 새 공고 알림: 하루 한 번 모아서 알려 준다. 켜고 끌 수 있고, 이자지원·보증·대환·융자 공고만 골라 받을 수 있다.
+  - 북마크한 공고 마감 알림: 마감 며칠 전부터 매일 알려 준다. 며칠 전부터 받을지는 설정에서 바꿀 수 있다.
+  - 밤에는 알림을 보내지 않는다.
+- D-day 표시, 원문 공고 바로가기. 기업마당 쪽 문제로 공고 반영이 늦는 날은 목록 위에 안내가 뜬다.
+- 결제: 유료 결제가 없다. 광고 제거 상품도 구독도 없다. 모든 기능 무료(광고 있음).
+- 데이터: 회원가입이 없다. 관심 지역·분야와 북마크는 폰에만 저장된다.
+- 아래 두 문장을 본문에 한 번씩 넣는다:
+  - 지원콕은 정부기관이 아닌 민간 앱이며 정부기관과 제휴 관계가 없습니다.
+  - 신청 자격과 내용은 원문 공고에서 직접 확인하세요.
+- 쓰지 않는 것: 광고 위치·빈도, 마감 알림 기본 일수, 알림 시각
+
+### 6-M. multech (물한잔) — 한국 전용, 사장 확인 2026-11-16
+- 앱 이름: "물한잔 - 물 마시기 알림·기록, 포인트로 기프티콘"
+- 소개 방향: 물 마실 시간을 알려 주고 기록하는 앱인데, 포인트도 준다. "포인트를 안 받아도 기록·알림은 무료"
+- 기능:
+  - 내 몸과 계절에 맞춘 하루 목표, 컵 크기 조절
+  - 설정한 시간에 물 마실 시간 알림
+  - 홈 화면 위젯에서 바로 기록
+  - 달력·차트 월간 통계, 연속 실천일, 월간 리포트
+- 포인트:
+  - 물을 기록하면 포인트가 쌓인다. 광고를 보면 추가 포인트를 받을 수 있다(선택).
+  - 저녁에 하루 포인트를 모아 받는다.
+  - 모은 포인트로 편의점·카페 모바일 쿠폰을 교환하고, 교환 내역을 앱에서 본다.
+  - 적립과 교환에는 인터넷 연결이 필요하다.
+- 쓰지 않는 것: 데이터 저장 방식, 유료 결제 여부, 포인트 액수·적립 비율·쿠폰 금액·쿠폰 브랜드 이름, 교환 장애 이력
+
 ## 7. 공통 글 규칙
 - 문체: 자연스럽게 쓴다. 한국어는 존댓말.
 - 길이(본문): ko·ja는 공백 빼고 600~1,000자, en·it·es·de·fr·pt는 350~600단어
@@ -141,6 +242,36 @@ https://mungworks.com/go/<앱>?utm_source=mungworks&amp;utm_medium=guide&amp;utm
   2. 종이나 메모장에 기록하기
   3. 기록할 항목 체크리스트
 - 기계 확인 금지 문자열에 추가: "dose", "mg", "°", "용량", "도 이상"
+
+### 7-S. fastingsignal 추가 규칙 (건강 글)
+- 쓰지 않는 것:
+  - 체중 감량 효과, 감량 수치, 다이어트 효과 보장
+  - 권장 단식 시간, 칼로리·영양 목표 숫자
+  - 단식 단계가 몸에 일으키는 효과 (예: 지방이 탄다, 케톤·자가포식이 일어난다), 단계 이름 나열
+- 본문에 한 번 넣는 문장 (그 언어로):
+  - 단식시그널은 의료기기가 아니며 진단이나 치료를 대신하지 않습니다.
+  - 임신·수유 중이거나, 당뇨 등 질환이 있거나, 약을 복용 중이라면 단식 전에 의사와 상의하세요.
+- AI 칼로리는 "추정"이라고 쓴다.
+- 조사는 기록하는 방법과 습관 만들기 위주로만 한다. 의학 수치는 가져오지 않는다.
+- 기계 확인 금지 문자열에 추가: "kcal", "kg", "무제한", "unlimited", "autophagy", "ketosis", "자가포식", "케톤", "지방 연소", "fat burn" (다른 언어로 쓸 때는 그 언어의 같은 말도)
+
+### 7-P. penday 추가 규칙 (건강 글)
+- ko 글은 "다이어트 주사"를 중심어로, en 글은 "GLP-1"을 중심어로 쓴다. GLP-1 은 약 계열 이름이라 써도 된다.
+- 쓰지 않는 것: 약 이름(상표명·성분명), 용량, 감량 효과, 부작용 대처법, 주사 놓는 방법
+- 본문에 한 번 넣는 문장:
+  - ko: 펜데이는 의료기기가 아니며 진단·치료·용량 결정을 하지 않습니다. 투여 일정과 용량은 의사·약사와 상의하세요.
+  - en: PenDay is not a medical device and does not diagnose, treat, or recommend doses. Talk to your doctor or pharmacist about your schedule and dose.
+- 기계 확인 금지 문자열에 추가: "mg", "Ozempic", "Wegovy", "Mounjaro", "Zepbound", "Saxenda", "semaglutide", "tirzepatide", "liraglutide", "위고비", "오젬픽", "마운자로", "삭센다", "세마글루타이드", "터제파타이드"
+
+### 7-B. bojogeum 추가 규칙
+- 특정 지원사업의 금액·금리·한도·마감일·자격 조건을 쓰지 않는다 (공고마다 다르고 바뀐다).
+- "받을 수 있다", "선정된다" 같은 보장 표현을 쓰지 않는다.
+- 방법 순서: 1. 지원콕으로 모아 보기·알림 받기 2. 기업마당 웹사이트에서 직접 찾기(링크 없이 이름만) 3. 놓치지 않게 확인할 것
+
+### 7-M. multech 추가 규칙
+- "앱테크", "돈 벌기", "현금", "부업"이라고 쓰지 않는다. 포인트는 덤이다.
+- 하루 물 권장량 숫자(ml·리터·잔 수)와 물의 건강 효과 단정(살이 빠진다 등)을 쓰지 않는다. 목표는 "앱이 내 몸과 계절에 맞춰 정해 준다"로만 쓴다.
+- 기계 확인 금지 문자열에 추가: "앱테크", "현금", "ml", "리터"
 
 ## 8. HTML
 - guide/hwp-kakao-android/index.html 을 템플릿으로 쓴다.
