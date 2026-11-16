@@ -60,6 +60,12 @@ jobs:
           for r in sorted(guide, key=lambda r: -r["impressions"])[:20]:
               lines.append(f"- {r['keys'][0]} 노출 {r['impressions']:.0f} 클릭 {r['clicks']:.0f} 평균순위 {r['position']:.1f}")
           print("\n".join(lines)); open(os.environ["GITHUB_STEP_SUMMARY"], "a").write("\n".join(lines) + "\n")
+          # 클라우드 작업은 artifact 를 못 내려받으므로(blob 주소 차단) 로그 한 줄에 JSON 으로 남긴다
+          compact = {"generated_utc": out["generated_utc"], "range": out["range"], "date_rows": len(by_date),
+                     "total": {"impressions": imp, "clicks": clk},
+                     "by_page": [[r["keys"][0], r["impressions"], r["clicks"], round(r["position"], 1)] for r in by_page],
+                     "by_page_date": [[r["keys"][0], r["keys"][1], r["impressions"], r["clicks"]] for r in by_page_date]}
+          print("GSC_JSON=" + json.dumps(compact, ensure_ascii=False, separators=(",", ":")))
           PY
 
       - name: Upload

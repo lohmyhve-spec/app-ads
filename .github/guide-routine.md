@@ -14,12 +14,14 @@
 ## 0-1. 지난 글 노출 보고 (글을 쓰기 전에 먼저)
 - 숫자 출처: 워크플로 gsc-report (매일 08:00 KST, 구글 서치콘솔 최근 28일)
   - gh run list --repo lohmyhve-spec/app-ads --workflow gsc-report.yml --status success --limit 1 --json databaseId,createdAt
-  - gh run download <databaseId> --repo lohmyhve-spec/app-ads -n gsc-report → gsc.json
+  - gh run view <databaseId> --repo lohmyhve-spec/app-ads --log | grep -o 'GSC_JSON=.*' | head -1 → "GSC_JSON=" 뒤가 JSON
+    - 키: total(노출·클릭 합), date_rows(날짜 행 수), by_page[[주소,노출,클릭,평균순위]], by_page_date[[주소,날짜,노출,클릭]]
+    - artifact 내려받기(gh run download)는 클라우드에서 막혀 있으니 쓰지 않는다
 - 보고할 것:
   - 직전에 발행된 글 1편: 주소, 발행일, 노출·클릭·평균순위 (by_page). 숫자가 없으면 "아직 집계 전(서치콘솔은 2~3일 늦음)"
   - 발행 3일 이상 지난 글 중 노출 상위 5편
   - 가이드 글 전체 최근 7일 노출·클릭 합계 (by_page_date 에서 /guide/ 주소만)
-- 노출 0 을 그대로 믿지 않는다: gsc.json 의 by_date 행 수가 0 이면 "데이터 연결 문제"로, 행은 있는데 그 글만 0 이면 "아직 노출 없음"으로 구분해 적는다.
+- 노출 0 을 그대로 믿지 않는다: date_rows 가 0 이면 "데이터 연결 문제"로, 행은 있는데 그 글만 0 이면 "아직 노출 없음"으로 구분해 적는다.
 - 성공한 실행이 없거나 2일보다 오래됐으면 "노출 데이터 없음 (gsc-report 실행 상태: …)"이라고 적고 글 쓰기는 그대로 진행한다.
 - 오늘 발행 한도 채움·쓸 앱 없음으로 끝나는 실행에서는 이 보고를 하지 않는다 (0번 확인을 먼저 한다).
 
