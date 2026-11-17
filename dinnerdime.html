@@ -17,11 +17,11 @@
 </head>
 <body>
 <h1>DinnerDime Privacy Policy</h1>
-<p class="meta">Effective date: November 13, 2026<br>
+<p class="meta">Effective date: November 17, 2026 (previous version: November 13, 2026)<br>
 App: DinnerDime (Android package <code>com.meongmoong.dinnerdime</code>, iOS)<br>
 Developer: Meongmungi (Mung Works)</p>
 
-<p>DinnerDime helps you plan a week of dinners, build a shopping list, and estimate what it will cost. This policy explains what information the app uses and where it goes. The short version: <strong>we do not run accounts or a server for your data. Your plans, settings and receipt totals stay on your phone.</strong> The only data that leaves your device is what the advertising and app store services described below collect.</p>
+<p>DinnerDime helps you plan a week of dinners, build a shopping list, and estimate what it will cost. This policy explains what information the app uses and where it goes. The short version: <strong>your plans, settings and receipt totals stay on your phone, and we do not run accounts with names or emails.</strong> Data leaves your device only (a) when you choose to use the optional photo recipe finder (section 3), and (b) through the advertising and app store services described below.</p>
 
 <h2>1. Information stored only on your device</h2>
 <p>The following is saved in the app's private storage on your phone. We (the developer) never receive it.</p>
@@ -29,14 +29,25 @@ Developer: Meongmungi (Mung Works)</p>
   <li>Your settings: ZIP code, preferred grocery chain, household size, cooking days, weekly budget, and the food preferences you choose (ingredients to skip, allergens to avoid, diet and cuisine choices, kitchen equipment you don't have).</li>
   <li>Your weekly dinner plans, shopping lists, and items you mark as "have at home".</li>
   <li>Receipt records you add: the store, the date, and the total amount.</li>
-  <li>Ad and purchase state (for example, when an ad was last shown and whether you bought ad removal).</li>
+  <li>Ingredients you pick or that a photo scan found, while you use the "What can I make?" screen.</li>
+  <li>Ad and purchase state (for example, when an ad was last shown and whether you bought ad removal or a scan plan).</li>
 </ul>
 <p>Your ZIP code is used on your device only, to pick regional price estimates. It is not sent to us.</p>
 
 <h2>2. Receipt scanning (camera)</h2>
 <p>If you choose to scan a receipt, the app asks for camera access and takes one photo. The text on the receipt is read <strong>on your device</strong> by Google ML Kit text recognition, which runs offline inside the app. The receipt image is not uploaded to us or to Google, and the app deletes the image after reading it. Only the store, date and total you confirm are saved, on your device. You can skip scanning and type the total yourself.</p>
 
-<h2>3. Advertising (Google AdMob)</h2>
+<h2>3. Photo recipe finder (optional — uses our server and Google AI)</h2>
+<p>In "What can I make?" you can take or pick a photo of your fridge or groceries. If you do, the app sends that one photo over an encrypted connection to our server on Google Cloud (Firebase Cloud Functions, United States). The server passes it to Google's Gemini model on Google Cloud Vertex AI, which returns a list of ingredient names (for example "eggs, onion"). The app then matches that list to recipes on your phone.</p>
+<ul>
+  <li><strong>We do not store your photo.</strong> It is processed in memory to answer your request and then discarded. We do not record what the photo showed or which ingredients were found.</li>
+  <li>Under Google Cloud's terms, Google does not use this data to train its AI models. Google may keep request data for a limited time where its terms allow it, for example to detect abuse.</li>
+  <li>To count photo scans, the app signs in to our server with an <strong>anonymous ID</strong> created by Firebase Authentication. It is not linked to your name, email or phone number. For that ID our server keeps only: how many scan credits you have, how many scans you used today, which scan plan was verified (one-time or monthly, and when a monthly plan ends), and when these last changed.</li>
+  <li>To protect the service from abuse, the app uses Firebase App Check (Google Play Integrity on Android), which lets Google confirm that requests come from the genuine app on a genuine device.</li>
+  <li>You can skip photos and pick ingredients from a list instead. That works entirely on your phone.</li>
+</ul>
+
+<h2>4. Advertising (Google AdMob)</h2>
 <p>The free version shows ads served by Google AdMob. To show and measure ads, the Google Mobile Ads SDK may collect:</p>
 <ul>
   <li>Device identifiers such as the Android advertising ID or, if you allow tracking on iOS, the IDFA</li>
@@ -45,6 +56,7 @@ Developer: Meongmungi (Mung Works)</p>
   <li>Ad interactions (which ads were shown and tapped)</li>
 </ul>
 <p>Google's use of this data is governed by Google's policies: <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use its services</a> and <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+<p><strong>Rewarded ads:</strong> if you choose to watch a short ad to unlock a photo scan, Google sends our server a confirmation that includes your anonymous ID (section 3) so we can add the scan credit. We keep the confirmation's transaction ID so the same reward is not given twice.</p>
 <p><strong>Your choices:</strong></p>
 <ul>
   <li>Where the law requires it (for example in the EEA, the UK, Switzerland, and certain U.S. states), the app shows Google's consent message before personalized ads. You can change your choice later from the "Privacy options" button in the app.</li>
@@ -53,30 +65,37 @@ Developer: Meongmungi (Mung Works)</p>
   <li>Buying ad removal stops all ads in the app.</li>
 </ul>
 
-<h2>4. In-app purchase (remove ads)</h2>
-<p>Ad removal is a one-time purchase handled by Google Play or the Apple App Store. We never see your name, email, or payment card. The app only receives a confirmation that the purchase belongs to this device's store account, so it can turn ads off and restore the purchase later.</p>
+<h2>5. In-app purchases (remove ads, scan plans)</h2>
+<p>Purchases are handled by Google Play or the Apple App Store. We never see your name, email, or payment card.</p>
+<ul>
+  <li><strong>Remove ads</strong> (one-time): the app receives a purchase confirmation so it can turn ads off and restore the purchase later. This stays on your device and is not sent to our server. It does not include photo scans.</li>
+  <li><strong>Scan plans</strong> (a one-time plan or a monthly subscription that add daily photo scans without ads): the app sends the purchase token to our server, which checks it with Google Play — for a subscription, again each time the app starts, to see whether it is still active. We store only a one-way hash of the token and the plan type, linked to your anonymous ID.</li>
+  <li>You can cancel a subscription at any time in Google Play (Payments &amp; subscriptions) or your Apple ID settings.</li>
+</ul>
 
-<h2>5. Permissions</h2>
+<h2>6. Permissions</h2>
 <table>
   <tr><th>Permission</th><th>Why</th></tr>
-  <tr><td>Camera</td><td>Only when you tap to scan a receipt.</td></tr>
-  <tr><td>Internet / network state</td><td>To load ads and check purchases.</td></tr>
-  <tr><td>Advertising ID (Android)</td><td>Used by Google AdMob as described in section 3.</td></tr>
+  <tr><td>Camera</td><td>Only when you tap to scan a receipt or take a photo in "What can I make?".</td></tr>
+  <tr><td>Photos</td><td>Only when you choose a photo from your gallery in "What can I make?". The app uses just the one photo you pick.</td></tr>
+  <tr><td>Internet / network state</td><td>To load ads, check purchases, and send a photo you choose to scan.</td></tr>
+  <tr><td>Advertising ID (Android)</td><td>Used by Google AdMob as described in section 4.</td></tr>
 </table>
 
-<h2>6. Sharing and "sale" of personal information</h2>
-<p>We do not sell your personal information and we do not share it with anyone ourselves, because it never reaches us. The advertising data in section 3 is collected directly by Google. Under some U.S. state privacy laws, use of advertising identifiers for personalized ads can be treated as "sharing" for targeted advertising; you can opt out using the choices in section 3 or by buying ad removal.</p>
+<h2>7. Sharing and "sale" of personal information</h2>
+<p>We do not sell your personal information. Google Cloud and Firebase process photo scans, the anonymous ID and scan counts on our behalf, as service providers, only to run the feature described in section 3. The advertising data in section 4 is collected directly by Google. Under some U.S. state privacy laws, use of advertising identifiers for personalized ads can be treated as "sharing" for targeted advertising; you can opt out using the choices in section 4 or by buying ad removal.</p>
 
-<h2>7. Children</h2>
+<h2>8. Children</h2>
 <p>DinnerDime is meant for adults who plan household meals. It is not directed to children under 13, and we do not knowingly collect personal information from children.</p>
 
-<h2>8. Data security, retention and deletion</h2>
-<p>Data on your device stays until you delete it. You can delete individual plans and receipts in the app, or remove everything by clearing the app's storage or uninstalling the app. Because we have no account system or server copy, there is nothing for us to delete on our side. To ask Google about advertising data, use the links in section 3.</p>
+<h2>9. Data security, retention and deletion</h2>
+<p>Data on your device stays until you delete it. You can delete individual plans and receipts in the app, or remove everything by clearing the app's storage or uninstalling the app.</p>
+<p>On our server we keep only the scan-credit record for your anonymous ID described in section 3 — no photos and no ingredient lists. Records with no activity for 12 months are deleted automatically. To have your record deleted sooner, email us the scan ID shown at the bottom of the "What can I make?" screen. Data is sent over encrypted connections and stored with Google Cloud's security controls. To ask Google about advertising data, use the links in section 4.</p>
 
-<h2>9. Changes to this policy</h2>
-<p>If the app starts using new services (for example, a server for live grocery prices), we will update this page before that version is released and change the effective date above.</p>
+<h2>10. Changes to this policy</h2>
+<p>If the app starts using new services (for example, live grocery prices), we will update this page before that version is released and change the effective date above.</p>
 
-<h2>10. Contact</h2>
+<h2>11. Contact</h2>
 <p>Meongmungi (Mung Works)<br>
 13 Nambu-ro 136beon-gil, Gangneung, Gangwon-do, 25610, Republic of Korea<br>
 Email: <a href="mailto:contact@mungworks.com">contact@mungworks.com</a></p>
